@@ -305,6 +305,19 @@ body.light .btn-cta:focus {
   border-color: var(--important);
 }
 
+.link_basic {
+  color: var(--basic-color);
+  text-decoration: none;
+}
+
+body.dark .link_basic {
+  --basic-color: white;
+}
+
+body.light .link_basic {
+  --basic-color: black;
+}
+
 .link {
   display: inline-block;
   font-weight: 600;
