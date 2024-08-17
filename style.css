@@ -111,7 +111,6 @@ body {
 picture,
 svg,
 img {
-  filter: none;
   display: block;
   max-inline-size: 100%;
   object-fit: contain;
