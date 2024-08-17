@@ -112,3 +112,40 @@ logosWrappers.forEach(async (logoWrapper, i) => {
 });
 
 yearEl.textContent = new Date().getFullYear();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const languageSelector = document.getElementById("language-selector");
+
+  // Appliquer la langue choisie si elle est stockée
+  const savedLanguage = localStorage.getItem("language") || "en";
+  applyLanguage(savedLanguage);
+  languageSelector.value = savedLanguage;
+
+  languageSelector.addEventListener("change", function () {
+    const selectedLanguage = languageSelector.value;
+    localStorage.setItem("language", selectedLanguage);
+    applyLanguage(selectedLanguage);
+  });
+
+  function applyLanguage(lang) {
+    const elementsToTranslate = document.querySelectorAll("[data-lang]");
+
+    elementsToTranslate.forEach((element) => {
+      const key = element.getAttribute("data-lang");
+      element.textContent = translations[lang][key];
+    });
+  }
+
+  const translations = {
+    en: {
+      greeting: "Hi, I'm Lucas Debize",
+      role: "Student at Epitech",
+      intro: "I'm actually a computer science student, searching for internship opportunities during my third year.\nI'd like to specialize myself in AI.\nExplore my open-source projects and contact me for any inquiries or hiring possibilities.",
+    },
+    fr: {
+      greeting: "Bonjour, je suis Lucas Debize",
+      role: "Étudiant à Epitech",
+      intro: "Je suis actuellement étudiant en informatique et à la recherche d'un stages pour ma troisième année.\nJ'aimerais me spécialiser dans l'IA.\nExplorez mes projets open-source et contactez-moi pour toute demande ou possibilité d'embauche."
+    },
+  };
+});

@@ -35,6 +35,13 @@
     </script>
 
     <header class="header">
+      <div class="language-selector-container">
+        <label for="language-selector">Language: </label>
+        <select id="language-selector">
+          <option value="en" selected>English</option>
+          <option value="fr">Français</option>
+        </select>
+      </div>
 
       <div class="menu-btn-container">
         <div class="container">
@@ -56,11 +63,11 @@
       <div class="container">
         <div class="header-textbox">
           <h1 class="h1">
-            <span>Hi, I'm Lucas Debize</span>
-            <span>Student at Epitech</span>
+            <span data-lang="greeting">Hi, I'm Lucas Debize</span>
+            <span data-lang="role">Student at Epitech</span>
           </h1>
 
-          <p class="header-text">
+          <p class="header-text" data-lang="intro">
             I'm actually a computer science student, searching for internship opportunities during my third year.<br>
             I'd like to specialize myself in AI.<br>
             Explore my open-source projects and contact me for any inquiries or hiring possibilities.
