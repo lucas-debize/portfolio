@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
   applyLanguage(savedLanguage);
   languageSelector.value = savedLanguage;
 
+  // Changer de langue au changement du sélecteur
   languageSelector.addEventListener("change", function () {
     const selectedLanguage = languageSelector.value;
     localStorage.setItem("language", selectedLanguage);
@@ -128,10 +129,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function applyLanguage(lang) {
-    const elementsToTranslate = document.querySelectorAll("[data-lang]");
+    const elementsToTranslate = document.querySelectorAll("[data-lang-key]");
 
     elementsToTranslate.forEach((element) => {
-      const key = element.getAttribute("data-lang");
+      const key = element.getAttribute("data-lang-key");
       element.textContent = translations[lang][key];
     });
   }
@@ -140,12 +141,16 @@ document.addEventListener("DOMContentLoaded", function () {
     en: {
       greeting: "Hi, I'm Lucas Debize",
       role: "Student at Epitech",
-      intro: "I'm actually a computer science student, searching for internship opportunities during my third year.\nI'd like to specialize myself in AI.\nExplore my open-source projects and contact me for any inquiries or hiring possibilities.",
+      intro:
+        "I'm actually a computer science student, searching for internship opportunities during my third year. I'd like to specialize myself in AI. Explore my open-source projects and contact me for any inquiries or hiring possibilities.",
+      // Ajoutez d'autres traductions ici...
     },
     fr: {
       greeting: "Bonjour, je suis Lucas Debize",
       role: "Étudiant à Epitech",
-      intro: "Je suis actuellement étudiant en informatique et à la recherche d'un stages pour ma troisième année.\nJ'aimerais me spécialiser dans l'IA.\nExplorez mes projets open-source et contactez-moi pour toute demande ou possibilité d'embauche."
+      intro:
+        "Je suis actuellement étudiant en informatique, à la recherche de stages pour ma troisième année. J'aimerais me spécialiser en IA. Explorez mes projets open-source et contactez-moi pour toute question ou possibilité d'embauche.",
+      // Ajoutez d'autres traductions ici...
     },
   };
 });
