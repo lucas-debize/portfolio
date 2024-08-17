@@ -699,10 +699,9 @@ body.light .work-img {
   inline-size: 28px;
 }
 
-.work-linksimg[src="assets/images/skills/google_colab.webp"] {
-  filter: none;
+body.dark.work-links.github-icon {
+  filter: invert(1);
 }
-
 
 /* Github icon */
 
