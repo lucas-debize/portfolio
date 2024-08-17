@@ -114,18 +114,21 @@ logosWrappers.forEach(async (logoWrapper, i) => {
 yearEl.textContent = new Date().getFullYear();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const languageSelector = document.getElementById("language-selector");
+  const languageSwitcher = document.getElementById("language-switcher");
+  const languageLabel = document.getElementById("language-label");
   const savedLanguage = localStorage.getItem("language") || "en";
 
   // Appliquer la langue choisie si elle est stockée
   applyLanguage(savedLanguage);
-  languageSelector.value = savedLanguage;
+  languageSwitcher.checked = (savedLanguage === "fr");
+  languageLabel.textContent = (savedLanguage === "fr") ? "Français" : "English";
 
-  // Changer de langue au changement du sélecteur
-  languageSelector.addEventListener("change", function () {
-    const selectedLanguage = languageSelector.value;
+  // Changer de langue au changement du switch
+  languageSwitcher.addEventListener("change", function () {
+    const selectedLanguage = languageSwitcher.checked ? "fr" : "en";
     localStorage.setItem("language", selectedLanguage);
     applyLanguage(selectedLanguage);
+    languageLabel.textContent = (selectedLanguage === "fr") ? "Français" : "English";
   });
 
   function applyLanguage(lang) {
