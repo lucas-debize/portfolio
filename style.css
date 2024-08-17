@@ -699,10 +699,6 @@ body.light .work-img {
   inline-size: 28px;
 }
 
-body.dark .work-links img {
-  filter: invert(1);
-}
-
 .work-linksimg[src="assets/images/skills/google_colab.webp"] {
   filter: none;
 }

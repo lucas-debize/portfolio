@@ -1,1 +1,2 @@
 https://lucas-debize.github.io/portfolio/
+body.dark .work-links img
