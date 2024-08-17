@@ -699,7 +699,7 @@ body.light .work-img {
   inline-size: 28px;
 }
 
-body.dark.work-links.github-icon {
+body.dark .work-links .github-icon {
   filter: invert(1);
 }
 
