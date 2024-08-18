@@ -116,31 +116,6 @@ yearEl.textContent = new Date().getFullYear();
 document.addEventListener("DOMContentLoaded", function () {
   const languageSelector = document.getElementById("language-selector");
 
-  // Appliquer la langue choisie si elle est stockée
-  const savedLanguage = localStorage.getItem("language") || "en";
-  applyLanguage(savedLanguage);
-  languageSelector.value = savedLanguage;
-
-  // Changer de langue au changement du sélecteur
-  languageSelector.addEventListener("change", function () {
-    const selectedLanguage = languageSelector.value;
-    localStorage.setItem("language", selectedLanguage);
-    applyLanguage(selectedLanguage);
-  });
-
-  function applyLanguage(lang) {
-    const elementsToTranslate = document.querySelectorAll("[data-lang-key]");
-
-    if (translations[lang]) {
-      elementsToTranslate.forEach((element) => {
-        const key = element.getAttribute("data-lang-key");
-        element.textContent = translations[lang][key] || element.textContent;
-      });
-    } else {
-      console.error(`La langue ${lang} n'est pas supportée.`);
-    }
-  }
-
   const translations = {
     en: {
       greeting: "Hi, I'm Lucas Debize",
@@ -157,4 +132,32 @@ document.addEventListener("DOMContentLoaded", function () {
       // Ajoutez d'autres traductions ici...
     },
   };
+
+  // Appliquer la langue choisie si elle est stockée
+  const savedLanguage = localStorage.getItem("language") || "en";
+  console.log("Langue sauvegardée:", savedLanguage); // Vérifiez quelle langue est chargée
+  applyLanguage(savedLanguage);
+  languageSelector.value = savedLanguage;
+
+  // Changer de langue au changement du sélecteur
+  languageSelector.addEventListener("change", function () {
+    const selectedLanguage = languageSelector.value;
+    console.log("Langue sélectionnée:", selectedLanguage); // Vérifiez quelle langue est sélectionnée
+    localStorage.setItem("language", selectedLanguage);
+    applyLanguage(selectedLanguage);
+  });
+
+  function applyLanguage(lang) {
+    const elementsToTranslate = document.querySelectorAll("[data-lang-key]");
+
+    if (translations[lang]) {
+      elementsToTranslate.forEach((element) => {
+        const key = element.getAttribute("data-lang-key");
+        console.log("Traduction de l'élément clé:", key, "en langue:", lang); // Vérifiez les traductions appliquées
+        element.textContent = translations[lang][key] || element.textContent;
+      });
+    } else {
+      console.error(`La langue ${lang} n'est pas supportée.`);
+    }
+  }
 });
