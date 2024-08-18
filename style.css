@@ -399,12 +399,12 @@ main {
   z-index: 4;
   margin-top: 20px;
   display: flex;
-  justify-content: space-between; /* Ajouté pour espacer les éléments */
-  align-items: center;
+  justify-content: space-between;
 }
 
 .menu-btn {
   display: block;
+  margin-inline-start: auto;
   border: 1px solid var(--border-dark);
   inline-size: 132px;
   padding-block: var(--gutter-nano);
@@ -422,9 +422,13 @@ main {
 }
 
 .language-selector-container {
+  margin-right: 10px; /* Ajuste la marge à droite */
+  margin-top: 20px; /* Ajuste la marge en haut */
+  position: absolute; /* Permet de le placer précisément */
+  right: 0; /* Place le sélecteur à droite */
+  top: 0; /* Aligne en haut */
   display: flex;
   align-items: center;
-  margin-right: 10px; /* Modifié pour margin-right au lieu de margin-left */
 }
 
 #language-selector {
@@ -441,8 +445,6 @@ main {
 #language-selector:hover {
   background-color: #555;
 }
-
-
 /* --------------------------------- */
 /* ----- Navigation -----*/
 /* --------------------------------- */
