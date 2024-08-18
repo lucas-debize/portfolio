@@ -420,12 +420,8 @@ main {
 }
 
 .language-selector-container {
-  position: fixed;
-  width: 100%;
-  top: var(--gutter-x-small);
-  left: 0;
-  z-index: 4;
-  margin-top: 20px;
+  display: flex;
+  align-items: center;
   margin-left: 10px;
 }
 
