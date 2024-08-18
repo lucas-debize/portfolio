@@ -17,7 +17,7 @@ const toggleNav = () => {
   } else {
     // When menu is opened after transition change text respectively
     setTimeout(() => {
-      btnToggleNav.textContent = "close";
+      btnToggleNav.textContent = "\u2716";
     }, 475);
   }
 };
@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "form-message-label": "Message",
       "form-submit-btn": "Send Message",
       "footer-credit": "&copy; 2023 Lucas Debize | All rights reserved.",
+      "dark_theme": "Dark Theme",
     },
     fr: {
       "page-title": "Portfolio",
@@ -208,6 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "form-message-label": "Message",
       "form-submit-btn": "Envoyer le message",
       "footer-credit": "&copy; 2023 Lucas Debize | Tous droits réservés.",
+      "dark_theme": "Thème Sombre",
     },
   };
 
