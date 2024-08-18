@@ -398,7 +398,6 @@ main {
   left: 0;
   z-index: 4;
   margin-top: 20px;
-  display: flex;
 }
 
 .menu-btn {
@@ -444,6 +443,7 @@ main {
 #language-selector:hover {
   background-color: #555;
 }
+
 /* --------------------------------- */
 /* ----- Navigation -----*/
 /* --------------------------------- */
