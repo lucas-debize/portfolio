@@ -398,11 +398,13 @@ main {
   left: 0;
   z-index: 4;
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between; /* Ajouté pour espacer les éléments */
+  align-items: center;
 }
 
 .menu-btn {
   display: block;
-  margin-inline-start: auto;
   border: 1px solid var(--border-dark);
   inline-size: 132px;
   padding-block: var(--gutter-nano);
@@ -422,7 +424,7 @@ main {
 .language-selector-container {
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  margin-right: 10px; /* Modifié pour margin-right au lieu de margin-left */
 }
 
 #language-selector {
@@ -439,6 +441,7 @@ main {
 #language-selector:hover {
   background-color: #555;
 }
+
 
 /* --------------------------------- */
 /* ----- Navigation -----*/
