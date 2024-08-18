@@ -51,12 +51,10 @@
 
       <nav class="nav hidden">
         <ol class="nav-items">
-          <li class="nav-item"><a href="#">Home</a></li>
-          <li class="nav-item"><a href="#work">My Work</a></li>
-          <li class="nav-item"><a href="#skills">My Skills</a></li>
-          <li class="nav-item">
-            <a href="#contact" data-focused="last-focused">Contact</a>
-          </li>
+          <li class="nav-item"><a href="#" data-lang-key="nav-home">Home</a></li>
+          <li class="nav-item"><a href="#work" data-lang-key="nav-work">My Work</a></li>
+          <li class="nav-item"><a href="#skills" data-lang-key="nav-skills">My Skills</a></li>
+          <li class="nav-item"><a href="#contact" data-focused="last-focused" data-lang-key="nav-contact">Contact</a></li>
         </ol>
       </nav>
 
@@ -66,14 +64,12 @@
             <span data-lang-key="greeting">Hi, I'm Lucas Debize</span>
             <span data-lang-key="role">Student at Epitech</span>
           </h1>
-
           <p class="header-text" data-lang-key="intro">
             I'm actually a computer science student, searching for internship opportunities during my third year. I'd like to specialize myself in AI. Explore my open-source projects and contact me for any inquiries or hiring possibilities.
           </p>
-
           <div class="header-btns">
-            <a href="#contact" class="btn btn-cta">Hire me</a>
-            <a href="#work" class="btn btn-secondary">See my work</a>
+            <a href="#contact" class="btn btn-cta" data-lang-key="btn-hire">Hire me</a>
+            <a href="#work" class="btn btn-secondary" data-lang-key="btn-see-work">See my work</a>
           </div>
         </div>
       </div>
@@ -84,28 +80,24 @@
     <main>
       <section class="work">
         <div class="container">
-          <h2 class="h2" id="work">Selected Work</h2>
+          <h2 class="h2" id="work" data-lang-key="work-title">Selected Work</h2>
           <div class="work-boxes">
             <div class="work-box">
               <div class="work-textbox">
                 <!-- title -->
-                <h3 class="h3">image classification</h3>
+                <h3 class="h3" data-lang-key="project1-title">image classification</h3>
                 <!-- description -->
-                <p class="work-text">
-                  Using AI to classify images of ten different categories.
-                </p>
+                <p class="work-text" data-lang-key="project1-desc">Using AI to classify images of ten different categories.</p>
                 <!-- techno -->
                 <ol class="work-technologies">
-                  <li>Python</li>
-                  <li>Supervised learning</li>
-                  <li>Convolutional Neural Netword (CNN)</li>
+                  <li data-lang-key="project1-tech1">Python</li>
+                  <li data-lang-key="project1-tech2">Supervised learning</li>
+                  <li data-lang-key="project1-tech3">Convolutional Neural Network (CNN)</li>
                 </ol>
 
                 <div class="work-links">
                   <!-- url of project with image -->
-                  <a href="https://colab.research.google.com/drive/1e0b2ujHG--1ifloviWWq55Q5_G5B9dJP" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
+                  <a href="https://colab.research.google.com/drive/1e0b2ujHG--1ifloviWWq55Q5_G5B9dJP" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
                   <a
                     href="https://colab.research.google.com/drive/1e0b2ujHG--1ifloviWWq55Q5_G5B9dJP"
                     target="_blank"
@@ -135,23 +127,19 @@
             <div class="work-box">
               <div class="work-textbox">
                 <!-- title -->
-                <h3 class="h3">image denoising</h3>
+                <h3 class="h3" data-lang-key="project2-title">image denoising</h3>
                 <!-- description -->
-                <p class="work-text">
-                  Using AI to rebuild image after destruction.
-                </p>
+                <p class="work-text" data-lang-key="project2-desc">Using AI to rebuild image after destruction.</p>
                 <!-- techno -->
                 <ol class="work-technologies">
-                  <li>Python</li>
-                  <li>Autoencoder</li>
-                  <li>Unsupervised learning</li>
+                  <li data-lang-key="project2-tech1">Python</li>
+                  <li data-lang-key="project2-tech2">Autoencoder</li>
+                  <li data-lang-key="project2-tech3">Unsupervised learning</li>
                 </ol>
 
                 <div class="work-links">
                   <!-- url of project with image -->
-                  <a href="https://colab.research.google.com/drive/1zJbH6VJuVqlFDpuNGjOCFL9J8-la3GLz" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
+                  <a href="https://colab.research.google.com/drive/1zJbH6VJuVqlFDpuNGjOCFL9J8-la3GLz" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
                   <a
                     href="https://colab.research.google.com/drive/1zJbH6VJuVqlFDpuNGjOCFL9J8-la3GLz"
                     target="_blank"
@@ -181,23 +169,19 @@
             <div class="work-box">
               <div class="work-textbox">
                 <!-- title -->
-                <h3 class="h3">text recognition</h3>
+                <h3 class="h3" data-lang-key="project3-title">text recognition</h3>
                 <!-- description -->
-                <p class="work-text">
-                  Using AI to find out what is the subject of a text.
-                </p>
+                <p class="work-text" data-lang-key="project3-desc">Using AI to find out what is the subject of a text.</p>
                 <!-- techno -->
                 <ol class="work-technologies">
-                  <li>Python</li>
-                  <li>Supervised learning</li>
-                  <li>Dense neural network</li>
+                  <li data-lang-key="project3-tech1">Python</li>
+                  <li data-lang-key="project3-tech2">Supervised learning</li>
+                  <li data-lang-key="project3-tech3">Dense neural network</li>
                 </ol>
 
                 <div class="work-links">
                   <!-- url of project with image -->
-                  <a href="https://colab.research.google.com/drive/1L5l9INobKD9BnZG-0HvXrrlpaoPUBbh2" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
+                  <a href="https://colab.research.google.com/drive/1L5l9INobKD9BnZG-0HvXrrlpaoPUBbh2" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
                   <a
                     href="https://colab.research.google.com/drive/1L5l9INobKD9BnZG-0HvXrrlpaoPUBbh2"
                     target="_blank"
@@ -227,23 +211,19 @@
             <div class="work-box">
               <div class="work-textbox">
                 <!-- title -->
-                <h3 class="h3">video game</h3>
+                <h3 class="h3" data-lang-key="project4-title">video game</h3>
                 <!-- description -->
-                <p class="work-text">
-                  Real-time multiplayer game with environment and resource management. It's a project group in which I've done the server part.
-                </p>
+                <p class="work-text" data-lang-key="project4-desc">Real-time multiplayer game with environment and resource management. It's a project group in which I've done the server part.</p>
                 <!-- techno -->
                 <ol class="work-technologies">
-                  <li>C</li>
-                  <li>Cpp</li>
-                  <li>Python</li>
+                  <li data-lang-key="project4-tech1">C</li>
+                  <li data-lang-key="project4-tech2">Cpp</li>
+                  <li data-lang-key="project4-tech3">Python</li>
                 </ol>
 
                 <div class="github-icon">
                   <!-- url of project with image -->
-                  <a href="https://github.com/lucas-debize/zappy" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
+                  <a href="https://github.com/lucas-debize/zappy" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
                   <a
                     href="https://github.com/lucas-debize/zappy"
                     target="_blank"
@@ -276,7 +256,7 @@
 
       <section class="skills">
         <div class="container">
-          <h2 class="h2" id="skills">My Toolkit</h2>
+          <h2 class="h2" id="skills" data-lang-key="skills-title">My Toolkit</h2>
           <div class="skills-imgs">
                  <img src="assets/images/skills/python.webp" alt="Python" class="skills-img" loading="lazy" title="Python">
                  <img src="assets/images/skills/c.webp" alt="C" class="skills-img" loading="lazy" title="C">
@@ -293,34 +273,32 @@
 
       <section class="contact">
         <div class="container">
-          <h2 class="h2" id="contact">Send Message</h2>
+          <h2 class="h2" id="contact" data-lang-key="contact-title">Send Message</h2>
           <div class="contact-content">
             <div class="contact-textbox">
               <!-- Please comment this component if you're not available for hire -->
-              <strong href="#" class="hire-alert">
+              <strong href="#" class="hire-alert" data-lang-key="hire-alert">
                 <span class="indicator"></span>
                 Available for hire
               </strong>
-              <p class="contact-text">
-                For any more information or inquiries, feel free to reach out to my 
-                <a href="assets/images/CV.pdf" class="link"
-                >CV</a> or contact me directly.
+              <p class="contact-text" data-lang-key="contact-intro">
+                For any more information or inquiries, feel free to reach out to my <a href="assets/images/CV.pdf" class="link" data-lang-key="cv-link">CV</a> or contact me directly.
               </p>
-              <p class="contact-text">
-                Phone : <a href="tel:+33 07 82 75 92 01"> +33 07 82 75 92 01</a>
+              <p class="contact-text" data-lang-key="contact-phone">
+                Phone : <a href="tel:+33 07 82 75 92 01">+33 07 82 75 92 01</a>
               </p>
-              <p class="contact-text">
-                Mail : <a href="mailto:lucas.debize@epitech.eu"> lucas.debize@epitech.eu</a>
+              <p class="contact-text" data-lang-key="contact-email">
+                Mail : <a href="mailto:lucas.debize@epitech.eu">lucas.debize@epitech.eu</a>
               </p>
               <!-- Replace src with your signatures and name -->
             </div>
             <form action="#" class="contact-form" netlify>
               <div class="form-field">
-                <label for="name">Name</label>
+                <label for="name" data-lang-key="form-name-label">Name</label>
                 <input type="text" name="name" id="name" required />
               </div>
               <div class="form-field">
-                <label for="email">Email</label>
+                <label for="email" data-lang-key="form-email-label">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -330,10 +308,10 @@
                 />
               </div>
               <div class="form-field">
-                <label for="message">How can I help you?</label>
+                <label for="message" data-lang-key="form-message-label">How can I help you?</label>
                 <textarea name="message" id="message" required></textarea>
               </div>
-              <button type="submit" class="btn btn-cta">Send</button>
+              <button type="submit" class="btn" data-lang-key="form-submit-btn">Send</button>
             </form>
           </div>
         </div>
@@ -368,7 +346,7 @@
             &copy; <span>2024</span> - Template designed & developed by Syed Mohsin.</a>
           </p>
           <label class="theme-switch" for="theme-switch">
-            <span>Dark Theme</span>
+            <span data-lang-key="dark_theme">Dark Theme</span>
             <input type="checkbox" id="theme-switch" role="switch"/>
           </label>
         </div>
