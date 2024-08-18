@@ -114,42 +114,46 @@ logosWrappers.forEach(async (logoWrapper, i) => {
 yearEl.textContent = new Date().getFullYear();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const languageSwitcher = document.getElementById("language-switcher");
-  const languageLabel = document.getElementById("language-label");
-  const savedLanguage = localStorage.getItem("language") || "en";
+  const languageSelector = document.getElementById("language-selector");
 
   // Appliquer la langue choisie si elle est stockée
+  const savedLanguage = localStorage.getItem("language") || "en";
   applyLanguage(savedLanguage);
-  languageSwitcher.checked = (savedLanguage === "fr");
-  languageLabel.textContent = (savedLanguage === "fr") ? "Français" : "English";
+  languageSelector.value = savedLanguage;
 
-  // Changer de langue au changement du switch
-  languageSwitcher.addEventListener("change", function () {
-    const selectedLanguage = languageSwitcher.checked ? "fr" : "en";
+  // Changer de langue au changement du sélecteur
+  languageSelector.addEventListener("change", function () {
+    const selectedLanguage = languageSelector.value;
     localStorage.setItem("language", selectedLanguage);
     applyLanguage(selectedLanguage);
-    languageLabel.textContent = (selectedLanguage === "fr") ? "Français" : "English";
   });
 
   function applyLanguage(lang) {
     const elementsToTranslate = document.querySelectorAll("[data-lang-key]");
-    elementsToTranslate.forEach((element) => {
-      const key = element.getAttribute("data-lang-key");
-      element.textContent = translations[lang][key] || key;
-    });
+
+    if (translations[lang]) {
+      elementsToTranslate.forEach((element) => {
+        const key = element.getAttribute("data-lang-key");
+        element.textContent = translations[lang][key] || element.textContent;
+      });
+    } else {
+      console.error(`La langue ${lang} n'est pas supportée.`);
+    }
   }
 
   const translations = {
     en: {
       greeting: "Hi, I'm Lucas Debize",
       role: "Student at Epitech",
-      intro: "I'm actually a computer science student, searching for internship opportunities during my third year. I'd like to specialize myself in AI. Explore my open-source projects and contact me for any inquiries or hiring possibilities.",
+      intro:
+        "I'm actually a computer science student, searching for internship opportunities during my third year. I'd like to specialize myself in AI. Explore my open-source projects and contact me for any inquiries or hiring possibilities.",
       // Ajoutez d'autres traductions ici...
     },
     fr: {
       greeting: "Bonjour, je suis Lucas Debize",
       role: "Étudiant à Epitech",
-      intro: "Je suis actuellement étudiant en informatique, à la recherche de stages pour ma troisième année. J'aimerais me spécialiser en IA. Explorez mes projets open-source et contactez-moi pour toute question ou possibilité d'embauche.",
+      intro:
+        "Je suis actuellement étudiant en informatique, à la recherche de stages pour ma troisième année. J'aimerais me spécialiser en IA. Explorez mes projets open-source et contactez-moi pour toute question ou possibilité d'embauche.",
       // Ajoutez d'autres traductions ici...
     },
   };
