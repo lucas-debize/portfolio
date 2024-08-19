@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "skills-title": "Mes Compétences",
       "contact-title": "Envoyer un message",
       "hire-alert": "Disponible pour embauche",
-      "contact-intro-1": "Pour plus d'informations ou toute demande, n'hésitez pas à consulter mon <a href='assets/images/CV.pdf' class='link'>CV</a> ou à me contacter directement.",
+      "contact-intro-1": "Pour plus d'informations ou demande, n'hésitez pas à consulter mon <a href='assets/images/CV.pdf' class='link'>CV</a> ou à me contacter directement.",
       "contact-phone": "Téléphone : <a href='tel:+33 07 82 75 92 01'>+33 07 82 75 92 01</a>",
       "contact-email": "Mail : <a href='mailto:lucas.debize@epitech.eu'>lucas.debize@epitech.eu</a>",
       "form-name-label": "Nom",
