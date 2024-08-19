@@ -154,10 +154,9 @@ document.addEventListener("DOMContentLoaded", function () {
       "skills-title": "My Skills",
       "contact-title": "Send Message",
       "hire-alert": "Available for hire",
-      "contact-intro-1": "For any more information or inquiries, feel free to reach out to my ",
-      "contact-intro-2": " or contact me directly.",
-      "contact-phone": "Phone: ",
-      "contact-email": "Mail: ",
+      "contact-intro-1": "For any more information or inquiries, feel free to reach out to my <a href='assets/images/CV.pdf' class='link'>CV</a> or contact me directly.",
+      "contact-phone": "Phone: <a href='tel:+33 07 82 75 92 01'>+33 07 82 75 92 01</a>",
+      "contact-email": "Mail: <a href='mailto:lucas.debize@epitech.eu'>lucas.debize@epitech.eu</a>",
       "form-name-label": "Name",
       "form-email-label": "Email",
       "form-message-label": "Message",
@@ -202,10 +201,9 @@ document.addEventListener("DOMContentLoaded", function () {
       "skills-title": "Mes Compétences",
       "contact-title": "Envoyer un message",
       "hire-alert": "Disponible pour embauche",
-      "contact-intro-1": "Pour plus d'informations ou toute demande, n'hésitez pas à consulter mon ",
-      "contact-intro-2": " ou à me contacter directement.",
-      "contact-phone": "Téléphone : ",
-      "contact-email": "Mail : ",
+      "contact-intro-1": "Pour plus d'informations ou toute demande, n'hésitez pas à consulter mon <a href='assets/images/CV.pdf' class='link'>CV</a> ou à me contacter directement.",
+      "contact-phone": "Téléphone : <a href='tel:+33 07 82 75 92 01'>+33 07 82 75 92 01</a>",
+      "contact-email": "Mail : <a href='mailto:lucas.debize@epitech.eu'>lucas.debize@epitech.eu</a>",
       "form-name-label": "Nom",
       "form-email-label": "E-mail",
       "form-message-label": "Message",
@@ -236,7 +234,11 @@ document.addEventListener("DOMContentLoaded", function () {
       elementsToTranslate.forEach((element) => {
         const key = element.getAttribute("data-lang-key");
         console.log("Traduction de l'élément clé:", key, "en langue:", lang); // Vérifiez les traductions appliquées
-        element.textContent = translations[lang][key] || element.textContent;
+        
+        // Mise à jour du HTML interne plutôt que du textContent
+        if (translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
       });
     } else {
       console.error(`La langue ${lang} n'est pas supportée.`);
