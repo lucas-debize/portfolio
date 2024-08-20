@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Ajouter EmailJS SDK
-emailjs.init("9BcxSy1PlF-zOjG-U");
+emailjs.init("FU0UZBKY5wKVO4wACAX_j");
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
