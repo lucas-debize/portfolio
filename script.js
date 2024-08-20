@@ -245,3 +245,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+// Ajouter EmailJS SDK
+emailjs.init("9BcxSy1PlF-zOjG-U");
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Récupérer les données du formulaire
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Envoyer l'email via EmailJS
+    emailjs.send("service_h4k901q", "template_8naughk", {
+        name: name,
+        email: email,
+        message: message
+    }).then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        alert("Message envoyé avec succès!");
+    }, function(error) {
+        console.log('FAILED...', error);
+        alert("Échec de l'envoi du message.");
+    });
+});
