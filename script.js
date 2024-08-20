@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Ajouter EmailJS SDK
-emailjs.init("FU0UZBKY5wKVO4wACAX_j");
+emailjs.init("9BcxSy1PlF-zOjG-U");
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -256,6 +256,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
+    console.log('Données du formulaire:', { name, email, message });
 
     // Envoyer l'email via EmailJS
     emailjs.send("service_h4k901q", "template_8naughk", {
