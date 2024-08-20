@@ -320,8 +320,11 @@
       
               document.addEventListener('DOMContentLoaded', function() {
                   // Initialiser EmailJS
-                  emailjs.init("9BcxSy1PlF-zOjG-U");
-      
+                  if (typeof emailjs !== 'undefined') {
+                      emailjs.init("9BcxSy1PlF-zOjG-U");
+                  } else {
+                      console.error('EmailJS n\'est pas chargé correctement.');
+                  }      
                   document.getElementById('contact-form').addEventListener('submit', function(event) {
                       event.preventDefault();
       
@@ -385,5 +388,7 @@
         </div>
       </div>
     </footer>
+    <script defer type="text/javascript" src="https://cdn.emailjs.com/sdk/3.10.0/email.min.js"></script>
+    <script defer src="script.js"></script>
   </body>
 </html>
