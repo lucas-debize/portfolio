@@ -296,27 +296,50 @@
               </p>                       
               <!-- Replace src with your signatures and name -->
             </div>
-            <form action="#" class="contact-form" netlify>
+            <form id="contact-form" class="contact-form">
               <div class="form-field">
-                <label for="name" data-lang-key="form-name-label">Name</label>
-                <input type="text" name="name" id="name" required />
+                  <label for="name" data-lang-key="form-name-label">Name</label>
+                  <input type="text" name="name" id="name" required />
               </div>
               <div class="form-field">
-                <label for="email" data-lang-key="form-email-label">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  inputmode="email"
-                />
+                  <label for="email" data-lang-key="form-email-label">Email</label>
+                  <input type="email" name="email" id="email" required inputmode="email" />
               </div>
               <div class="form-field">
-                <label for="message" data-lang-key="form-message-label">How can I help you?</label>
-                <textarea name="message" id="message" required></textarea>
+                  <label for="message" data-lang-key="form-message-label">How can I help you?</label>
+                  <textarea name="message" id="message" required></textarea>
               </div>
               <button type="submit" class="btn" data-lang-key="form-submit-btn">Send</button>
             </form>
+            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+            <script>
+                // Initialiser EmailJS avec ton User ID
+                (function(){
+                    emailjs.init("9BcxSy1PlF-zOjG-U");
+                })();
+
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    // Récupérer les données du formulaire
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    // Envoyer l'email via EmailJS
+                    emailjs.send("service_h4k901q", "template_8naughk", {
+                        name: name,
+                        email: email,
+                        message: message
+                    }).then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert("Message envoyé avec succès!");
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert("Échec de l'envoi du message.");
+                    });
+                });
+            </script>
           </div>
         </div>
       </section>
