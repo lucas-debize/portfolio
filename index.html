@@ -25,6 +25,7 @@
     <script src="script.js" defer></script>
 
     <title>Portfolio</title>
+    <script defer type="text/javascript" src="https://cdn.emailjs.com/sdk/3.10.0/email.min.js"></script>
   </head>
 
   <body>
@@ -313,34 +314,35 @@
               <button type="submit" class="btn">Send</button>
             </form>
       
-            <!-- Charger la bibliothèque EmailJS -->
-            <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.10.0/email.min.js"></script>
-          
-            <!-- Votre script personnalisé -->
+            <!-- Script personnalisé -->
             <script type="text/javascript">
-              // Initialiser EmailJS
-              emailjs.init("9BcxSy1PlF-zOjG-U");
+              // Utiliser 'defer' pour s'assurer que ce script est exécuté après le chargement du DOM
       
-              document.getElementById('contact-form').addEventListener('submit', function(event) {
-                  event.preventDefault();
+              document.addEventListener('DOMContentLoaded', function() {
+                  // Initialiser EmailJS
+                  emailjs.init("9BcxSy1PlF-zOjG-U");
       
-                  // Récupérer les données du formulaire
-                  const name = document.getElementById('name').value;
-                  const email = document.getElementById('email').value;
-                  const message = document.getElementById('message').value;
-                  console.log('Données du formulaire:', { name, email, message });
+                  document.getElementById('contact-form').addEventListener('submit', function(event) {
+                      event.preventDefault();
       
-                  // Envoyer l'email via EmailJS
-                  emailjs.send("service_h4k901q", "template_8naughk", {
-                      name: name,
-                      email: email,
-                      message: message
-                  }).then(function(response) {
-                      console.log('SUCCESS!', response.status, response.text);
-                      alert("Message envoyé avec succès!");
-                  }, function(error) {
-                      console.log('FAILED...', error);
-                      alert("Échec de l'envoi du message.");
+                      // Récupérer les données du formulaire
+                      const name = document.getElementById('name').value;
+                      const email = document.getElementById('email').value;
+                      const message = document.getElementById('message').value;
+                      console.log('Données du formulaire:', { name, email, message });
+      
+                      // Envoyer l'email via EmailJS
+                      emailjs.send("service_h4k901q", "template_8naughk", {
+                          name: name,
+                          email: email,
+                          message: message
+                      }).then(function(response) {
+                          console.log('SUCCESS!', response.status, response.text);
+                          alert("Message envoyé avec succès!");
+                      }, function(error) {
+                          console.log('FAILED...', error);
+                          alert("Échec de l'envoi du message.");
+                      });
                   });
               });
             </script>
