@@ -297,22 +297,53 @@
               <!-- Replace src with your signatures and name -->
             </div>
 
-            <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.10.0/email.min.js"></script>
             <form id="contact-form" class="contact-form">
               <div class="form-field">
-                  <label for="name" data-lang-key="form-name-label">Name</label>
+                  <label for="name">Name</label>
                   <input type="text" name="name" id="name" required />
               </div>
               <div class="form-field">
-                  <label for="email" data-lang-key="form-email-label">Email</label>
+                  <label for="email">Email</label>
                   <input type="email" name="email" id="email" required inputmode="email" />
               </div>
               <div class="form-field">
-                  <label for="message" data-lang-key="form-message-label">Message</label>
+                  <label for="message">Message</label>
                   <textarea name="message" id="message" required></textarea>
               </div>
-              <button type="submit" class="btn" data-lang-key="form-submit-btn">Send</button>
+              <button type="submit" class="btn">Send</button>
             </form>
+      
+            <!-- Charger la bibliothèque EmailJS -->
+            <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.10.0/email.min.js"></script>
+          
+            <!-- Votre script personnalisé -->
+            <script type="text/javascript">
+              // Initialiser EmailJS
+              emailjs.init("9BcxSy1PlF-zOjG-U");
+      
+              document.getElementById('contact-form').addEventListener('submit', function(event) {
+                  event.preventDefault();
+      
+                  // Récupérer les données du formulaire
+                  const name = document.getElementById('name').value;
+                  const email = document.getElementById('email').value;
+                  const message = document.getElementById('message').value;
+                  console.log('Données du formulaire:', { name, email, message });
+      
+                  // Envoyer l'email via EmailJS
+                  emailjs.send("service_h4k901q", "template_8naughk", {
+                      name: name,
+                      email: email,
+                      message: message
+                  }).then(function(response) {
+                      console.log('SUCCESS!', response.status, response.text);
+                      alert("Message envoyé avec succès!");
+                  }, function(error) {
+                      console.log('FAILED...', error);
+                      alert("Échec de l'envoi du message.");
+                  });
+              });
+            </script>
           </div>
         </div>
       </section>
