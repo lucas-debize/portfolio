@@ -25,7 +25,7 @@
     <script src="script.js" defer></script>
 
     <title>Portfolio</title>
-    <script defer type="text/javascript" src="https://cdn.emailjs.com/sdk/3.10.0/email.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   </head>
 
   <body>
@@ -313,28 +313,25 @@
               </div>
               <button type="submit" class="btn">Send</button>
             </form>
-      
+            
+            <script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
             <!-- Script personnalisé -->
             <script type="text/javascript">
-              // Utiliser 'defer' pour s'assurer que ce script est exécuté après le chargement du DOM
-      
               document.addEventListener('DOMContentLoaded', function() {
-                  // Initialiser EmailJS
                   if (typeof emailjs !== 'undefined') {
                       emailjs.init("9BcxSy1PlF-zOjG-U");
                   } else {
                       console.error('EmailJS n\'est pas chargé correctement.');
-                  }      
+                      return;  // Stop script execution if EmailJS is not loaded
+                  }
+            
                   document.getElementById('contact-form').addEventListener('submit', function(event) {
                       event.preventDefault();
-      
-                      // Récupérer les données du formulaire
+            
                       const name = document.getElementById('name').value;
                       const email = document.getElementById('email').value;
                       const message = document.getElementById('message').value;
-                      console.log('Données du formulaire:', { name, email, message });
-      
-                      // Envoyer l'email via EmailJS
+            
                       emailjs.send("service_h4k901q", "template_8naughk", {
                           name: name,
                           email: email,
@@ -349,6 +346,7 @@
                   });
               });
             </script>
+            
           </div>
         </div>
       </section>
