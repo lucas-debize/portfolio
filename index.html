@@ -26,8 +26,29 @@
 
     <title>Portfolio</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "9BcxSy1PlF-zOjG-U",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('service_h4k901q', 'contact_form', this)
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
   </head>
-
   <body>
 
     <script>
@@ -298,55 +319,17 @@
               <!-- Replace src with your signatures and name -->
             </div>
 
-            <form id="contact-form" class="contact-form">
-              <div class="form-field">
-                  <label for="name">Name</label>
-                  <input type="text" name="name" id="name" required />
-              </div>
-              <div class="form-field">
-                  <label for="email">Email</label>
-                  <input type="email" name="email" id="email" required inputmode="email" />
-              </div>
-              <div class="form-field">
-                  <label for="message">Message</label>
-                  <textarea name="message" id="message" required></textarea>
-              </div>
-              <button type="submit" class="btn">Send</button>
+            <form id="contact-form">
+              <!-- To simplify the tutorial, the value is static. -->
+              <input type="hidden" name="contact_number" value="697483">
+              <label>Name</label>
+              <input type="text" name="user_name">
+              <label>Email</label>
+              <input type="email" name="user_email">
+              <label>Message</label>
+              <textarea name="message"></textarea>
+              <input type="submit" value="Send">
             </form>
-            
-            <script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
-            <!-- Script personnalisé -->
-            <script type="text/javascript">
-              document.addEventListener('DOMContentLoaded', function() {
-                  if (typeof emailjs !== 'undefined') {
-                      emailjs.init("9BcxSy1PlF-zOjG-U");
-                  } else {
-                      console.error('EmailJS n\'est pas chargé correctement.');
-                      return;  // Stop script execution if EmailJS is not loaded
-                  }
-            
-                  document.getElementById('contact-form').addEventListener('submit', function(event) {
-                      event.preventDefault();
-            
-                      const name = document.getElementById('name').value;
-                      const email = document.getElementById('email').value;
-                      const message = document.getElementById('message').value;
-            
-                      emailjs.send("service_h4k901q", "template_8naughk", {
-                          name: name,
-                          email: email,
-                          message: message
-                      }).then(function(response) {
-                          console.log('SUCCESS!', response.status, response.text);
-                          alert("Message envoyé avec succès!");
-                      }, function(error) {
-                          console.log('FAILED...', error);
-                          alert("Échec de l'envoi du message.");
-                      });
-                  });
-              });
-            </script>
-            
           </div>
         </div>
       </section>
