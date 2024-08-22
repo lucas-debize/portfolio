@@ -42,6 +42,7 @@
                 emailjs.sendForm('service_h4k901q', 'template_8naughk', this)
                     .then(() => {
                         console.log('SUCCESS!');
+                        window.location.reload();
                     }, (error) => {
                         console.log('FAILED...', error);
                     });
