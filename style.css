@@ -422,6 +422,8 @@ main {
 .language-selector-container {
   position: fixed;
   z-index: 4;
+  top: 20px;
+  right: 20px;
 }
 
 #language-selector {
