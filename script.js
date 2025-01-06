@@ -287,9 +287,29 @@ const chatbot = {
     this.elements.input.value = '';
 
     try {
-      // Call OpenAI API
-      const response = await this.askAI(message);
-      this.addMessage('bot', response);
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{
+            role: "user",
+            content: message
+          }]
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+
+      const data = await response.json();
+      const reply = data.choices[0].message.content;
+      this.addMessage('bot', reply);
+      
     } catch (error) {
       console.error('Error:', error);
       this.addMessage('bot', 'Sorry, I encountered an error. Please try again.');
@@ -302,32 +322,6 @@ const chatbot = {
     messageDiv.textContent = content;
     this.elements.messages.appendChild(messageDiv);
     this.elements.messages.scrollTop = this.elements.messages.scrollHeight;
-  },
-
-  async askAI(prompt) {
-    try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.API_KEY}`
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [{
-            role: "user",
-            content: prompt
-          }],
-          max_tokens: 150
-        })
-      });
-      
-      const data = await response.json();
-      return data.choices[0].message.content;
-    } catch (error) {
-      console.error('API Error:', error);
-      return 'Sorry, I cannot provide an answer right now.';
-    }
   }
 };
 
