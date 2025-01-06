@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "project3-tech2": "Supervised learning",
       "project3-tech3": "Dense neural network",
       "project4-title": "video game",
-      "project4-desc": "Real-time multiplayer game with environment and resource management. It's a project group in which I've done the server part.",
+      "project4-desc": "Real-time multiplayer game, reproduction of the R-Type game. It's a project group in which I've done the server part.",
       "project4-tech1": "C",
       "project4-tech2": "Cpp",
       "project4-tech3": "Python",
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "project3-tech2": "Apprentissage supervisé",
       "project3-tech3": "Réseau Neuronal Dense",
       "project4-title": "jeu vidéo",
-      "project4-desc": "Jeu multijoueur en temps réel avec gestion de l'environnement et des ressources. C'est un projet de groupe où j'ai réalisé la partie serveur.",
+      "project4-desc": "Jeu multijoueur en temps réel, reproduction du jeu R-Type. C'est un projet de groupe où j'ai réalisé la partie serveur.",
       "project4-tech1": "C",
       "project4-tech2": "Cpp",
       "project4-tech3": "Python",
@@ -243,5 +243,72 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       console.error(`La langue ${lang} n'est pas supportée.`);
     }
+  }
+});
+
+// Chatbot Functionality
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbot = document.getElementById('chatbot');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatbotSend = document.getElementById('chatbot-send');
+const chatbotInput = document.getElementById('chatbot-input');
+const chatbotMessages = document.querySelector('.chatbot-messages');
+
+// Add function to fetch AI responses
+async function getAIResponse(userInput) {
+  try {
+    const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer YOUR_OPENAI_API_KEY', // Replace with your actual API key
+      },
+      body: JSON.stringify({
+        prompt: userInput,
+        max_tokens: 150,
+        n: 1,
+        stop: null,
+        temperature: 0.7,
+      }),
+    });
+
+    const data = await response.json();
+    return data.choices[0].text.trim();
+  } catch (error) {
+    console.error('Error fetching AI response:', error);
+    return "I'm having trouble thinking right now. Please try again later.";
+  }
+}
+
+const toggleChatbot = () => {
+  chatbot.classList.toggle('hidden');
+};
+
+const addMessage = (sender, text) => {
+  const message = document.createElement('div');
+  message.classList.add(sender);
+  message.textContent = text;
+  chatbotMessages.appendChild(message);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+};
+
+const handleSend = async () => {
+  const userInput = chatbotInput.value.trim();
+  if (userInput === "") return;
+  
+  addMessage('user', chatbotInput.value);
+  chatbotInput.value = '';
+
+  // Fetch AI-based reply
+  const reply = await getAIResponse(userInput);
+  addMessage('bot', reply);
+};
+
+chatbotToggle.addEventListener('click', toggleChatbot);
+chatbotClose.addEventListener('click', toggleChatbot);
+chatbotSend.addEventListener('click', handleSend);
+chatbotInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    handleSend();
   }
 });
