@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "nav-contact": "Contact",
       "greeting": "Hi, I'm Lucas Debize",
       "role": "Student at Epitech",
-      "intro": "I'm actually a computer science student, searching for internship opportunities during my third year. I'd like to specialize myself in AI. Explore my open-source projects and contact me for any inquiries or hiring possibilities.",
+      "intro": "I'm actually a computer science student, searching for internship opportunities during my third year and I'd like to specialize myself in AI. Explore my open-source projects and contact me for any inquiries or hiring possibilities.",
       "btn-hire": "Hire me",
       "btn-see-work": "See my work",
       "work-title": "Selected Work",
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "nav-contact": "Contact",
       "greeting": "Salut, je suis Lucas Debize",
       "role": "Étudiant à Epitech",
-      "intro": "Je suis actuellement étudiant en informatique, à la recherche de stages pour ma troisième année. J'aimerais me spécialiser en IA. Explorez mes projets open-source et contactez-moi pour toute question ou possibilité d'embauche.",
+      "intro": "Je suis actuellement étudiant en informatique, à la recherche de stages pour ma troisième année et j'aimerais me spécialiser en IA. Explorez mes projets open-source et contactez-moi pour toute question ou possibilité d'embauche.",
       "btn-hire": "Embauchez-moi",
       "btn-see-work": "Voir mon travail",
       "work-title": "Travaux Sélectionnés",
@@ -254,36 +254,16 @@ const chatbotSend = document.getElementById('chatbot-send');
 const chatbotInput = document.getElementById('chatbot-input');
 const chatbotMessages = document.querySelector('.chatbot-messages');
 
-// Add function to fetch AI responses
-async function getAIResponse(userInput) {
-  try {
-    const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_OPENAI_API_KEY', // Replace with your actual API key
-      },
-      body: JSON.stringify({
-        prompt: userInput,
-        max_tokens: 150,
-        n: 1,
-        stop: null,
-        temperature: 0.7,
-      }),
-    });
-
-    const data = await response.json();
-    return data.choices[0].text.trim();
-  } catch (error) {
-    console.error('Error fetching AI response:', error);
-    return "I'm having trouble thinking right now. Please try again later.";
-  }
-}
-
-const toggleChatbot = () => {
-  chatbot.classList.toggle('hidden');
+// Définir les réponses prédéfinies
+const responses = {
+  "bonjour": "Bonjour! Comment puis-je vous aider aujourd'hui?",
+  "hello": "Hi there! How can I assist you?",
+  "projets": "Vous pouvez consulter mes projets dans la section 'My Work'.",
+  "aide": "Vous pouvez me poser des questions sur mes compétences, mes projets ou comment me contacter.",
+  // Ajoutez d'autres paires question/réponse ici
 };
 
+// Fonction pour ajouter un message au chatbot
 const addMessage = (sender, text) => {
   const message = document.createElement('div');
   message.classList.add(sender);
@@ -292,21 +272,24 @@ const addMessage = (sender, text) => {
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 };
 
-const handleSend = async () => {
-  const userInput = chatbotInput.value.trim();
+// Fonction pour gérer l'envoi des messages
+const handleSend = () => {
+  const userInput = chatbotInput.value.trim().toLowerCase();
   if (userInput === "") return;
-  
+
   addMessage('user', chatbotInput.value);
   chatbotInput.value = '';
 
-  // Fetch AI-based reply
-  const reply = await getAIResponse(userInput);
+  // Obtenir la réponse prédéfinie ou une réponse par défaut
+  const reply = responses[userInput] || "Désolé, je ne comprends pas. Pouvez-vous reformuler?";
   addMessage('bot', reply);
 };
 
-chatbotToggle.addEventListener('click', toggleChatbot);
-chatbotClose.addEventListener('click', toggleChatbot);
+// Événements du chatbot
 chatbotSend.addEventListener('click', handleSend);
+chatbotClose.addEventListener('click', toggleChatbot);
+chatbotToggle.addEventListener('click', toggleChatbot);
+
 chatbotInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     handleSend();

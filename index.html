@@ -379,20 +379,20 @@
     <script defer src="script.js"></script>
 
     <!-- Chatbot Toggle Button -->
-    <button id="chatbot-toggle" class="chatbot-toggle">💬</button>
+    <button id="chatbot-toggle" class="chatbot-toggle" data-lang-key="chatbot-toggle">💬</button>
 
     <!-- Chatbot Container -->
     <div id="chatbot" class="chatbot hidden">
       <div class="chatbot-header">
-        <h4>Chat with Me</h4>
-        <button id="chatbot-close">✖️</button>
+        <h4 data-lang-key="chatbot-header">Chat with Me</h4>
+        <button id="chatbot-close" data-lang-key="chatbot-close">✖️</button>
       </div>
       <div class="chatbot-messages">
         <!-- Messages will appear here -->
       </div>
       <div class="chatbot-input">
-        <input type="text" id="chatbot-input" placeholder="Ask me anything..." />
-        <button id="chatbot-send">Send</button>
+        <input type="text" id="chatbot-input" placeholder="Ask me anything..." data-lang-key="chatbot-placeholder" />
+        <button id="chatbot-send" data-lang-key="chatbot-send">Send</button>
       </div>
     </div>
   </body>
