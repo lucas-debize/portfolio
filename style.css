@@ -1218,3 +1218,110 @@ input:checked {
 .hidden {
   display: none;
 }
+
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatbot-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--important);
+  color: var(--bg-color-primary);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: var(--bg-color-secondary);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.chatbot.hidden {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chatbot-header {
+  padding: 15px;
+  background: var(--important);
+  color: var(--bg-color-primary);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px 0;
+}
+
+.user-message {
+  background: var(--important);
+  color: var(--bg-color-primary);
+  align-self: flex-end;
+}
+
+.bot-message {
+  background: var(--border-dark);
+  color: var(--important);
+  align-self: flex-start;
+}
+
+.chatbot-input-container {
+  padding: 15px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+}
+
+.chatbot-input-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg-color-primary);
+  color: var(--important);
+}
+
+.chatbot-input-container button {
+  padding: 10px 20px;
+  background: var(--important);
+  color: var(--bg-color-primary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -246,54 +246,90 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Chatbot Functionality
-const chatbotToggle = document.getElementById('chatbot-toggle');
-const chatbot = document.getElementById('chatbot');
-const chatbotClose = document.getElementById('chatbot-close');
-const chatbotSend = document.getElementById('chatbot-send');
-const chatbotInput = document.getElementById('chatbot-input');
-const chatbotMessages = document.querySelector('.chatbot-messages');
+// Chatbot Implementation
+const chatbot = {
+  elements: {
+    container: document.getElementById('chatbot'),
+    toggle: document.getElementById('chatbot-toggle'),
+    close: document.getElementById('chatbot-close'),
+    input: document.getElementById('chatbot-input'),
+    send: document.getElementById('chatbot-send'),
+    messages: document.querySelector('.chatbot-messages')
+  },
 
-// Add a function to call an AI API
-const API_ENDPOINT = process.env.API_ENDPOINT;
-const API_KEY = process.env.API_KEY;
+  init() {
+    this.bindEvents();
+    this.addMessage('bot', 'Hello! How can I help you today?');
+  },
 
-async function askAI(query) {
-  // Replace with your AI API endpoint and headers
-  const response = await fetch(API_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${API_KEY}`
-    },
-    body: JSON.stringify({ prompt: query })
-  });
-  const data = await response.json();
-  return data.reply || "Réponse indisponible.";
-}
+  bindEvents() {
+    this.elements.toggle.addEventListener('click', () => this.toggleChat());
+    this.elements.close.addEventListener('click', () => this.toggleChat());
+    this.elements.send.addEventListener('click', () => this.handleSend());
+    this.elements.input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') this.handleSend();
+    });
+  },
 
-// Modify handleSend to get answer from AI
-const handleSend = async () => {
-  const userInput = chatbotInput.value.trim().toLowerCase();
-  if (userInput === "") return;
+  toggleChat() {
+    this.elements.container.classList.toggle('hidden');
+    if (!this.elements.container.classList.contains('hidden')) {
+      this.elements.input.focus();
+    }
+  },
 
-  addMessage('user', chatbotInput.value);
-  chatbotInput.value = '';
-  const reply = await askAI(userInput);
-  addMessage('bot', reply);
+  async handleSend() {
+    const message = this.elements.input.value.trim();
+    if (!message) return;
+
+    // Add user message
+    this.addMessage('user', message);
+    this.elements.input.value = '';
+
+    try {
+      // Call OpenAI API
+      const response = await this.askAI(message);
+      this.addMessage('bot', response);
+    } catch (error) {
+      console.error('Error:', error);
+      this.addMessage('bot', 'Sorry, I encountered an error. Please try again.');
+    }
+  },
+
+  addMessage(type, content) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}-message`;
+    messageDiv.textContent = content;
+    this.elements.messages.appendChild(messageDiv);
+    this.elements.messages.scrollTop = this.elements.messages.scrollHeight;
+  },
+
+  async askAI(prompt) {
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{
+            role: "user",
+            content: prompt
+          }],
+          max_tokens: 150
+        })
+      });
+      
+      const data = await response.json();
+      return data.choices[0].message.content;
+    } catch (error) {
+      console.error('API Error:', error);
+      return 'Sorry, I cannot provide an answer right now.';
+    }
+  }
 };
 
-// Événements du chatbot
-chatbotSend.addEventListener('click', handleSend);
-chatbotClose.addEventListener('click', toggleChatbot);
-chatbotToggle.addEventListener('click', toggleChatbot);
-
-chatbotInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    handleSend();
-  }
-});
-
-function toggleChatbot() {
-  chatbot.classList.toggle("hidden");
-}
+// Initialize chatbot
+document.addEventListener('DOMContentLoaded', () => chatbot.init());
