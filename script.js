@@ -254,34 +254,32 @@ const chatbotSend = document.getElementById('chatbot-send');
 const chatbotInput = document.getElementById('chatbot-input');
 const chatbotMessages = document.querySelector('.chatbot-messages');
 
-// Définir les réponses prédéfinies
-const responses = {
-  "bonjour": "Bonjour! Comment puis-je vous aider aujourd'hui?",
-  "hello": "Hi there! How can I assist you?",
-  "projets": "Vous pouvez consulter mes projets dans la section 'My Work'.",
-  "aide": "Vous pouvez me poser des questions sur mes compétences, mes projets ou comment me contacter.",
-  // Ajoutez d'autres paires question/réponse ici
-};
+// Add a function to call an AI API
+const API_ENDPOINT = process.env.API_ENDPOINT;
+const API_KEY = process.env.API_KEY;
 
-// Fonction pour ajouter un message au chatbot
-const addMessage = (sender, text) => {
-  const message = document.createElement('div');
-  message.classList.add(sender);
-  message.textContent = text;
-  chatbotMessages.appendChild(message);
-  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-};
+async function askAI(query) {
+  // Replace with your AI API endpoint and headers
+  const response = await fetch(API_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify({ prompt: query })
+  });
+  const data = await response.json();
+  return data.reply || "Réponse indisponible.";
+}
 
-// Fonction pour gérer l'envoi des messages
-const handleSend = () => {
+// Modify handleSend to get answer from AI
+const handleSend = async () => {
   const userInput = chatbotInput.value.trim().toLowerCase();
   if (userInput === "") return;
 
   addMessage('user', chatbotInput.value);
   chatbotInput.value = '';
-
-  // Obtenir la réponse prédéfinie ou une réponse par défaut
-  const reply = responses[userInput] || "Désolé, je ne comprends pas. Pouvez-vous reformuler?";
+  const reply = await askAI(userInput);
   addMessage('bot', reply);
 };
 
