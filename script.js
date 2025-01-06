@@ -254,11 +254,6 @@ const chatbotSend = document.getElementById('chatbot-send');
 const chatbotInput = document.getElementById('chatbot-input');
 const chatbotMessages = document.querySelector('.chatbot-messages');
 
-// Define toggleChatbot function
-const toggleChatbot = () => {
-  chatbot.classList.toggle("hidden");
-};
-
 // Add a function to call an AI API
 const API_ENDPOINT = process.env.API_ENDPOINT;
 const API_KEY = process.env.API_KEY;
@@ -292,8 +287,13 @@ const handleSend = async () => {
 chatbotSend.addEventListener('click', handleSend);
 chatbotClose.addEventListener('click', toggleChatbot);
 chatbotToggle.addEventListener('click', toggleChatbot);
+
 chatbotInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     handleSend();
   }
 });
+
+function toggleChatbot() {
+  chatbot.classList.toggle("hidden");
+}
