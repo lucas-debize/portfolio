@@ -274,10 +274,12 @@ const chatbot = {
     send: document.getElementById('chatbot-send'),
     messages: document.querySelector('.chatbot-messages')
   },
-
+  
   init() {
     this.bindEvents();
-    this.addMessage('bot', translations[savedLanguage]["bot-hello"]);
+    // const savedLanguage = localStorage.getItem("language") || "en";
+    // this.addMessage('bot', translations[savedLanguage]["bot-hello"]);
+    this.addMessage('bot', 'Hello! How can I help you today?');
   },
 
   bindEvents() {
