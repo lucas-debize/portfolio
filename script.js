@@ -289,6 +289,7 @@ const chatbot = {
     try {
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer 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"
@@ -302,6 +303,7 @@ const chatbot = {
         })
       });
 
+      console.log("Status:", response.status); // Debug response
       if (!response.ok) {
         throw new Error('API request failed');
       }
