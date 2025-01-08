@@ -169,7 +169,14 @@ const translations = {
     "bot-contact": "Contact me at lucas.debize@epitech.eu or call me at +33 07 82 75 92 01.",
     "bot-skill": "I specialize in AI-related projects, including supervised and unsupervised learning, convolutional neural networks and autoencoders.",
     "bot-competence": "My competencies include Python, machine learning algorithms, web development real-time multiplayer game server development and a lot more.",
-    "bot-default": "Feel free to explore my portfolio or ask about my skills, experience, or projects."
+    "bot-default": "Feel free to explore my portfolio or ask about my skills, experience, or projects.",
+    
+    // Added chatbot translation keys
+    "chatbot-toggle": "💬",
+    "chatbot-header": "Chat with Me",
+    "chatbot-close": "✖️",
+    "chatbot-placeholder": "Ask me anything...",
+    "chatbot-send": "Send"
   },
   fr: {
     "page-title": "Portfolio",
@@ -225,7 +232,14 @@ const translations = {
     "bot-contact": "Contactez-moi à lucas.debize@epitech.eu ou appelez-moi au +33 07 82 75 92 01.",
     "bot-skill": "Je me spécialise dans les projets liés à l'IA, y compris l'apprentissage supervisé et non supervisé, les réseaux neuronaux convolutifs et les autoencodeurs.",
     "bot-competence": "Mes compétences incluent Python, les algorithmes d'apprentissage automatique, le développement web, le développement de serveurs pour jeux multijoueurs en temps réel et bien plus encore.",
-    "bot-default": "N'hésitez pas à explorer mon portfolio ou à poser des questions sur mes compétences, mon expérience ou mes projets."
+    "bot-default": "N'hésitez pas à explorer mon portfolio ou à poser des questions sur mes compétences, mon expérience ou mes projets.",
+    
+    // Added chatbot translation keys
+    "chatbot-toggle": "💬",
+    "chatbot-header": "Chattez avec moi",
+    "chatbot-close": "Fermer",
+    "chatbot-placeholder": "Posez-moi n'importe quelle question...",
+    "chatbot-send": "Envoyer"
   },
 };
 
