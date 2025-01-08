@@ -291,7 +291,7 @@ const chatbot = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
+          "Authorization": "Bearer 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"
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
