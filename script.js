@@ -297,7 +297,7 @@ const chatbot = {
     } else if (lowerMsg.includes("project")) {
       this.addMessage('bot', "I've worked on image classification, image denoising, text recognition, and even a real-time multiplayer game (R-Type).");
     } else if (lowerMsg.includes("contact")) {
-      this.addMessage('bot', "Contact me at lucas.debize@epitech.eu or call me at +33 07 82 75 92 01.");
+      this.addMessage('bot', "Contact me at lucas.debize@ epitech.eu or call me at +33 07 82 75 92 01.");
     } else {
       this.addMessage('bot', "Feel free to explore my portfolio or ask about my skills, experience, or projects.");
     }

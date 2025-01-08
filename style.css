@@ -1299,7 +1299,6 @@ input:checked {
   background: var(--border-dark);
   color: var(--important);
   align-self: flex-start;
-  font-size: 115%;
 }
 
 .chatbot-input-container {
