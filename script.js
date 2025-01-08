@@ -292,7 +292,7 @@ const chatbot = {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer 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"
+          "Authorization": "Bearer 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"
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
