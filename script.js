@@ -285,19 +285,16 @@ const chatbot = {
     this.addMessage('user', message);
     this.elements.input.value = '';
 
-    // Removed OpenAI request and replaced with a free API
-    try {
-      const response = await fetch("https://catfact.ninja/fact");
-      if (!response.ok) throw new Error('Request failed');
-
-      const data = await response.json();
-      this.addMessage('bot', data.fact);
-    } catch (error) {
-      console.error('Error:', error);
-      this.addMessage('bot', 'Sorry, something went wrong. Please try again.');
-    }
+    // Removed external API request, replaced with user info
+    const userData = [
+      "I'm Lucas Debize, a computer science student at Epitech. Welcome to my portfolio!",
+      "I am currently searching for internship opportunities during my third year and would like to specialize in AI.",
+      "Feel free to explore my open-source projects and contact me for any inquiries or hiring possibilities."
+    ];
+    const randomIndex = Math.floor(Math.random() * userData.length);
+    this.addMessage('bot', userData[randomIndex]);
   },
-
+  
   addMessage(type, content) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${type}-message`;
