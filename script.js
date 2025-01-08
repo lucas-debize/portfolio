@@ -282,43 +282,19 @@ const chatbot = {
     const message = this.elements.input.value.trim();
     if (!message) return;
 
-    // Add user message
     this.addMessage('user', message);
     this.elements.input.value = '';
 
+    // Removed OpenAI request and replaced with a free API
     try {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer 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"
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [{
-            role: "user",
-            content: message
-          }]
-        })
-      });
-
-      console.log("Status:", response.status); // Debug response
-      if (response.status === 429) {
-        this.addMessage('bot', 'Rate limit exceeded. Please wait or check your OpenAI usage/billing.');
-        return;
-      }
-      if (!response.ok) {
-        throw new Error('API request failed');
-      }
+      const response = await fetch("https://catfact.ninja/fact");
+      if (!response.ok) throw new Error('Request failed');
 
       const data = await response.json();
-      const reply = data.choices[0].message.content;
-      this.addMessage('bot', reply);
-      
+      this.addMessage('bot', data.fact);
     } catch (error) {
       console.error('Error:', error);
-      this.addMessage('bot', 'Sorry, I encountered an error. Please try again.');
+      this.addMessage('bot', 'Sorry, something went wrong. Please try again.');
     }
   },
 
