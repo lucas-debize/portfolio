@@ -304,6 +304,10 @@ const chatbot = {
       });
 
       console.log("Status:", response.status); // Debug response
+      if (response.status === 429) {
+        this.addMessage('bot', 'Rate limit exceeded. Please wait or check your OpenAI usage/billing.');
+        return;
+      }
       if (!response.ok) {
         throw new Error('API request failed');
       }
