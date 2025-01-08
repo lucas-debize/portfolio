@@ -285,14 +285,22 @@ const chatbot = {
     this.addMessage('user', message);
     this.elements.input.value = '';
 
-    // Removed external API request, replaced with user info
-    const userData = [
-      "I'm Lucas Debize, a computer science student at Epitech. Welcome to my portfolio!",
-      "I am currently searching for internship opportunities during my third year and would like to specialize in AI.",
-      "Feel free to explore my open-source projects and contact me for any inquiries or hiring possibilities."
-    ];
-    const randomIndex = Math.floor(Math.random() * userData.length);
-    this.addMessage('bot', userData[randomIndex]);
+    // New keyword-based logic
+    const lowerMsg = message.toLowerCase();
+
+    if (lowerMsg.includes("who are you")) {
+      this.addMessage('bot', "I'm Lucas Debize, a computer science student at Epitech.");
+    } else if (lowerMsg.includes("offer") || lowerMsg.includes("what can you do")) {
+      this.addMessage('bot', "I offer AI-related projects and solutions. I specialize in supervised and unsupervised learning, as seen in my portfolio.");
+    } else if (lowerMsg.includes("how many year")) {
+      this.addMessage('bot', "I have completed two years of study and am currently in the end of my third year at Epitech.");
+    } else if (lowerMsg.includes("project")) {
+      this.addMessage('bot', "I've worked on image classification, image denoising, text recognition, and even a real-time multiplayer game (R-Type).");
+    } else if (lowerMsg.includes("contact")) {
+      this.addMessage('bot', "Contact me at lucas.debize@epitech.eu or call me at +33 07 82 75 92 01.");
+    } else {
+      this.addMessage('bot', "Feel free to explore my portfolio or ask about my skills, experience, or projects.");
+    }
   },
   
   addMessage(type, content) {
