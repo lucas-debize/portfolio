@@ -246,6 +246,9 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("language", selectedLanguage);
     savedLanguage = selectedLanguage; // Update global variable
     applyLanguage(selectedLanguage);
+    
+    // Reset the chatbot to apply the new language
+    chatbot.resetChat(); // Added line
   });
 
   function applyLanguage(lang) {
@@ -340,6 +343,14 @@ const chatbot = {
     
     this.elements.messages.appendChild(messageDiv);
     this.elements.messages.scrollTop = this.elements.messages.scrollHeight;
+  },
+  
+  // Add the resetChat method
+  resetChat() {
+    // Clear all existing messages
+    this.elements.messages.innerHTML = '';
+    // Add the initial bot greeting in the current language
+    this.addMessage('bot', translations[savedLanguage]["bot-hello"]);
   }
 };
 
