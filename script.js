@@ -174,7 +174,12 @@ const translations = {
     "chatbot-header": "Chat with Me",
     "chatbot-close": "✖️",
     "chatbot-placeholder": "Ask me anything...",
-    "chatbot-send": "Send"
+    "chatbot-send": "Send",
+    "project5-title": "chess game state",
+    "project5-desc": "Using AI to determine the state of a chess game.",
+    "project5-tech1": "Python",
+    "project5-tech2": "Supervised learning",
+    "project5-tech3": "Numpy",
   },
   fr: {
     "page-title": "Portfolio",
@@ -235,7 +240,12 @@ const translations = {
     "chatbot-header": "Discutez avec moi",
     "chatbot-close": "Fermer",
     "chatbot-placeholder": "Posez-moi une question...",
-    "chatbot-send": "Envoyer"
+    "chatbot-send": "Envoyer",
+    "project5-title": "état du jeu d'échecs",
+    "project5-desc": "Utilisation de l'IA pour déterminer l'état d'une partie d'échecs.",
+    "project5-tech1": "Python",
+    "project5-tech2": "Apprentissage supervisé",
+    "project5-tech3": "Numpy",
   },
 };
 
@@ -326,7 +336,7 @@ const chatbot = {
     const lowerMsg = message.toLowerCase();
     const lang = savedLanguage;
 
-    if (lowerMsg.includes("who are you") || lowerMsg.includes("qui es tu")) {
+    if (lowerMsg.includes("who are you") || lowerMsg.includes("qui")) {
       this.addMessage('bot', translations[lang]["bot-who-are-you"]);
     } else if (lowerMsg.includes("offer") || lowerMsg.includes("what can you do") || lowerMsg.includes("que peux-tu faire")) {
       this.addMessage('bot', translations[lang]["bot-offer"]);
