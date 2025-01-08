@@ -163,6 +163,15 @@ document.addEventListener("DOMContentLoaded", function () {
       "form-submit-btn": "Send Message",
       "footer-credit": "&copy; 2023 Lucas Debize | All rights reserved.",
       "dark_theme": "Dark Theme",
+      "bot-hello": "Hello! How can I help you today?",
+      "bot-who-are-you": "I'm Lucas Debize, a computer science student at Epitech.",
+      "bot-offer": "I offer AI-related projects and solutions. I specialize in supervised and unsupervised learning, as seen in my portfolio.",
+      "bot-how-many-year": "I have completed two years of study and am currently in the end of my third year at Epitech.",
+      "bot-project": "I've worked on image classification, image denoising, text recognition, and even a real-time multiplayer game (R-Type).",
+      "bot-contact": "Contact me at lucas.debize@epitech.eu or call me at +33 07 82 75 92 01.",
+      "bot-skill": "I specialize in AI-related projects, including supervised and unsupervised learning, convolutional neural networks and autoencoders.",
+      "bot-competence": "My competencies include Python, machine learning algorithms, web development real-time multiplayer game server development and a lot more.",
+      "bot-default": "Feel free to explore my portfolio or ask about my skills, experience, or projects."
     },
     fr: {
       "page-title": "Portfolio",
@@ -210,6 +219,15 @@ document.addEventListener("DOMContentLoaded", function () {
       "form-submit-btn": "Envoyer le message",
       "footer-credit": "&copy; 2023 Lucas Debize | Tous droits réservés.",
       "dark_theme": "Thème Sombre",
+      "bot-hello": "Bonjour! Comment puis-je vous aider aujourd'hui?",
+      "bot-who-are-you": "Je suis Lucas Debize, étudiant en informatique à Epitech.",
+      "bot-offer": "J'offre des projets et solutions liés à l'IA. Je me spécialise en apprentissage supervisé et non supervisé, comme mentionné dans mon portfolio.",
+      "bot-how-many-year": "J'ai terminé deux années d'études et suis actuellement en fin de ma troisième année à Epitech.",
+      "bot-project": "J'ai travaillé sur la classification d'images, la réduction du bruit d'image, la reconnaissance de texte et même un jeu multijoueur en temps réel (R-Type).",
+      "bot-contact": "Contactez-moi à lucas.debize@epitech.eu ou appelez-moi au +33 07 82 75 92 01.",
+      "bot-skill": "Je me spécialise dans les projets liés à l'IA, y compris l'apprentissage supervisé et non supervisé, les réseaux neuronaux convolutifs et les autoencodeurs.",
+      "bot-competence": "Mes compétences incluent Python, les algorithmes d'apprentissage automatique, le développement web, le développement de serveurs pour jeux multijoueurs en temps réel et bien plus encore.",
+      "bot-default": "N'hésitez pas à explorer mon portfolio ou à poser des questions sur mes compétences, mon expérience ou mes projets."
     },
   };
 
@@ -259,7 +277,7 @@ const chatbot = {
 
   init() {
     this.bindEvents();
-    this.addMessage('bot', 'Hello! How can I help you today?');
+    this.addMessage('bot', translations[savedLanguage]["bot-hello"]);
   },
 
   bindEvents() {
@@ -285,21 +303,25 @@ const chatbot = {
     this.addMessage('user', message);
     this.elements.input.value = '';
 
-    // New keyword-based logic
     const lowerMsg = message.toLowerCase();
+    const lang = localStorage.getItem("language") || "en";
 
     if (lowerMsg.includes("who are you")) {
-      this.addMessage('bot', "I'm Lucas Debize, a computer science student at Epitech.");
+      this.addMessage('bot', translations[lang]["bot-who-are-you"]);
     } else if (lowerMsg.includes("offer") || lowerMsg.includes("what can you do")) {
-      this.addMessage('bot', "I offer AI-related projects and solutions. I specialize in supervised and unsupervised learning, as seen in my portfolio.");
+      this.addMessage('bot', translations[lang]["bot-offer"]);
     } else if (lowerMsg.includes("how many year")) {
-      this.addMessage('bot', "I have completed two years of study and am currently in the end of my third year at Epitech.");
+      this.addMessage('bot', translations[lang]["bot-how-many-year"]);
     } else if (lowerMsg.includes("project")) {
-      this.addMessage('bot', "I've worked on image classification, image denoising, text recognition, and even a real-time multiplayer game (R-Type).");
+      this.addMessage('bot', translations[lang]["bot-project"]);
     } else if (lowerMsg.includes("contact")) {
-      this.addMessage('bot', "Contact me at lucas.debize@ epitech.eu or call me at +33 07 82 75 92 01.");
+      this.addMessage('bot', translations[lang]["bot-contact"]);
+    } else if (lowerMsg.includes("skill")) {
+      this.addMessage('bot', translations[lang]["bot-skill"]);
+    } else if (lowerMsg.includes("competence")) {
+      this.addMessage('bot', translations[lang]["bot-competence"]);
     } else {
-      this.addMessage('bot', "Feel free to explore my portfolio or ask about my skills, experience, or projects.");
+      this.addMessage('bot', translations[lang]["bot-default"]);
     }
   },
   
