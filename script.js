@@ -336,17 +336,18 @@ const chatbot = {
     const lowerMsg = message.toLowerCase();
     const lang = savedLanguage;
 
-    if (lowerMsg.includes("who are you") || lowerMsg.includes("qui")) {
+    if (lowerMsg.includes("who") || lowerMsg.includes("qui")) {
       this.addMessage('bot', translations[lang]["bot-who-are-you"]);
-    } else if (lowerMsg.includes("offer") || lowerMsg.includes("what can you do") || lowerMsg.includes("que peux-tu faire")) {
+    } else if (lowerMsg.includes("offer") || lowerMsg.includes("what") || lowerMsg.includes("quoi")) {
       this.addMessage('bot', translations[lang]["bot-offer"]);
-    } else if (lowerMsg.includes("how many year") || lowerMsg.includes("combien d'année")) {
+    } else if (lowerMsg.includes("year") || lowerMsg.includes("année") || lowerMsg.includes("study")
+        || lowerMsg.includes("étude") || lowerMsg.includes("how many") || lowerMsg.includes("combien")) {
       this.addMessage('bot', translations[lang]["bot-how-many-year"]);
     } else if (lowerMsg.includes("project") || lowerMsg.includes("projet")) {
       this.addMessage('bot', translations[lang]["bot-project"]);
     } else if (lowerMsg.includes("contact")) {
       this.addMessage('bot', translations[lang]["bot-contact"]);
-    } else if (lowerMsg.includes("skill") || lowerMsg.includes("compétence")) {
+    } else if (lowerMsg.includes("skill") || lowerMsg.includes("competence")) {
       this.addMessage('bot', translations[lang]["bot-skill"]);
     } else if (lowerMsg.includes("expérience") || lowerMsg.includes("experience")) {
       this.addMessage('bot', translations[lang]["bot-competence"]);
