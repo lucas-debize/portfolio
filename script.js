@@ -170,8 +170,6 @@ const translations = {
     "bot-skill": "I specialize in AI-related projects, including supervised and unsupervised learning, convolutional neural networks and autoencoders.",
     "bot-competence": "My competencies include Python, machine learning algorithms, web development real-time multiplayer game server development and a lot more.",
     "bot-default": "Feel free to explore my portfolio or ask about my skills, experience, or projects.",
-    
-    // Added chatbot translation keys
     "chatbot-toggle": "💬",
     "chatbot-header": "Chat with Me",
     "chatbot-close": "✖️",
@@ -233,12 +231,10 @@ const translations = {
     "bot-skill": "Je me spécialise dans les projets liés à l'IA, y compris l'apprentissage supervisé et non supervisé, les réseaux neuronaux convolutifs et les autoencodeurs.",
     "bot-competence": "Mes compétences incluent Python, les algorithmes d'apprentissage automatique, le développement web, le développement de serveurs pour jeux multijoueurs en temps réel et bien plus encore.",
     "bot-default": "N'hésitez pas à explorer mon portfolio ou à poser des questions sur mes compétences, mon expérience ou mes projets.",
-    
-    // Added chatbot translation keys
     "chatbot-toggle": "💬",
-    "chatbot-header": "Chattez avec moi",
+    "chatbot-header": "Discutez avec moi",
     "chatbot-close": "Fermer",
-    "chatbot-placeholder": "Posez-moi n'importe quelle question...",
+    "chatbot-placeholder": "Posez-moi une question...",
     "chatbot-send": "Envoyer"
   },
 };
@@ -273,9 +269,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const key = element.getAttribute("data-lang-key");
         console.log("Traduction de l'élément clé:", key, "en langue:", lang);
         
-        // Mise à jour du HTML interne plutôt que du textContent
         if (translations[lang][key]) {
-          element.innerHTML = translations[lang][key];
+          // Check if the element is an input or textarea to set the placeholder
+          if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea') {
+            element.setAttribute('placeholder', translations[lang][key]);
+          } else {
+            element.innerHTML = translations[lang][key];
+          }
         }
       });
     } else {
@@ -326,7 +326,7 @@ const chatbot = {
     const lowerMsg = message.toLowerCase();
     const lang = savedLanguage;
 
-    if (lowerMsg.includes("who are you") || lowerMsg.includes("qui es-tu")) {
+    if (lowerMsg.includes("who are you") || lowerMsg.includes("qui es tu")) {
       this.addMessage('bot', translations[lang]["bot-who-are-you"]);
     } else if (lowerMsg.includes("offer") || lowerMsg.includes("what can you do") || lowerMsg.includes("que peux-tu faire")) {
       this.addMessage('bot', translations[lang]["bot-offer"]);
