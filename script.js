@@ -180,7 +180,7 @@ const translations = {
     "project5-tech1": "Python",
     "project5-tech2": "Supervised learning",
     "project5-tech3": "Numpy",
-    "project-area-title": "Area",
+    "project-area-title": "area",
     "project-area-desc": "Platform to automate actions between services (e.g., Gmail, Discord, Spotify). When an action occurs on a service, it triggers a reaction on another service.",
     "project-area-tech1": "Flutter",
     "project-area-tech2": "Docker",
@@ -250,14 +250,15 @@ const translations = {
     "project5-tech1": "Python",
     "project5-tech2": "Apprentissage supervisé",
     "project5-tech3": "Numpy",
-    "project-area-title": "Area",
+    "project-area-title": "area",
     "project-area-desc": "Plateforme pour automatiser des actions entre services (ex: Gmail, Discord, Spotify). Quand une action se produit sur un service, elle déclenche une réaction sur un autre service.",
     "project-area-tech1": "Flutter",
     "project-area-tech2": "Docker",
   },
 };
 
-let savedLanguage = localStorage.getItem("language") || "en"; // Changed from const to let
+// Change default language
+let savedLanguage = localStorage.getItem("language") || "fr";
 
 document.addEventListener("DOMContentLoaded", function () {
   const languageSelector = document.getElementById("language-selector");
