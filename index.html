@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucas Debize — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio de Lucas Debize, étudiant en informatique à Epitech, spécialisé en développement logiciel et intelligence artificielle."
+    />
+    <meta name="theme-color" content="#0b1020" />
     <meta name="robots" content="index, follow" />
 
-<!-- Page parameter -->
     <link
       rel="shortcut icon"
       href="assets/images/photo_profil.png"
       type="image/png"
     />
-
     <link
       rel="preload"
       href="assets/fonts/Mona-Sans.woff2"
@@ -21,452 +24,497 @@
       crossorigin
     />
 
-    <link rel="stylesheet" href="style.css"  />
-    <script src="script.js" defer></script>
-
-    <title>Portfolio</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init("9BcxSy1PlF-zOjG-U");
-        })();
-    </script>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // these IDs from the previous steps
-                emailjs.sendForm('service_h4k901q', 'template_8naughk', this)
-                    .then(() => {
-                        console.log('SUCCESS!');
-                        window.location.reload();
-                    }, (error) => {
-                        console.log('FAILED...', error);
-                    });
-            });
-        }
-    </script>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
   </head>
   <body>
+    <div class="bg-blur bg-blur-1"></div>
+    <div class="bg-blur bg-blur-2"></div>
 
-    <script>
-      const theme = localStorage.getItem("theme") || "dark";
-      document.body.classList.add(theme);
-    </script>
-
-    <header class="header">
-      <div class="language-selector-container">
-        <div class="container">
-          <select id="language-selector">
-            <option value="fr" selected>Français</option>
-            <option value="en">English</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="menu-btn-container">
-        <div class="container">
-          <button type="button" class="menu-btn">menu</button>
-        </div>
-      </div>
-
-      <nav class="nav hidden">
-        <ol class="nav-items">
-          <li class="nav-item"><a href="#" data-lang-key="nav-home">Home</a></li>
-          <li class="nav-item"><a href="#work" data-lang-key="nav-work">My Work</a></li>
-          <li class="nav-item"><a href="#skills" data-lang-key="nav-skills">My Skills</a></li>
-          <li class="nav-item"><a href="#contact" data-focused="last-focused" data-lang-key="nav-contact">Contact</a></li>
-        </ol>
-      </nav>
-
+    <header class="site-header" id="top">
       <div class="container">
-        <div class="header-textbox">
-          <h1 class="h1">
-            <span data-lang-key="greeting">Hi, I'm Lucas Debize</span>
-            <span data-lang-key="role">Student at Epitech</span>
-          </h1>
-          <p class="header-text" data-lang-key="intro">
-            I'm actually a computer science student, searching for internship opportunities during my third year. I'd like to specialize myself in AI. Explore my open-source projects and contact me for any inquiries or hiring possibilities.
-          </p>
-          <div class="header-btns">
-            <a href="#contact" class="btn btn-cta" data-lang-key="btn-hire">Hire me</a>
-            <a href="#work" class="btn btn-secondary" data-lang-key="btn-see-work">See my work</a>
+        <div class="navbar">
+          <a href="#top" class="brand">
+            <span class="brand-dot"></span>
+            <span>Lucas Debize</span>
+          </a>
+
+          <nav class="nav" id="nav">
+            <a href="#about">À propos</a>
+            <a href="#projects">Projets</a>
+            <a href="#skills">Compétences</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <div class="nav-actions">
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              type="button"
+              aria-label="Changer de thème"
+              title="Changer de thème"
+            >
+              <span class="theme-toggle-icon">🌙</span>
+            </button>
+
+            <button
+              class="menu-toggle"
+              id="menu-toggle"
+              type="button"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+            >
+              <span></span>
+              <span></span>
+            </button>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Work handling -->
-
     <main>
-      <section class="work">
-        <div class="container">
-          <h2 class="h2" id="work" data-lang-key="work-title">Selected Work</h2>
-          <div class="work-boxes">
-            <!-- box-0 -->
-            <div class="work-box">
-              <div class="work-textbox">
-                <h3 class="h3" data-lang-key="project-area-title">area</h3>
-                <p class="work-text" data-lang-key="project-area-desc">Platform to automate actions between services (e.g., Gmail, Discord, Spotify). When an action occurs on a service, it triggers a reaction on another service.</p>
-                <ol class="work-technologies">
-                  <li data-lang-key="project-area-tech1">Flutter</li>
-                  <li data-lang-key="project-area-tech2">Docker</li>
-                </ol>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <span class="eyebrow">Disponible pour stage / alternance / opportunité tech</span>
 
-                <div class="github-icon">
-                  <a href="https://github.com/lucas-debize/area" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
-                  <a
-                    href="https://github.com/lucas-debize/area"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
+            <h1>
+              Je conçois des produits
+              <span class="gradient-text">software & IA</span>
+              propres, utiles et bien pensés.
+            </h1>
 
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/area_img.png"
-                  alt="area project"
-                />
-              </picture>
-            </div>
-            <!-- box-1 -->
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- title -->
-                <h3 class="h3" data-lang-key="project2-title">image denoising</h3>
-                <!-- description -->
-                <p class="work-text" data-lang-key="project2-desc">Using AI to rebuild image after destruction.</p>
-                <!-- techno -->
-                <ol class="work-technologies">
-                  <li data-lang-key="project2-tech1">Python</li>
-                  <li data-lang-key="project2-tech2">Autoencoder</li>
-                  <li data-lang-key="project2-tech3">Unsupervised learning</li>
-                </ol>
+            <p class="hero-text">
+              Je suis Lucas Debize, étudiant en informatique à Epitech. Je développe
+              des projets en intelligence artificielle, backend, automatisation et
+              applications interactives avec une attention forte portée à la clarté,
+              la robustesse et l’expérience utilisateur.
+            </p>
 
-                <div class="work-links">
-                  <!-- url of project with image -->
-                  <a href="https://colab.research.google.com/drive/1zJbH6VJuVqlFDpuNGjOCFL9J8-la3GLz" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
-                  <a
-                    href="https://colab.research.google.com/drive/1zJbH6VJuVqlFDpuNGjOCFL9J8-la3GLz"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/skills/google_colab.webp"
-                      alt="Google_colab"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-
-              <!-- image of project -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/denoising_img.png"
-                  alt="agency elevation"
-                />
-              </picture>
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+              <a href="#contact" class="btn btn-secondary">Me contacter</a>
             </div>
 
-            <!-- box-2 -->
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- title -->
-                <h3 class="h3" data-lang-key="project3-title">text recognition</h3>
-                <!-- description -->
-                <p class="work-text" data-lang-key="project3-desc">Using AI to find out what is the subject of a text.</p>
-                <!-- techno -->
-                <ol class="work-technologies">
-                  <li data-lang-key="project3-tech1">Python</li>
-                  <li data-lang-key="project3-tech2">Supervised learning</li>
-                  <li data-lang-key="project3-tech3">Dense neural network</li>
-                </ol>
+            <ul class="hero-highlights">
+              <li>Python · C · C++ · JavaScript</li>
+              <li>IA · apprentissage supervisé · automatisation</li>
+              <li>Étudiant Epitech orienté software engineering</li>
+            </ul>
+          </div>
 
-                <div class="work-links">
-                  <!-- url of project with image -->
-                  <a href="https://colab.research.google.com/drive/1L5l9INobKD9BnZG-0HvXrrlpaoPUBbh2" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
-                  <a
-                    href="https://colab.research.google.com/drive/1L5l9INobKD9BnZG-0HvXrrlpaoPUBbh2"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/skills/google_colab.webp"
-                      alt="Google_colab"
-                      loading="lazy"
-                    />
-                  </a>
+          <div class="hero-card reveal reveal-delay">
+            <div class="profile-card">
+              <div class="profile-top">
+                <div class="avatar">LD</div>
+                <div>
+                  <p class="profile-name">Lucas Debize</p>
+                  <p class="profile-role">Étudiant développeur • IA / Software</p>
                 </div>
               </div>
 
-              <!-- image of project -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/text_recognition_img.webp"
-                  alt="agency elevation"
-                />
-              </picture>
-            </div>
-
-            <!-- box-3 -->
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- title -->
-                <h3 class="h3" data-lang-key="project1-title">image classification</h3>
-                <!-- description -->
-                <p class="work-text" data-lang-key="project1-desc">Using AI to classify images of ten different categories.</p>
-                <!-- techno -->
-                <ol class="work-technologies">
-                  <li data-lang-key="project1-tech1">Python</li>
-                  <li data-lang-key="project1-tech2">Supervised learning</li>
-                  <li data-lang-key="project1-tech3">Convolutional Neural Network (CNN)</li>
-                </ol>
-
-                <div class="work-links">
-                  <!-- url of project with image -->
-                  <a href="https://colab.research.google.com/drive/1e0b2ujHG--1ifloviWWq55Q5_G5B9dJP" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
-                  <a
-                    href="https://colab.research.google.com/drive/1e0b2ujHG--1ifloviWWq55Q5_G5B9dJP"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/skills/google_colab.webp"
-                      alt="Google_colab"
-                      loading="lazy"
-                    />
-                  </a>
+              <div class="profile-stats">
+                <div class="stat">
+                  <span class="stat-number">5+</span>
+                  <span class="stat-label">projets forts</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number">3</span>
+                  <span class="stat-label">axes majeurs</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number">2026</span>
+                  <span class="stat-label">portfolio refondu</span>
                 </div>
               </div>
 
-              <!-- image of project -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/classification_img.png"
-                  alt="agency elevation"
-                />
-              </picture>
-            </div>
-
-            <!-- box-4 -->
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- title -->
-                <h3 class="h3" data-lang-key="project4-title">video game</h3>
-                <!-- description -->
-                <p class="work-text" data-lang-key="project4-desc">Real-time multiplayer game with environment and resource management. It's a project group in which I've done the server part.</p>
-                <!-- techno -->
-                <ol class="work-technologies">
-                  <li data-lang-key="project4-tech1">C</li>
-                  <li data-lang-key="project4-tech2">Cpp</li>
-                  <li data-lang-key="project4-tech3">Python</li>
-                </ol>
-
-                <div class="github-icon">
-                  <!-- url of project with image -->
-                  <a href="https://github.com/lucas-debize/r-type" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
-                  <a
-                    href="https://github.com/lucas-debize/r-type"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
+              <div class="profile-tags">
+                <span>Machine Learning</span>
+                <span>Backend</span>
+                <span>Automation</span>
+                <span>Systems</span>
+                <span>Web</span>
               </div>
-
-              <!-- image of project -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/jeu_img.png"
-                  alt="agency elevation"
-                />
-              </picture>
-            </div>
-
-            <!-- box-5 -->
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- title -->
-                <h3 class="h3" data-lang-key="project5-title">chess game state</h3>
-                <!-- description -->
-                <p class="work-text" data-lang-key="project5-desc">Build and train an AI to determine the state of a chess game using supervised learning with FEN data.</p>
-                <!-- techno -->
-                <ol class="work-technologies">
-                  <li data-lang-key="project5-tech1">Python</li>
-                  <li data-lang-key="project5-tech2">Supervised learning</li>
-                  <li data-lang-key="project5-tech3">Numpy</li>
-                </ol>
-
-                <div class="github-icon">
-                  <!-- url of project with image -->
-                  <a href="https://github.com/lucas-debize/chess_game_state" target="_blank" rel="noopener" class="link" data-lang-key="explore-project">Explore this project</a>
-                  <a
-                    href="https://github.com/lucas-debize/chess_game_state"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-
-              <!-- image of project -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/chess_img.png"
-                  alt="agency elevation"
-                />
-              </picture>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Update skills-img src, alt  and title attributes I have added some other logos in assets/images/skill for your convenience feel free to pick one if required  -->
-
-      <section class="skills">
+      <!-- ABOUT -->
+      <section class="section" id="about">
         <div class="container">
-          <h2 class="h2" id="skills" data-lang-key="skills-title">My Skills</h2>
-          <div class="skills-imgs">
-                 <img src="assets/images/skills/python.webp" alt="Python" class="skills-img" loading="lazy" title="Python">
-                 <img src="assets/images/skills/c.webp" alt="C" class="skills-img" loading="lazy" title="C">
-                 <img src="assets/images/skills/git.webp" alt="Git" class="skills-img" loading="lazy" title="Git">
-                 <img src="assets/images/skills/cpp.webp" alt="Cpp" class="skills-img" loading="lazy" title="Cpp">
-                 <img src="assets/images/skills/react.webp" alt="React" class="skills-img" loading="lazy" title="React">
-                 <img src="assets/images/skills/next-js.webp" alt="NextJS" class="skills-img" loading="lazy" title="NextJS">
-                 <img src="assets/images/skills/js.webp" alt="JavaScript" class="skills-img" loading="lazy" title="JavaScript">
-                 <img src="assets/images/skills/google_colab.webp" alt="Google Colab" class="skills-img" loading="lazy" title="Google Colab">
+          <div class="section-heading reveal">
+            <span class="section-kicker">À propos</span>
+            <h2>Un profil technique polyvalent avec une vraie direction IA.</h2>
+            <p>
+              Mon objectif est de construire des solutions utiles, lisibles et
+              techniquement solides. Je m’intéresse particulièrement à l’IA,
+              aux systèmes de décision, à l’automatisation et au développement
+              d’outils concrets capables de résoudre de vrais problèmes.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <article class="glass-card reveal">
+              <h3>Ce que je fais</h3>
+              <p>
+                Je développe des projets logiciels de bout en bout : logique métier,
+                algorithmique, traitement de données, interfaces, intégration de services
+                et expérimentation autour de modèles d’apprentissage.
+              </p>
+            </article>
+
+            <article class="glass-card reveal">
+              <h3>Ce que je cherche</h3>
+              <p>
+                Une opportunité où je peux progresser au contact d’une équipe exigeante,
+                contribuer à un produit réel, et approfondir mes compétences en IA,
+                backend et engineering.
+              </p>
+            </article>
+
+            <article class="glass-card reveal">
+              <h3>Ma manière de travailler</h3>
+              <p>
+                J’aime les bases propres : structure claire, composants cohérents,
+                code maintenable, UX simple, et démonstration concrète de la valeur
+                apportée par chaque projet.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="contact">
+      <!-- PROJECTS -->
+      <section class="section section-projects" id="projects">
         <div class="container">
-          <h2 class="h2" id="contact" data-lang-key="contact-title">Send Message</h2>
-          <div class="contact-content">
-            <div class="contact-textbox">
-              <!-- Please comment this component if you're not available for hire -->
-              <strong href="#" class="hire-alert">
-                <span class="indicator"></span>
-                <p data-lang-key="hire-alert">Available for hire</p>
-              </strong>
-              <p class="contact-text" data-lang-key="contact-intro-1">
-                For any more information or inquiries, feel free to reach out to my 
-                <a href="assets/images/CV.pdf" class="link">CV</a>
-                or contact me directly.
-              </p>
-              <p class="contact-text" data-lang-key="contact-phone">
-                Phone: <a href="tel:+33 07 82 75 92 01">+33 07 82 75 92 01</a>
-              </p>
-              <p class="contact-text" data-lang-key="contact-email">
-                Mail: <a href="mailto:lucas.debize@epitech.eu">lucas.debize@epitech.eu</a>
-              </p>                       
-              <!-- Replace src with your signatures and name -->
+          <div class="section-heading reveal">
+            <span class="section-kicker">Projets</span>
+            <h2>Une sélection de projets orientés impact, technique et apprentissage.</h2>
+            <p>
+              J’ai retenu ici les projets les plus représentatifs de mon profil :
+              automatisation, IA, backend, traitement de données et développement logiciel.
+            </p>
+          </div>
+
+          <div class="project-filters reveal">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="ai">IA</button>
+            <button class="filter-btn" data-filter="software">Software</button>
+            <button class="filter-btn" data-filter="systems">Systèmes</button>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card reveal" data-category="software">
+              <div class="project-media project-media-area">
+                <span>AREA</span>
+              </div>
+              <div class="project-body">
+                <div class="project-meta">
+                  <span class="badge">Software</span>
+                  <span class="badge badge-soft">Automatisation</span>
+                </div>
+                <h3>AREA</h3>
+                <p>
+                  Plateforme d’automatisation entre services. Une action déclenchée
+                  sur un outil peut produire une réaction sur un autre.
+                </p>
+                <ul class="project-list">
+                  <li>Architecture d’intégration entre services</li>
+                  <li>Logique d’automatisation type triggers / actions</li>
+                  <li>Travail sur l’ergonomie et la cohérence fonctionnelle</li>
+                </ul>
+                <div class="tech-stack">
+                  <span>Flutter</span>
+                  <span>Docker</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/lucas-debize/area" target="_blank" rel="noopener">
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="ai">
+              <div class="project-media project-media-chess">
+                <span>CHESS AI</span>
+              </div>
+              <div class="project-body">
+                <div class="project-meta">
+                  <span class="badge">IA</span>
+                  <span class="badge badge-soft">Supervisé</span>
+                </div>
+                <h3>Chess Game State</h3>
+                <p>
+                  Construction et entraînement d’un modèle capable de déterminer
+                  l’état d’une partie d’échecs à partir de données FEN.
+                </p>
+                <ul class="project-list">
+                  <li>Préparation des données et représentation des états</li>
+                  <li>Entraînement supervisé et expérimentation</li>
+                  <li>Analyse des résultats et amélioration du pipeline</li>
+                </ul>
+                <div class="tech-stack">
+                  <span>Python</span>
+                  <span>NumPy</span>
+                  <span>Supervised Learning</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">
+                    Voir le profil GitHub
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="systems">
+              <div class="project-media project-media-rtype">
+                <span>R-TYPE</span>
+              </div>
+              <div class="project-body">
+                <div class="project-meta">
+                  <span class="badge">Systèmes</span>
+                  <span class="badge badge-soft">Temps réel</span>
+                </div>
+                <h3>Jeu vidéo multijoueur type R-Type</h3>
+                <p>
+                  Projet de groupe reproduisant un jeu multijoueur en temps réel.
+                  J’ai principalement travaillé sur la partie serveur.
+                </p>
+                <ul class="project-list">
+                  <li>Gestion des communications réseau</li>
+                  <li>Logique serveur et synchronisation temps réel</li>
+                  <li>Travail en équipe sur une base complexe</li>
+                </ul>
+                <div class="tech-stack">
+                  <span>C</span>
+                  <span>C++</span>
+                  <span>Python</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">
+                    Voir le profil GitHub
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="ai">
+              <div class="project-media project-media-ocr">
+                <span>OCR / NLP</span>
+              </div>
+              <div class="project-body">
+                <div class="project-meta">
+                  <span class="badge">IA</span>
+                  <span class="badge badge-soft">Traitement</span>
+                </div>
+                <h3>Reconnaissance et traitement de texte</h3>
+                <p>
+                  Expérimentations autour de la reconnaissance de texte et du
+                  traitement automatique pour transformer des entrées brutes
+                  en données exploitables.
+                </p>
+                <ul class="project-list">
+                  <li>Prétraitement des données</li>
+                  <li>Extraction d’information</li>
+                  <li>Chaîne de transformation orientée résultat</li>
+                </ul>
+                <div class="tech-stack">
+                  <span>Python</span>
+                  <span>Data Processing</span>
+                  <span>OCR / NLP</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">
+                    Voir le profil GitHub
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="ai">
+              <div class="project-media project-media-dense">
+                <span>DNN</span>
+              </div>
+              <div class="project-body">
+                <div class="project-meta">
+                  <span class="badge">IA</span>
+                  <span class="badge badge-soft">Modélisation</span>
+                </div>
+                <h3>Réseau neuronal dense</h3>
+                <p>
+                  Projet d’exploration autour de modèles neuronaux denses, avec
+                  attention portée à la compréhension des entrées, sorties et
+                  performances du modèle.
+                </p>
+                <ul class="project-list">
+                  <li>Conception d’un pipeline d’entraînement</li>
+                  <li>Expérimentation sur les hyperparamètres</li>
+                  <li>Lecture des résultats et itérations</li>
+                </ul>
+                <div class="tech-stack">
+                  <span>Python</span>
+                  <span>Deep Learning</span>
+                  <span>Dense Neural Network</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">
+                    Voir le profil GitHub
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="software">
+              <div class="project-media project-media-portfolio">
+                <span>PORTFOLIO</span>
+              </div>
+              <div class="project-body">
+                <div class="project-meta">
+                  <span class="badge">Software</span>
+                  <span class="badge badge-soft">Front-end</span>
+                </div>
+                <h3>Refonte du portfolio</h3>
+                <p>
+                  Refonte complète du site personnel avec une direction plus
+                  professionnelle : meilleure hiérarchie, design system cohérent,
+                  responsive propre et expérience plus fluide.
+                </p>
+                <ul class="project-list">
+                  <li>Refonte UI / UX complète</li>
+                  <li>Composants réutilisables</li>
+                  <li>Animations discrètes et accessibilité renforcée</li>
+                </ul>
+                <div class="tech-stack">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                  <a href="#contact">En discuter</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">Compétences</span>
+            <h2>Des outils que j’utilise pour construire, tester et itérer.</h2>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-card reveal">
+              <h3>Langages</h3>
+              <div class="skill-tags">
+                <span>Python</span>
+                <span>C</span>
+                <span>C++</span>
+                <span>JavaScript</span>
+              </div>
             </div>
 
-            <form id="contact-form" class="contact-form">
-              <input type="hidden" name="contact_number" value="697483">
-              <div class="form-field">
-                <label for="name" data-lang-key="form-name-label">Name</label>
-                <input type="text" name="user_name" required />
+            <div class="skill-card reveal">
+              <h3>IA / Data</h3>
+              <div class="skill-tags">
+                <span>Supervised Learning</span>
+                <span>Dense Neural Networks</span>
+                <span>NumPy</span>
+                <span>Prétraitement</span>
               </div>
-              <div class="form-field">
-                  <label for="email" data-lang-key="form-email-label">Email</label>
-                  <input type="email" name="user_email" required />
+            </div>
+
+            <div class="skill-card reveal">
+              <h3>Web / Produit</h3>
+              <div class="skill-tags">
+                <span>React</span>
+                <span>Next.js</span>
+                <span>Flutter</span>
+                <span>UI / UX</span>
               </div>
-              <div class="form-field">
-                  <label for="message" data-lang-key="form-message-label">Message</label>
-                  <textarea name="message" required></textarea>
+            </div>
+
+            <div class="skill-card reveal">
+              <h3>Outils</h3>
+              <div class="skill-tags">
+                <span>Git</span>
+                <span>Docker</span>
+                <span>Google Colab</span>
+                <span>Linux</span>
               </div>
-              <button class="btn" data-lang-key="form-submit-btn" type="submit" value="Send">Send</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section section-contact" id="contact">
+        <div class="container">
+          <div class="contact-layout">
+            <div class="contact-copy reveal">
+              <span class="section-kicker">Contact</span>
+              <h2>Tu veux échanger sur un projet, un stage ou une opportunité ?</h2>
+              <p>
+                Je suis joignable pour discuter d’un projet, d’une collaboration,
+                d’une alternance, d’un stage ou d’une opportunité en développement
+                logiciel / intelligence artificielle.
+              </p>
+
+              <div class="contact-list">
+                <a href="mailto:lucas.debize@epitech.eu">lucas.debize@epitech.eu</a>
+                <a href="tel:+330782759201">+33 07 82 75 92 01</a>
+                <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="assets/images/CV.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
+              </div>
+            </div>
+
+            <form class="contact-card reveal" id="contact-form">
+              <div class="form-row">
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" placeholder="Ton nom" required />
+              </div>
+
+              <div class="form-row">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" placeholder="ton@email.com" required />
+              </div>
+
+              <div class="form-row">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Parle-moi de ton besoin, ton projet ou ton opportunité."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                Envoyer
+              </button>
+
+              <p class="form-note">
+                Le formulaire ouvre ton client mail avec le message prérempli.
+              </p>
             </form>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <!-- Update href and src attributes -->
-          <nav>
-            <ol class="footer-links">
-              <li class="footer-link">
-                <a title="GitHub" href="https://github.com/lucas-debize" target="_blank" rel="noopener"
-                  ><img
-                    loading="lazy"
-                    src="assets/images/social-links/github.svg"
-                    alt="GitHub"
-                /></a>
-              </li>
-              <li class="footer-link">
-                <a title="Linkedin" href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noopener"
-                  ><img
-                    loading="lazy"
-                    src="assets/images/social-links/linkedin.svg"
-                    alt="Linkedin"
-                /></a>
-              </li>
-            </ol>
-          </nav>
-          <p class="footer-text">
-            &copy; <span>2024</span> - Template designed & developed by Syed Mohsin.</a>
-          </p>
-          <label class="theme-switch" for="theme-switch">
-            <span data-lang-key="dark_theme">Dark Theme</span>
-            <input type="checkbox" id="theme-switch" role="switch"/>
-          </label>
-        </div>
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>© <span id="year"></span> Lucas Debize — Portfolio.</p>
+        <a href="#top">Retour en haut ↑</a>
       </div>
     </footer>
-    <script defer type="text/javascript" src="https://cdn.emailjs.com/sdk/3.10.0/email.min.js"></script>
-    <script defer src="script.js"></script>
-
-    <!-- Chatbot Toggle Button -->
-    <button id="chatbot-toggle" class="chatbot-toggle" data-lang-key="chatbot-toggle">💬</button>
-
-    <!-- Chatbot Container -->
-    <div id="chatbot" class="chatbot hidden">
-      <div class="chatbot-header">
-        <h4 data-lang-key="chatbot-header">Chat with Me</h4>
-        <button id="chatbot-close" data-lang-key="chatbot-close">✖️</button>
-      </div>
-      <div class="chatbot-messages">
-        <!-- Messages will appear here -->
-      </div>
-      <div class="chatbot-input">
-        <input type="text" id="chatbot-input" placeholder="Ask me anything..." data-lang-key="chatbot-placeholder" />
-        <button id="chatbot-send" data-lang-key="chatbot-send">Send</button>
-      </div>
-    </div>
   </body>
 </html>
