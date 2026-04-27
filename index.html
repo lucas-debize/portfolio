@@ -1,520 +1,440 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lucas Debize — Portfolio</title>
-    <meta
-      name="description"
-      content="Portfolio de Lucas Debize, étudiant en informatique à Epitech, spécialisé en développement logiciel et intelligence artificielle."
-    />
+    <meta name="description" content="Portfolio étudiant en informatique. Projets en développement logiciel, web et intelligence artificielle." />
     <meta name="theme-color" content="#0b1020" />
-    <meta name="robots" content="index, follow" />
-
-    <link
-      rel="shortcut icon"
-      href="assets/images/photo_profil.png"
-      type="image/png"
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/Mona-Sans.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
-    <div class="bg-blur bg-blur-1"></div>
-    <div class="bg-blur bg-blur-2"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
 
-    <header class="site-header" id="top">
-      <div class="container">
-        <div class="navbar">
-          <a href="#top" class="brand">
-            <span class="brand-dot"></span>
-            <span>Lucas Debize</span>
-          </a>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#top" class="brand">
+          <span class="brand-dot"></span>
+          <span>Lucas Debize</span>
+        </a>
 
-          <nav class="nav" id="nav">
-            <a href="#about">À propos</a>
-            <a href="#projects">Projets</a>
-            <a href="#skills">Compétences</a>
-            <a href="#contact">Contact</a>
-          </nav>
+        <nav class="desktop-nav">
+          <a href="#about" data-i18n="nav.about">À propos</a>
+          <a href="#projects" data-i18n="nav.projects">Projets</a>
+          <a href="#skills" data-i18n="nav.skills">Compétences</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
 
-          <div class="nav-actions">
-            <button
-              class="theme-toggle"
-              id="theme-toggle"
-              type="button"
-              aria-label="Changer de thème"
-              title="Changer de thème"
-            >
-              <span class="theme-toggle-icon">🌙</span>
-            </button>
-
-            <button
-              class="menu-toggle"
-              id="menu-toggle"
-              type="button"
-              aria-label="Ouvrir le menu"
-              aria-expanded="false"
-            >
-              <span></span>
-              <span></span>
-            </button>
-          </div>
+        <div class="header-actions">
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language">
+            <span id="langLabel">FR</span>
+          </button>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span id="themeIcon">☀</span>
+          </button>
         </div>
       </div>
     </header>
 
-    <main>
+    <main id="top">
       <!-- HERO -->
       <section class="hero">
         <div class="container hero-grid">
-          <div class="hero-content reveal">
-            <span class="eyebrow">Disponible pour stage / alternance / opportunité tech</span>
-
-            <h1>
-              Je conçois des produits
-              <span class="gradient-text">software & IA</span>
-              propres, utiles et bien pensés.
+          <article class="card hero-main">
+            <p class="eyebrow" data-i18n="hero.eyebrow">Portfolio étudiant</p>
+            <h1 data-i18n-html="hero.title">
+              Développeur en devenir,<br />
+              passionné de <span class="grad-text">code</span> &amp; d’<span class="grad-text">IA</span>.
             </h1>
-
-            <p class="hero-text">
-              Je suis Lucas Debize, étudiant en informatique à Epitech. Je développe
-              des projets en intelligence artificielle, backend, automatisation et
-              applications interactives avec une attention forte portée à la clarté,
-              la robustesse et l’expérience utilisateur.
+            <p class="hero-text" data-i18n="hero.text">
+              Étudiant en informatique, je conçois des projets concrets en
+              développement logiciel, web et intelligence artificielle.
+              Architecture propre, interfaces soignées, logique technique.
             </p>
 
-            <div class="hero-cta">
-              <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-              <a href="#contact" class="btn btn-secondary">Me contacter</a>
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Voir les projets</a>
+              <a href="#contact" class="btn btn-secondary" data-i18n="hero.cta2">Me contacter</a>
             </div>
 
-            <ul class="hero-highlights">
-              <li>Python · C · C++ · JavaScript</li>
-              <li>IA · apprentissage supervisé · automatisation</li>
-              <li>Étudiant Epitech orienté software engineering</li>
-            </ul>
-          </div>
-
-          <div class="hero-card reveal reveal-delay">
-            <div class="profile-card">
-              <div class="profile-top">
-                <div class="avatar">LD</div>
-                <div>
-                  <p class="profile-name">Lucas Debize</p>
-                  <p class="profile-role">Étudiant développeur • IA / Software</p>
-                </div>
+            <div class="hero-meta">
+              <div class="meta-item">
+                <span class="meta-dot dot-green"></span>
+                <span data-i18n="hero.meta1">Disponible pour un stage</span>
               </div>
-
-              <div class="profile-stats">
-                <div class="stat">
-                  <span class="stat-number">5+</span>
-                  <span class="stat-label">projets forts</span>
-                </div>
-                <div class="stat">
-                  <span class="stat-number">3</span>
-                  <span class="stat-label">axes majeurs</span>
-                </div>
-                <div class="stat">
-                  <span class="stat-number">2026</span>
-                  <span class="stat-label">portfolio refondu</span>
-                </div>
-              </div>
-
-              <div class="profile-tags">
-                <span>Machine Learning</span>
-                <span>Backend</span>
-                <span>Automation</span>
-                <span>Systems</span>
-                <span>Web</span>
+              <div class="meta-item">
+                <span class="meta-dot dot-blue"></span>
+                <span data-i18n="hero.meta2">Basé en France</span>
               </div>
             </div>
+          </article>
+
+          <div class="hero-side">
+            <article class="card side-card">
+              <div class="side-icon">⚡</div>
+              <span class="side-label" data-i18n="hero.side1.label">Focus</span>
+              <h4 data-i18n="hero.side1.title">Logiciel · Web · IA</h4>
+              <p data-i18n="hero.side1.text">Développement applicatif, interfaces modernes et expérimentations autour de l’intelligence artificielle.</p>
+            </article>
+
+            <article class="card side-card">
+              <div class="side-icon">◆</div>
+              <span class="side-label" data-i18n="hero.side2.label">Approche</span>
+              <h4 data-i18n="hero.side2.title">Concret &amp; soigné</h4>
+              <p data-i18n="hero.side2.text">Projets aboutis, code structuré, interfaces lisibles et logique technique assumée.</p>
+            </article>
           </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="stats-section">
+        <div class="container stats-grid">
+          <article class="card stat-card">
+            <span class="stat-value" id="statProjects">0</span>
+            <span class="stat-label" data-i18n="stats.projects">Projets réalisés</span>
+          </article>
+          <article class="card stat-card">
+            <span class="stat-value" id="statDomains">0</span>
+            <span class="stat-label" data-i18n="stats.domains">Domaines principaux</span>
+          </article>
+          <article class="card stat-card">
+            <span class="stat-value" id="statTechs">0</span>
+            <span class="stat-label" data-i18n="stats.techs">Technologies utilisées</span>
+          </article>
         </div>
       </section>
 
       <!-- ABOUT -->
-      <section class="section" id="about">
+      <section class="about-section" id="about">
         <div class="container">
-          <div class="section-heading reveal">
-            <span class="section-kicker">À propos</span>
-            <h2>Un profil technique polyvalent avec une vraie direction IA.</h2>
-            <p>
-              Mon objectif est de construire des solutions utiles, lisibles et
-              techniquement solides. Je m’intéresse particulièrement à l’IA,
-              aux systèmes de décision, à l’automatisation et au développement
-              d’outils concrets capables de résoudre de vrais problèmes.
+          <header class="section-head">
+            <p class="eyebrow" data-i18n="about.eyebrow">À propos</p>
+            <h2 data-i18n="about.title">Profil</h2>
+          </header>
+        </div>
+
+        <div class="container about-grid">
+          <article class="card about-card">
+            <p data-i18n="about.p1">
+              Étudiant en informatique, j’utilise ce portfolio pour présenter
+              différents projets réalisés en développement logiciel, web et
+              autour de l’IA.
             </p>
-          </div>
+            <p data-i18n="about.p2">
+              L’objectif : montrer des réalisations concrètes, la manière
+              dont elles ont été conçues, ainsi que les outils et technologies
+              utilisés.
+            </p>
+          </article>
 
-          <div class="about-grid">
-            <article class="glass-card reveal">
-              <h3>Ce que je fais</h3>
-              <p>
-                Je développe des projets logiciels de bout en bout : logique métier,
-                algorithmique, traitement de données, interfaces, intégration de services
-                et expérimentation autour de modèles d’apprentissage.
-              </p>
-            </article>
-
-            <article class="glass-card reveal">
-              <h3>Ce que je cherche</h3>
-              <p>
-                Une opportunité où je peux progresser au contact d’une équipe exigeante,
-                contribuer à un produit réel, et approfondir mes compétences en IA,
-                backend et engineering.
-              </p>
-            </article>
-
-            <article class="glass-card reveal">
-              <h3>Ma manière de travailler</h3>
-              <p>
-                J’aime les bases propres : structure claire, composants cohérents,
-                code maintenable, UX simple, et démonstration concrète de la valeur
-                apportée par chaque projet.
-              </p>
-            </article>
-          </div>
+          <article class="card about-card">
+            <h3 class="card-title" data-i18n="about.listTitle">Ce que je cherche à montrer</h3>
+            <ul class="about-list">
+              <li data-i18n="about.li1">des projets variés et structurés</li>
+              <li data-i18n="about.li2">une approche technique claire</li>
+              <li data-i18n="about.li3">une attention à l’interface et à l’expérience utilisateur</li>
+              <li data-i18n="about.li4">un intérêt réel pour les sujets liés à l’IA</li>
+            </ul>
+          </article>
         </div>
       </section>
 
       <!-- PROJECTS -->
-      <section class="section section-projects" id="projects">
+      <section class="projects-section" id="projects">
         <div class="container">
-          <div class="section-heading reveal">
-            <span class="section-kicker">Projets</span>
-            <h2>Une sélection de projets orientés impact, technique et apprentissage.</h2>
-            <p>
-              J’ai retenu ici les projets les plus représentatifs de mon profil :
-              automatisation, IA, backend, traitement de données et développement logiciel.
-            </p>
-          </div>
+          <header class="section-head section-head-row">
+            <div>
+              <p class="eyebrow" data-i18n="projects.eyebrow">Projets</p>
+              <h2 data-i18n="projects.title">Sélection de réalisations</h2>
+            </div>
 
-          <div class="project-filters reveal">
-            <button class="filter-btn active" data-filter="all">Tous</button>
-            <button class="filter-btn" data-filter="ai">IA</button>
-            <button class="filter-btn" data-filter="software">Software</button>
-            <button class="filter-btn" data-filter="systems">Systèmes</button>
-          </div>
+            <div class="filters" id="projectFilters">
+              <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
+              <button class="filter-btn" data-filter="software" data-i18n="projects.filterSoft">Logiciel</button>
+              <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb">Web</button>
+              <button class="filter-btn" data-filter="ai" data-i18n="projects.filterAi">IA</button>
+              <button class="filter-btn" data-filter="personal" data-i18n="projects.filterPerso">Personnel</button>
+            </div>
+          </header>
+        </div>
 
-          <div class="projects-grid">
-            <article class="project-card reveal" data-category="software">
-              <div class="project-media project-media-area">
-                <span>AREA</span>
+        <div class="container projects-grid">
+          <article
+            class="project-card card"
+            tabindex="0"
+            data-category="software ai"
+            data-i18n-title="projects.chess.title"
+            data-i18n-subtitle="projects.chess.subtitle"
+            data-i18n-description="projects.chess.description"
+            data-i18n-short="projects.chess.short"
+            data-i18n-badge="projects.badge.tech"
+            data-title="Chess Vision"
+            data-subtitle="Analyse visuelle d’un plateau d’échecs"
+            data-description="Projet orienté vision par ordinateur visant à reconnaître l’état d’un échiquier à partir d’une image. Travail sur le traitement d’image, l’extraction d’informations visuelles et l’interprétation du plateau."
+            data-image="assets/images/project-chess.jpg"
+            data-tags="Python,OpenCV,Vision par ordinateur,IA"
+            data-link="#"
+          >
+            <div class="project-cover">
+              <img src="assets/images/project-chess.jpg" alt="Aperçu du projet Chess Vision" />
+            </div>
+            <div class="project-body">
+              <div class="project-badges">
+                <span class="badge badge-main" data-i18n="projects.badge.tech">Projet technique</span>
+                <span class="badge">IA</span>
               </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="badge">Software</span>
-                  <span class="badge badge-soft">Automatisation</span>
-                </div>
-                <h3>AREA</h3>
-                <p>
-                  Plateforme d’automatisation entre services. Une action déclenchée
-                  sur un outil peut produire une réaction sur un autre.
-                </p>
-                <ul class="project-list">
-                  <li>Architecture d’intégration entre services</li>
-                  <li>Logique d’automatisation type triggers / actions</li>
-                  <li>Travail sur l’ergonomie et la cohérence fonctionnelle</li>
-                </ul>
-                <div class="tech-stack">
-                  <span>Flutter</span>
-                  <span>Docker</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/lucas-debize/area" target="_blank" rel="noopener">
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </article>
+              <h3 class="card-title" data-i18n="projects.chess.title">Chess Vision</h3>
+              <p data-i18n="projects.chess.short">Reconnaissance d’un état de jeu d’échecs à partir d’une image.</p>
+            </div>
+          </article>
 
-            <article class="project-card reveal" data-category="ai">
-              <div class="project-media project-media-chess">
-                <span>CHESS AI</span>
+          <article
+            class="project-card card"
+            tabindex="0"
+            data-category="web personal"
+            data-i18n-title="projects.portfolio.title"
+            data-i18n-subtitle="projects.portfolio.subtitle"
+            data-i18n-description="projects.portfolio.description"
+            data-i18n-short="projects.portfolio.short"
+            data-i18n-badge="projects.badge.perso"
+            data-title="Portfolio"
+            data-subtitle="Conception et développement front-end"
+            data-description="Création de ce portfolio avec une attention particulière portée à la hiérarchie visuelle, aux animations, au responsive et à la mise en valeur des projets."
+            data-image="assets/images/project-portfolio.jpg"
+            data-tags="HTML,CSS,JavaScript,UI"
+            data-link="#"
+          >
+            <div class="project-cover">
+              <img src="assets/images/project-portfolio.jpg" alt="Aperçu du portfolio" />
+            </div>
+            <div class="project-body">
+              <div class="project-badges">
+                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
+                <span class="badge">Web</span>
               </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="badge">IA</span>
-                  <span class="badge badge-soft">Supervisé</span>
-                </div>
-                <h3>Chess Game State</h3>
-                <p>
-                  Construction et entraînement d’un modèle capable de déterminer
-                  l’état d’une partie d’échecs à partir de données FEN.
-                </p>
-                <ul class="project-list">
-                  <li>Préparation des données et représentation des états</li>
-                  <li>Entraînement supervisé et expérimentation</li>
-                  <li>Analyse des résultats et amélioration du pipeline</li>
-                </ul>
-                <div class="tech-stack">
-                  <span>Python</span>
-                  <span>NumPy</span>
-                  <span>Supervised Learning</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">
-                    Voir le profil GitHub
-                  </a>
-                </div>
-              </div>
-            </article>
+              <h3 class="card-title" data-i18n="projects.portfolio.title">Portfolio</h3>
+              <p data-i18n="projects.portfolio.short">Interface pensée pour présenter des projets et compétences de manière claire.</p>
+            </div>
+          </article>
 
-            <article class="project-card reveal" data-category="systems">
-              <div class="project-media project-media-rtype">
-                <span>R-TYPE</span>
+          <article
+            class="project-card card"
+            tabindex="0"
+            data-category="web ai"
+            data-i18n-title="projects.dashboard.title"
+            data-i18n-subtitle="projects.dashboard.subtitle"
+            data-i18n-description="projects.dashboard.description"
+            data-i18n-short="projects.dashboard.short"
+            data-i18n-badge="projects.badge.tech"
+            data-title="Dashboard IA"
+            data-subtitle="Intégration d’outils IA dans une interface web"
+            data-description="Prototype d’interface permettant de manipuler différents traitements liés à l’IA dans une interface web claire. Travail sur la structuration front-end et l’intégration de fonctionnalités interactives."
+            data-image="assets/images/project-ai.jpg"
+            data-tags="Python,JavaScript,IA,Web"
+            data-link="#"
+          >
+            <div class="project-cover">
+              <img src="assets/images/project-ai.jpg" alt="Aperçu du projet Dashboard IA" />
+            </div>
+            <div class="project-body">
+              <div class="project-badges">
+                <span class="badge badge-main" data-i18n="projects.badge.tech">Projet technique</span>
+                <span class="badge">Web</span>
               </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="badge">Systèmes</span>
-                  <span class="badge badge-soft">Temps réel</span>
-                </div>
-                <h3>Jeu vidéo multijoueur type R-Type</h3>
-                <p>
-                  Projet de groupe reproduisant un jeu multijoueur en temps réel.
-                  J’ai principalement travaillé sur la partie serveur.
-                </p>
-                <ul class="project-list">
-                  <li>Gestion des communications réseau</li>
-                  <li>Logique serveur et synchronisation temps réel</li>
-                  <li>Travail en équipe sur une base complexe</li>
-                </ul>
-                <div class="tech-stack">
-                  <span>C</span>
-                  <span>C++</span>
-                  <span>Python</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">
-                    Voir le profil GitHub
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card reveal" data-category="ai">
-              <div class="project-media project-media-ocr">
-                <span>OCR / NLP</span>
-              </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="badge">IA</span>
-                  <span class="badge badge-soft">Traitement</span>
-                </div>
-                <h3>Reconnaissance et traitement de texte</h3>
-                <p>
-                  Expérimentations autour de la reconnaissance de texte et du
-                  traitement automatique pour transformer des entrées brutes
-                  en données exploitables.
-                </p>
-                <ul class="project-list">
-                  <li>Prétraitement des données</li>
-                  <li>Extraction d’information</li>
-                  <li>Chaîne de transformation orientée résultat</li>
-                </ul>
-                <div class="tech-stack">
-                  <span>Python</span>
-                  <span>Data Processing</span>
-                  <span>OCR / NLP</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">
-                    Voir le profil GitHub
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card reveal" data-category="ai">
-              <div class="project-media project-media-dense">
-                <span>DNN</span>
-              </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="badge">IA</span>
-                  <span class="badge badge-soft">Modélisation</span>
-                </div>
-                <h3>Réseau neuronal dense</h3>
-                <p>
-                  Projet d’exploration autour de modèles neuronaux denses, avec
-                  attention portée à la compréhension des entrées, sorties et
-                  performances du modèle.
-                </p>
-                <ul class="project-list">
-                  <li>Conception d’un pipeline d’entraînement</li>
-                  <li>Expérimentation sur les hyperparamètres</li>
-                  <li>Lecture des résultats et itérations</li>
-                </ul>
-                <div class="tech-stack">
-                  <span>Python</span>
-                  <span>Deep Learning</span>
-                  <span>Dense Neural Network</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">
-                    Voir le profil GitHub
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card reveal" data-category="software">
-              <div class="project-media project-media-portfolio">
-                <span>PORTFOLIO</span>
-              </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="badge">Software</span>
-                  <span class="badge badge-soft">Front-end</span>
-                </div>
-                <h3>Refonte du portfolio</h3>
-                <p>
-                  Refonte complète du site personnel avec une direction plus
-                  professionnelle : meilleure hiérarchie, design system cohérent,
-                  responsive propre et expérience plus fluide.
-                </p>
-                <ul class="project-list">
-                  <li>Refonte UI / UX complète</li>
-                  <li>Composants réutilisables</li>
-                  <li>Animations discrètes et accessibilité renforcée</li>
-                </ul>
-                <div class="tech-stack">
-                  <span>HTML</span>
-                  <span>CSS</span>
-                  <span>JavaScript</span>
-                </div>
-                <div class="project-links">
-                  <a href="#contact">En discuter</a>
-                </div>
-              </div>
-            </article>
-          </div>
+              <h3 class="card-title" data-i18n="projects.dashboard.title">Dashboard IA</h3>
+              <p data-i18n="projects.dashboard.short">Interface web pour expérimenter et présenter des fonctionnalités liées à l’IA.</p>
+            </div>
+          </article>
         </div>
       </section>
 
       <!-- SKILLS -->
-      <section class="section" id="skills">
+      <section class="skills-section" id="skills">
         <div class="container">
-          <div class="section-heading reveal">
-            <span class="section-kicker">Compétences</span>
-            <h2>Des outils que j’utilise pour construire, tester et itérer.</h2>
-          </div>
+          <header class="section-head">
+            <p class="eyebrow" data-i18n="skills.eyebrow">Compétences</p>
+            <h2 data-i18n="skills.title">Technologies et domaines</h2>
+          </header>
+        </div>
 
-          <div class="skills-grid">
-            <div class="skill-card reveal">
-              <h3>Langages</h3>
-              <div class="skill-tags">
-                <span>Python</span>
-                <span>C</span>
-                <span>C++</span>
-                <span>JavaScript</span>
-              </div>
+        <div class="container skills-grid">
+          <article class="card skill-card">
+            <div class="skill-head">
+              <div class="skill-icon">{ }</div>
+              <h3 class="card-title" data-i18n="skills.soft.title">Développement logiciel</h3>
             </div>
+            <div class="chips">
+              <span class="chip">C / C++</span>
+              <span class="chip" data-i18n="skills.soft.c1">Architecture</span>
+              <span class="chip">POO</span>
+              <span class="chip" data-i18n="skills.soft.c2">Réseau</span>
+              <span class="chip" data-i18n="skills.soft.c3">Systèmes</span>
+            </div>
+          </article>
 
-            <div class="skill-card reveal">
-              <h3>IA / Data</h3>
-              <div class="skill-tags">
-                <span>Supervised Learning</span>
-                <span>Dense Neural Networks</span>
-                <span>NumPy</span>
-                <span>Prétraitement</span>
-              </div>
+          <article class="card skill-card">
+            <div class="skill-head">
+              <div class="skill-icon">&lt;/&gt;</div>
+              <h3 class="card-title" data-i18n="skills.web.title">Développement web</h3>
             </div>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip" data-i18n="skills.web.c1">Responsive</span>
+              <span class="chip">UI / UX</span>
+            </div>
+          </article>
 
-            <div class="skill-card reveal">
-              <h3>Web / Produit</h3>
-              <div class="skill-tags">
-                <span>React</span>
-                <span>Next.js</span>
-                <span>Flutter</span>
-                <span>UI / UX</span>
-              </div>
+          <article class="card skill-card">
+            <div class="skill-head">
+              <div class="skill-icon">✦</div>
+              <h3 class="card-title" data-i18n="skills.ai.title">Intelligence artificielle</h3>
             </div>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">OpenCV</span>
+              <span class="chip" data-i18n="skills.ai.c1">Traitement d’image</span>
+              <span class="chip" data-i18n="skills.ai.c2">Expérimentations IA</span>
+            </div>
+          </article>
 
-            <div class="skill-card reveal">
-              <h3>Outils</h3>
-              <div class="skill-tags">
-                <span>Git</span>
-                <span>Docker</span>
-                <span>Google Colab</span>
-                <span>Linux</span>
-              </div>
+          <article class="card skill-card">
+            <div class="skill-head">
+              <div class="skill-icon">◎</div>
+              <h3 class="card-title" data-i18n="skills.method.title">Méthode</h3>
             </div>
-          </div>
+            <div class="chips">
+              <span class="chip" data-i18n="skills.method.c1">Présentation</span>
+              <span class="chip" data-i18n="skills.method.c2">Conception</span>
+              <span class="chip" data-i18n="skills.method.c3">Itération</span>
+              <span class="chip" data-i18n="skills.method.c4">Détail visuel</span>
+            </div>
+          </article>
         </div>
       </section>
 
       <!-- CONTACT -->
-      <section class="section section-contact" id="contact">
+      <section class="contact-section" id="contact">
         <div class="container">
-          <div class="contact-layout">
-            <div class="contact-copy reveal">
-              <span class="section-kicker">Contact</span>
-              <h2>Tu veux échanger sur un projet, un stage ou une opportunité ?</h2>
-              <p>
-                Je suis joignable pour discuter d’un projet, d’une collaboration,
-                d’une alternance, d’un stage ou d’une opportunité en développement
-                logiciel / intelligence artificielle.
+          <header class="section-head">
+            <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+            <h2 data-i18n="contact.title">Échangeons</h2>
+          </header>
+        </div>
+
+        <div class="container contact-wrapper">
+          <article class="card contact-intro">
+            <div class="contact-intro-text">
+              <h3 class="card-title" data-i18n="contact.headline">Une idée, un projet, une opportunité ?</h3>
+              <p data-i18n="contact.text">
+                Que ce soit pour un stage, une collaboration ou simplement
+                pour échanger autour d’un projet, je serai ravi de discuter.
+                Réponse rapide garantie.
               </p>
 
-              <div class="contact-list">
-                <a href="mailto:lucas.debize@epitech.eu">lucas.debize@epitech.eu</a>
-                <a href="tel:+330782759201">+33 07 82 75 92 01</a>
-                <a href="https://github.com/lucas-debize" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="assets/images/CV.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
+              <div class="contact-availability">
+                <span class="meta-dot dot-green pulse"></span>
+                <div>
+                  <strong data-i18n="contact.statusTitle">Disponible immédiatement</strong>
+                  <span data-i18n="contact.statusText">Stage / alternance / projets</span>
+                </div>
               </div>
             </div>
 
-            <form class="contact-card reveal" id="contact-form">
-              <div class="form-row">
-                <label for="name">Nom</label>
-                <input id="name" name="name" type="text" placeholder="Ton nom" required />
+            <div class="contact-quickinfo">
+              <div class="qinfo">
+                <span class="qinfo-label" data-i18n="contact.location">Localisation</span>
+                <span class="qinfo-value">🇫🇷 France</span>
               </div>
-
-              <div class="form-row">
-                <label for="email">E-mail</label>
-                <input id="email" name="email" type="email" placeholder="ton@email.com" required />
+              <div class="qinfo">
+                <span class="qinfo-label" data-i18n="contact.response">Délai de réponse</span>
+                <span class="qinfo-value" data-i18n="contact.responseValue">Sous 24h</span>
               </div>
-
-              <div class="form-row">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  placeholder="Parle-moi de ton besoin, ton projet ou ton opportunité."
-                  required
-                ></textarea>
+              <div class="qinfo">
+                <span class="qinfo-label" data-i18n="contact.languages">Langues</span>
+                <span class="qinfo-value" data-i18n="contact.languagesValue">Français · Anglais</span>
               </div>
+            </div>
+          </article>
 
-              <button type="submit" class="btn btn-primary btn-full">
-                Envoyer
-              </button>
+          <div class="contact-channels">
+            <a class="card contact-channel" href="mailto:tonemail@example.com">
+              <div class="channel-icon channel-icon-mail">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/>
+                  <path d="m3 7 9 6 9-6"/>
+                </svg>
+              </div>
+              <div class="channel-body">
+                <span class="channel-label">Email</span>
+                <span class="channel-value">tonemail@example.com</span>
+              </div>
+              <span class="channel-arrow">→</span>
+            </a>
 
-              <p class="form-note">
-                Le formulaire ouvre ton client mail avec le message prérempli.
-              </p>
-            </form>
+            <a class="card contact-channel" href="https://github.com/" target="_blank" rel="noreferrer">
+              <div class="channel-icon channel-icon-github">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-.99-.02-1.95-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.08 0 4.42-2.7 5.39-5.27 5.68.41.35.78 1.04.78 2.1 0 1.51-.01 2.73-.01 3.1 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+                </svg>
+              </div>
+              <div class="channel-body">
+                <span class="channel-label">GitHub</span>
+                <span class="channel-value">@lucas-debize</span>
+              </div>
+              <span class="channel-arrow">→</span>
+            </a>
+
+            <a class="card contact-channel" href="https://linkedin.com/" target="_blank" rel="noreferrer">
+              <div class="channel-icon channel-icon-linkedin">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.35 3.3a2.06 2.06 0 0 1-.01 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/>
+                </svg>
+              </div>
+              <div class="channel-body">
+                <span class="channel-label">LinkedIn</span>
+                <span class="channel-value">Lucas Debize</span>
+              </div>
+              <span class="channel-arrow">→</span>
+            </a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-content">
-        <p>© <span id="year"></span> Lucas Debize — Portfolio.</p>
-        <a href="#top">Retour en haut ↑</a>
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <!-- MODAL PROJET -->
+    <div class="modal" id="projectModal" aria-hidden="true">
+      <div class="modal-overlay" id="modalOverlay"></div>
+
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="modalClose" aria-label="Fermer">×</button>
+
+        <div class="modal-layout">
+          <div class="modal-visual">
+            <img id="modalImage" src="" alt="" />
+          </div>
+
+          <div class="modal-content">
+            <div class="modal-tags" id="modalTags"></div>
+            <p class="modal-subtitle" id="modalSubtitle"></p>
+            <h3 id="modalTitle"></h3>
+            <p class="modal-description" id="modalDescription"></p>
+
+            <div class="modal-actions">
+              <a href="#" id="modalLink" class="btn btn-primary" target="_blank" rel="noreferrer" data-i18n="modal.cta">
+                Voir le projet
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
   </body>
 </html>

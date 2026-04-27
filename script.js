@@ -1,126 +1,405 @@
-const body = document.body;
-const yearEl = document.getElementById("year");
-const themeToggle = document.getElementById("theme-toggle");
-const themeIcon = document.querySelector(".theme-toggle-icon");
-const menuToggle = document.getElementById("menu-toggle");
-const nav = document.getElementById("nav");
-const revealEls = document.querySelectorAll(".reveal");
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project-card");
-const contactForm = document.getElementById("contact-form");
-const navLinks = document.querySelectorAll(".nav a");
+/* =========================
+   THÈME
+========================= */
+const root = document.documentElement;
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon   = document.getElementById("themeIcon");
 
-yearEl.textContent = new Date().getFullYear();
-
-/* ------------------------------ */
-/* Theme */
-/* ------------------------------ */
 const savedTheme = localStorage.getItem("theme");
+if (savedTheme) root.setAttribute("data-theme", savedTheme);
 
-if (savedTheme === "light") {
-  body.classList.add("light");
-  themeIcon.textContent = "☀️";
-} else {
-  body.classList.remove("light");
-  themeIcon.textContent = "🌙";
+function updateThemeIcon() {
+  themeIcon.textContent = root.getAttribute("data-theme") === "light" ? "☾" : "☀";
 }
+updateThemeIcon();
 
-themeToggle.addEventListener("click", () => {
-  body.classList.toggle("light");
-  const isLight = body.classList.contains("light");
-  localStorage.setItem("theme", isLight ? "light" : "dark");
-  themeIcon.textContent = isLight ? "☀️" : "🌙";
+themeToggle?.addEventListener("click", () => {
+  const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  root.setAttribute("data-theme", next);
+  localStorage.setItem("theme", next);
+  updateThemeIcon();
 });
 
-/* ------------------------------ */
-/* Mobile menu */
-/* ------------------------------ */
-menuToggle?.addEventListener("click", () => {
-  const isOpen = nav.classList.toggle("open");
-  menuToggle.classList.toggle("open", isOpen);
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
+/* =========================
+   TRADUCTIONS
+========================= */
+const translations = {
+  fr: {
+    "nav.about": "À propos",
+    "nav.projects": "Projets",
+    "nav.skills": "Compétences",
+    "nav.contact": "Contact",
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    menuToggle.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
+    "hero.eyebrow": "Portfolio étudiant",
+    "hero.title": "Développeur en devenir,<br/>passionné de <span class=\"grad-text\">code</span> &amp; d'<span class=\"grad-text\">IA</span>.",
+    "hero.text": "Étudiant en informatique, je conçois des projets concrets en développement logiciel, web et intelligence artificielle. Architecture propre, interfaces soignées, logique technique.",
+    "hero.cta1": "Voir les projets",
+    "hero.cta2": "Me contacter",
+    "hero.meta1": "Disponible pour un stage",
+    "hero.meta2": "Basé en France",
+    "hero.side1.label": "Focus",
+    "hero.side1.title": "Logiciel · Web · IA",
+    "hero.side1.text": "Développement applicatif, interfaces modernes et expérimentations autour de l'intelligence artificielle.",
+    "hero.side2.label": "Approche",
+    "hero.side2.title": "Concret & soigné",
+    "hero.side2.text": "Projets aboutis, code structuré, interfaces lisibles et logique technique assumée.",
+
+    "stats.projects": "Projets réalisés",
+    "stats.domains": "Domaines principaux",
+    "stats.techs": "Technologies utilisées",
+
+    "about.eyebrow": "À propos",
+    "about.title": "Profil",
+    "about.p1": "Étudiant en informatique, j'utilise ce portfolio pour présenter différents projets réalisés en développement logiciel, web et autour de l'IA.",
+    "about.p2": "L'objectif : montrer des réalisations concrètes, la manière dont elles ont été conçues, ainsi que les outils et technologies utilisés.",
+    "about.listTitle": "Ce que je cherche à montrer",
+    "about.li1": "des projets variés et structurés",
+    "about.li2": "une approche technique claire",
+    "about.li3": "une attention à l'interface et à l'expérience utilisateur",
+    "about.li4": "un intérêt réel pour les sujets liés à l'IA",
+
+    "projects.eyebrow": "Projets",
+    "projects.title": "Sélection de réalisations",
+    "projects.filterAll": "Tous",
+    "projects.filterSoft": "Logiciel",
+    "projects.filterWeb": "Web",
+    "projects.filterAi": "IA",
+    "projects.filterPerso": "Personnel",
+    "projects.badge.tech": "Projet technique",
+    "projects.badge.perso": "Projet personnel",
+
+    "projects.chess.title": "Chess Vision",
+    "projects.chess.subtitle": "Analyse visuelle d'un plateau d'échecs",
+    "projects.chess.description": "Projet orienté vision par ordinateur visant à reconnaître l'état d'un échiquier à partir d'une image. Travail sur le traitement d'image, l'extraction d'informations visuelles et l'interprétation du plateau.",
+    "projects.chess.short": "Reconnaissance d'un état de jeu d'échecs à partir d'une image.",
+
+    "projects.portfolio.title": "Portfolio",
+    "projects.portfolio.subtitle": "Conception et développement front-end",
+    "projects.portfolio.description": "Création de ce portfolio avec une attention particulière portée à la hiérarchie visuelle, aux animations, au responsive et à la mise en valeur des projets.",
+    "projects.portfolio.short": "Interface pensée pour présenter des projets et compétences de manière claire.",
+
+    "projects.dashboard.title": "Dashboard IA",
+    "projects.dashboard.subtitle": "Intégration d'outils IA dans une interface web",
+    "projects.dashboard.description": "Prototype d'interface permettant de manipuler différents traitements liés à l'IA dans une interface web claire. Travail sur la structuration front-end et l'intégration de fonctionnalités interactives.",
+    "projects.dashboard.short": "Interface web pour expérimenter et présenter des fonctionnalités liées à l'IA.",
+
+    "skills.eyebrow": "Compétences",
+    "skills.title": "Technologies et domaines",
+    "skills.soft.title": "Développement logiciel",
+    "skills.soft.c1": "Architecture",
+    "skills.soft.c2": "Réseau",
+    "skills.soft.c3": "Systèmes",
+    "skills.web.title": "Développement web",
+    "skills.web.c1": "Responsive",
+    "skills.ai.title": "Intelligence artificielle",
+    "skills.ai.c1": "Traitement d'image",
+    "skills.ai.c2": "Expérimentations IA",
+    "skills.method.title": "Méthode",
+    "skills.method.c1": "Présentation",
+    "skills.method.c2": "Conception",
+    "skills.method.c3": "Itération",
+    "skills.method.c4": "Détail visuel",
+
+    "contact.eyebrow": "Contact",
+    "contact.title": "Échangeons",
+    "contact.headline": "Une idée, un projet, une opportunité ?",
+    "contact.text": "Que ce soit pour un stage, une collaboration ou simplement pour échanger autour d'un projet, je serai ravi de discuter. Réponse rapide garantie.",
+    "contact.statusTitle": "Disponible immédiatement",
+    "contact.statusText": "Stage / alternance / projets",
+    "contact.location": "Localisation",
+    "contact.response": "Délai de réponse",
+    "contact.responseValue": "Sous 24h",
+    "contact.languages": "Langues",
+    "contact.languagesValue": "Français · Anglais",
+
+    "modal.cta": "Voir le projet",
+  },
+
+  en: {
+    "nav.about": "About",
+    "nav.projects": "Projects",
+    "nav.skills": "Skills",
+    "nav.contact": "Contact",
+
+    "hero.eyebrow": "Student portfolio",
+    "hero.title": "Developer in the making,<br/>passionate about <span class=\"grad-text\">code</span> &amp; <span class=\"grad-text\">AI</span>.",
+    "hero.text": "Computer science student building concrete projects in software development, web and artificial intelligence. Clean architecture, polished interfaces, solid technical logic.",
+    "hero.cta1": "View projects",
+    "hero.cta2": "Contact me",
+    "hero.meta1": "Open to internship",
+    "hero.meta2": "Based in France",
+    "hero.side1.label": "Focus",
+    "hero.side1.title": "Software · Web · AI",
+    "hero.side1.text": "Application development, modern interfaces and experiments around artificial intelligence.",
+    "hero.side2.label": "Approach",
+    "hero.side2.title": "Concrete & polished",
+    "hero.side2.text": "Solid projects, structured code, readable interfaces and committed technical logic.",
+
+    "stats.projects": "Projects completed",
+    "stats.domains": "Main domains",
+    "stats.techs": "Technologies used",
+
+    "about.eyebrow": "About",
+    "about.title": "Profile",
+    "about.p1": "Computer science student, I use this portfolio to showcase various projects in software development, web and AI.",
+    "about.p2": "The goal: show concrete work, how it was designed, and the tools and technologies used.",
+    "about.listTitle": "What I aim to show",
+    "about.li1": "varied and structured projects",
+    "about.li2": "a clear technical approach",
+    "about.li3": "attention to interface and user experience",
+    "about.li4": "a genuine interest in AI-related topics",
+
+    "projects.eyebrow": "Projects",
+    "projects.title": "Selected works",
+    "projects.filterAll": "All",
+    "projects.filterSoft": "Software",
+    "projects.filterWeb": "Web",
+    "projects.filterAi": "AI",
+    "projects.filterPerso": "Personal",
+    "projects.badge.tech": "Technical project",
+    "projects.badge.perso": "Personal project",
+
+    "projects.chess.title": "Chess Vision",
+    "projects.chess.subtitle": "Visual analysis of a chess board",
+    "projects.chess.description": "Computer vision project aimed at recognising the state of a chessboard from an image. Work on image processing, visual information extraction and board interpretation.",
+    "projects.chess.short": "Chess game state recognition from an image.",
+
+    "projects.portfolio.title": "Portfolio",
+    "projects.portfolio.subtitle": "Front-end design and development",
+    "projects.portfolio.description": "Creation of this portfolio with particular attention to visual hierarchy, animations, responsiveness and project showcasing.",
+    "projects.portfolio.short": "Interface designed to clearly present projects and skills.",
+
+    "projects.dashboard.title": "AI Dashboard",
+    "projects.dashboard.subtitle": "Integrating AI tools into a web interface",
+    "projects.dashboard.description": "Interface prototype for manipulating various AI-related processes in a clear web interface. Work on front-end structure and integration of interactive features.",
+    "projects.dashboard.short": "Web interface to experiment with and present AI features.",
+
+    "skills.eyebrow": "Skills",
+    "skills.title": "Technologies & domains",
+    "skills.soft.title": "Software development",
+    "skills.soft.c1": "Architecture",
+    "skills.soft.c2": "Network",
+    "skills.soft.c3": "Systems",
+    "skills.web.title": "Web development",
+    "skills.web.c1": "Responsive",
+    "skills.ai.title": "Artificial intelligence",
+    "skills.ai.c1": "Image processing",
+    "skills.ai.c2": "AI experiments",
+    "skills.method.title": "Method",
+    "skills.method.c1": "Presentation",
+    "skills.method.c2": "Design",
+    "skills.method.c3": "Iteration",
+    "skills.method.c4": "Visual detail",
+
+    "contact.eyebrow": "Contact",
+    "contact.title": "Let's talk",
+    "contact.headline": "An idea, a project, an opportunity?",
+    "contact.text": "Whether for an internship, a collaboration or simply to discuss a project, I would be happy to chat. Quick reply guaranteed.",
+    "contact.statusTitle": "Available now",
+    "contact.statusText": "Internship / apprenticeship / projects",
+    "contact.location": "Location",
+    "contact.response": "Response time",
+    "contact.responseValue": "Within 24h",
+    "contact.languages": "Languages",
+    "contact.languagesValue": "French · English",
+
+    "modal.cta": "View project",
+  }
+};
+
+/* ---- apply translations ---- */
+let currentLang = localStorage.getItem("lang") || "fr";
+
+function applyLang(lang) {
+  const t = translations[lang];
+  if (!t) return;
+
+  /* text nodes */
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (t[key] !== undefined) el.textContent = t[key];
   });
-});
 
-/* ------------------------------ */
-/* Reveal on scroll */
-/* ------------------------------ */
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+  /* innerHTML (for HTML tags inside) */
+  document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-html");
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  /* project card data-attributes (title, subtitle, description, short) */
+  document.querySelectorAll(".project-card").forEach((card) => {
+    const fields = ["title", "subtitle", "description", "short"];
+    fields.forEach((field) => {
+      const key = card.getAttribute(`data-i18n-${field}`);
+      if (key && t[key] !== undefined) {
+        card.setAttribute(`data-${field}`, t[key]);
       }
     });
-  },
-  {
-    threshold: 0.12,
-  }
-);
 
-revealEls.forEach((el) => observer.observe(el));
+    /* update visible text inside card */
+    const titleEl = card.querySelector(".card-title");
+    const shortEl = card.querySelector(".project-body p");
+    const badgeEl = card.querySelector(".badge-main");
 
-/* ------------------------------ */
-/* Active section in nav */
-/* ------------------------------ */
-const sections = document.querySelectorAll("main section[id]");
+    const titleKey = card.getAttribute("data-i18n-title");
+    const shortKey = card.getAttribute("data-i18n-short");
+    const badgeKey = card.getAttribute("data-i18n-badge");
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
+    if (titleEl && titleKey && t[titleKey]) titleEl.textContent = t[titleKey];
+    if (shortEl && shortKey && t[shortKey]) shortEl.textContent = t[shortKey];
+    if (badgeEl && badgeKey && t[badgeKey]) badgeEl.textContent = t[badgeKey];
+  });
 
-      const id = entry.target.getAttribute("id");
-      navLinks.forEach((link) => {
-        const match = link.getAttribute("href") === `#${id}`;
-        link.classList.toggle("active", match);
-      });
-    });
-  },
-  { threshold: 0.45 }
-);
+  /* modal CTA button */
+  const modalCta = document.getElementById("modalLink");
+  if (modalCta && t["modal.cta"]) modalCta.textContent = t["modal.cta"];
 
-sections.forEach((section) => sectionObserver.observe(section));
+  /* html lang attribute */
+  document.documentElement.setAttribute("lang", lang);
 
-/* ------------------------------ */
-/* Project filter */
-/* ------------------------------ */
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
+  /* update button label */
+  document.getElementById("langLabel").textContent = lang === "fr" ? "EN" : "FR";
 
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
+  currentLang = lang;
+  localStorage.setItem("lang", lang);
+}
+
+/* init */
+applyLang(currentLang);
+
+/* toggle */
+document.getElementById("langToggle")?.addEventListener("click", () => {
+  applyLang(currentLang === "fr" ? "en" : "fr");
+});
+
+/* =========================
+   STATS DYNAMIQUES
+========================= */
+function computeStats() {
+  const cards = document.querySelectorAll(".project-card:not(.hidden)");
+  const allCards = document.querySelectorAll(".project-card");
+
+  const totalProjects = allCards.length;
+
+  const domains = new Set();
+  allCards.forEach((c) => {
+    (c.getAttribute("data-category") || "")
+      .split(" ").filter(Boolean)
+      .forEach((d) => domains.add(d));
+  });
+
+  const techs = new Set();
+  allCards.forEach((c) => {
+    (c.getAttribute("data-tags") || "")
+      .split(",").map((t) => t.trim()).filter(Boolean)
+      .forEach((t) => techs.add(t));
+  });
+
+  animateCounter("statProjects", totalProjects);
+  animateCounter("statDomains",  domains.size);
+  animateCounter("statTechs",    techs.size);
+}
+
+function animateCounter(id, target) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const suffix = target >= 10 ? "+" : "";
+  let start = 0;
+  const duration = 900;
+  const step = Math.ceil(duration / target);
+  const timer = setInterval(() => {
+    start++;
+    el.textContent = start + (start >= target ? suffix : "");
+    if (start >= target) clearInterval(timer);
+  }, step);
+}
+
+computeStats();
+
+/* =========================
+   FILTRES PROJETS
+========================= */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards  = document.querySelectorAll(".project-card");
+
+filterButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+    filterButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
 
     projectCards.forEach((card) => {
-      const category = card.dataset.category;
-      const shouldShow = filter === "all" || category === filter;
-      card.classList.toggle("is-hidden", !shouldShow);
+      const cats = card.dataset.category || "";
+      card.classList.toggle("hidden", filter !== "all" && !cats.includes(filter));
     });
   });
 });
 
-/* ------------------------------ */
-/* Contact form -> mailto */
-/* ------------------------------ */
-contactForm?.addEventListener("submit", (e) => {
-  e.preventDefault();
+/* =========================
+   MODALE PROJET
+========================= */
+const modal            = document.getElementById("projectModal");
+const modalOverlay     = document.getElementById("modalOverlay");
+const modalClose       = document.getElementById("modalClose");
+const modalImage       = document.getElementById("modalImage");
+const modalTitle       = document.getElementById("modalTitle");
+const modalSubtitle    = document.getElementById("modalSubtitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalTags        = document.getElementById("modalTags");
+const modalLink        = document.getElementById("modalLink");
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
+function openModal(card) {
+  modalTitle.textContent       = card.dataset.title       || "";
+  modalSubtitle.textContent    = card.dataset.subtitle    || "";
+  modalDescription.textContent = card.dataset.description || "";
+  modalImage.src               = card.dataset.image       || "";
+  modalImage.alt               = `Image du projet ${card.dataset.title}`;
+  modalLink.href               = card.dataset.link        || "#";
 
-  const subject = encodeURIComponent(`Contact portfolio — ${name}`);
-  const bodyContent = encodeURIComponent(
-    `Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`
-  );
+  const t = translations[currentLang];
+  if (t && t["modal.cta"]) modalLink.textContent = t["modal.cta"];
 
-  window.location.href = `mailto:lucas.debize@epitech.eu?subject=${subject}&body=${bodyContent}`;
+  modalTags.innerHTML = "";
+  (card.dataset.tags || "").split(",").filter(Boolean).forEach((tag) => {
+    const span = document.createElement("span");
+    span.className = "badge";
+    span.textContent = tag.trim();
+    modalTags.appendChild(span);
+  });
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+projectCards.forEach((card) => {
+  card.addEventListener("click",   () => openModal(card));
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openModal(card); }
+  });
+});
+
+modalOverlay?.addEventListener("click", closeModal);
+modalClose?.addEventListener("click",   closeModal);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+});
+
+/* =========================
+   BOUTON RETOUR EN HAUT
+========================= */
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  backToTop.classList.toggle("visible", window.scrollY > 400);
+});
+
+backToTop?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
