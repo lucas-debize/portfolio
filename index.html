@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lucas Debize — Portfolio</title>
-    <meta name="description" content="Portfolio étudiant en informatique. Projets en développement logiciel, web et intelligence artificielle." />
+    <meta
+      name="description"
+      content="Portfolio étudiant en informatique. Projets en intelligence artificielle, web et développement logiciel."
+    />
     <meta name="theme-color" content="#0b1020" />
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
@@ -51,7 +54,7 @@
             </h1>
             <p class="hero-text" data-i18n="hero.text">
               Étudiant en informatique, je conçois des projets concrets en
-              développement logiciel, web et intelligence artificielle.
+              intelligence artificielle, web et développement logiciel.
               Architecture propre, interfaces soignées, logique technique.
             </p>
 
@@ -76,15 +79,19 @@
             <article class="card side-card">
               <div class="side-icon">⚡</div>
               <span class="side-label" data-i18n="hero.side1.label">Focus</span>
-              <h4 data-i18n="hero.side1.title">Logiciel · Web · IA</h4>
-              <p data-i18n="hero.side1.text">Développement applicatif, interfaces modernes et expérimentations autour de l’intelligence artificielle.</p>
+              <h4 data-i18n="hero.side1.title">IA · Web · Logiciel</h4>
+              <p data-i18n="hero.side1.text">
+                Développement applicatif, interfaces modernes et expérimentations autour de l’intelligence artificielle.
+              </p>
             </article>
 
             <article class="card side-card">
               <div class="side-icon">◆</div>
               <span class="side-label" data-i18n="hero.side2.label">Approche</span>
               <h4 data-i18n="hero.side2.title">Concret &amp; soigné</h4>
-              <p data-i18n="hero.side2.text">Projets aboutis, code structuré, interfaces lisibles et logique technique assumée.</p>
+              <p data-i18n="hero.side2.text">
+                Projets aboutis, code structuré, interfaces lisibles et logique technique assumée.
+              </p>
             </article>
           </div>
         </div>
@@ -121,8 +128,8 @@
           <article class="card about-card">
             <p data-i18n="about.p1">
               Étudiant en informatique, j’utilise ce portfolio pour présenter
-              différents projets réalisés en développement logiciel, web et
-              autour de l’IA.
+              différents projets réalisés en intelligence artificielle, web et
+              développement logiciel.
             </p>
             <p data-i18n="about.p2">
               L’objectif : montrer des réalisations concrètes, la manière
@@ -154,9 +161,9 @@
 
             <div class="filters" id="projectFilters">
               <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
-              <button class="filter-btn" data-filter="software" data-i18n="projects.filterSoft">Logiciel</button>
-              <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb">Web</button>
               <button class="filter-btn" data-filter="ai" data-i18n="projects.filterAi">IA</button>
+              <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb">Web</button>
+              <button class="filter-btn" data-filter="software" data-i18n="projects.filterSoft">Logiciel</button>
               <button class="filter-btn" data-filter="personal" data-i18n="projects.filterPerso">Personnel</button>
             </div>
           </header>
@@ -217,7 +224,9 @@
                 <span class="badge">Web</span>
               </div>
               <h3 class="card-title" data-i18n="projects.portfolio.title">Portfolio</h3>
-              <p data-i18n="projects.portfolio.short">Interface pensée pour présenter des projets et compétences de manière claire.</p>
+              <p data-i18n="projects.portfolio.short">
+                Interface pensée pour présenter des projets et compétences de manière claire.
+              </p>
             </div>
           </article>
 
@@ -246,7 +255,9 @@
                 <span class="badge">Web</span>
               </div>
               <h3 class="card-title" data-i18n="projects.dashboard.title">Dashboard IA</h3>
-              <p data-i18n="projects.dashboard.short">Interface web pour expérimenter et présenter des fonctionnalités liées à l’IA.</p>
+              <p data-i18n="projects.dashboard.short">
+                Interface web pour expérimenter et présenter des fonctionnalités liées à l’IA.
+              </p>
             </div>
           </article>
         </div>
@@ -264,15 +275,14 @@
         <div class="container skills-grid">
           <article class="card skill-card">
             <div class="skill-head">
-              <div class="skill-icon">{ }</div>
-              <h3 class="card-title" data-i18n="skills.soft.title">Développement logiciel</h3>
+              <div class="skill-icon">✦</div>
+              <h3 class="card-title" data-i18n="skills.ai.title">Intelligence artificielle</h3>
             </div>
             <div class="chips">
-              <span class="chip">C / C++</span>
-              <span class="chip" data-i18n="skills.soft.c1">Architecture</span>
-              <span class="chip">POO</span>
-              <span class="chip" data-i18n="skills.soft.c2">Réseau</span>
-              <span class="chip" data-i18n="skills.soft.c3">Systèmes</span>
+              <span class="chip">Python</span>
+              <span class="chip">OpenCV</span>
+              <span class="chip" data-i18n="skills.ai.c1">Traitement d’image</span>
+              <span class="chip" data-i18n="skills.ai.c2">Expérimentations IA</span>
             </div>
           </article>
 
@@ -292,14 +302,15 @@
 
           <article class="card skill-card">
             <div class="skill-head">
-              <div class="skill-icon">✦</div>
-              <h3 class="card-title" data-i18n="skills.ai.title">Intelligence artificielle</h3>
+              <div class="skill-icon">{ }</div>
+              <h3 class="card-title" data-i18n="skills.soft.title">Développement logiciel</h3>
             </div>
             <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">OpenCV</span>
-              <span class="chip" data-i18n="skills.ai.c1">Traitement d’image</span>
-              <span class="chip" data-i18n="skills.ai.c2">Expérimentations IA</span>
+              <span class="chip">C / C++</span>
+              <span class="chip" data-i18n="skills.soft.c1">Architecture</span>
+              <span class="chip">POO</span>
+              <span class="chip" data-i18n="skills.soft.c2">Réseau</span>
+              <span class="chip" data-i18n="skills.soft.c3">Systèmes</span>
             </div>
           </article>
 
@@ -363,24 +374,24 @@
           </article>
 
           <div class="contact-channels">
-            <a class="card contact-channel" href="mailto:tonemail@example.com">
+            <a class="card contact-channel" href="mailto:lucasdebize@epitech.eu">
               <div class="channel-icon channel-icon-mail">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="2"/>
-                  <path d="m3 7 9 6 9-6"/>
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="m3 7 9 6 9-6"></path>
                 </svg>
               </div>
               <div class="channel-body">
                 <span class="channel-label">Email</span>
-                <span class="channel-value">tonemail@example.com</span>
+                <span class="channel-value">lucasdebize@epitech.eu</span>
               </div>
               <span class="channel-arrow">→</span>
             </a>
 
-            <a class="card contact-channel" href="https://github.com/" target="_blank" rel="noreferrer">
+            <a class="card contact-channel" href="https://github.com/lucas-debize" target="_blank" rel="noreferrer">
               <div class="channel-icon channel-icon-github">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-.99-.02-1.95-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.08 0 4.42-2.7 5.39-5.27 5.68.41.35.78 1.04.78 2.1 0 1.51-.01 2.73-.01 3.1 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-.99-.02-1.95-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.08 0 4.42-2.7 5.39-5.27 5.68.41.35.78 1.04.78 2.1 0 1.51-.01 2.73-.01 3.1 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path>
                 </svg>
               </div>
               <div class="channel-body">
@@ -390,15 +401,32 @@
               <span class="channel-arrow">→</span>
             </a>
 
-            <a class="card contact-channel" href="https://linkedin.com/" target="_blank" rel="noreferrer">
+            <a class="card contact-channel" href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noreferrer">
               <div class="channel-icon channel-icon-linkedin">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.35 3.3a2.06 2.06 0 0 1-.01 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/>
+                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.35 3.3a2.06 2.06 0 0 1-.01 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"></path>
                 </svg>
               </div>
               <div class="channel-body">
                 <span class="channel-label">LinkedIn</span>
                 <span class="channel-value">Lucas Debize</span>
+              </div>
+              <span class="channel-arrow">→</span>
+            </a>
+
+            <a class="card contact-channel" href="assets/images/CV.pdf" target="_blank" rel="noreferrer">
+              <div class="channel-icon channel-icon-cv">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <path d="M14 2v6h6"></path>
+                  <path d="M16 13H8"></path>
+                  <path d="M16 17H8"></path>
+                  <path d="M10 9H8"></path>
+                </svg>
+              </div>
+              <div class="channel-body">
+                <span class="channel-label" data-i18n="contact.cv">CV</span>
+                <span class="channel-value" data-i18n="contact.cvValue">Voir le PDF</span>
               </div>
               <span class="channel-arrow">→</span>
             </a>
