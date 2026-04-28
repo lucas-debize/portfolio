@@ -98,19 +98,27 @@ const translations = {
     "skills.eyebrow": "Compétences",
     "skills.title": "Technologies et domaines",
     "skills.ai.title": "Intelligence artificielle",
-    "skills.ai.c1": "Traitement d'image",
-    "skills.ai.c2": "Expérimentations IA",
+    "skills.ai.c1": "Python",
+    "skills.ai.c2": "NLP",
+    "skills.ai.c3": "Classification",
+
     "skills.web.title": "Développement web",
-    "skills.web.c1": "Responsive",
+    "skills.web.c1": "HTML",
+    "skills.web.c2": "PHP",
+    "skills.web.c3": "JavaScript",
+    "skills.web.c4": "React",
+    "skills.web.c5": "PostgreSQL",
+
     "skills.soft.title": "Développement logiciel",
-    "skills.soft.c1": "Architecture",
-    "skills.soft.c2": "Réseau",
-    "skills.soft.c3": "Systèmes",
-    "skills.method.title": "Méthode",
-    "skills.method.c1": "Présentation",
-    "skills.method.c2": "Conception",
-    "skills.method.c3": "Itération",
-    "skills.method.c4": "Détail visuel",
+    "skills.soft.c1": "C",
+    "skills.soft.c2": "C++",
+    "skills.soft.c3": "UE5",
+
+    "skills.tools.title": "Outils",
+    "skills.tools.c1": "Gitlab",
+    "skills.tools.c2": "Git",
+    "skills.tools.c3": "Docker",
+    "skills.tools.c4": "Bash",
 
     "contact.eyebrow": "Contact",
     "contact.title": "Échangeons",
@@ -203,19 +211,27 @@ const translations = {
     "skills.eyebrow": "Skills",
     "skills.title": "Technologies & domains",
     "skills.ai.title": "Artificial intelligence",
-    "skills.ai.c1": "Image processing",
-    "skills.ai.c2": "AI experiments",
+    "skills.ai.c1": "Python",
+    "skills.ai.c2": "NLP",
+    "skills.ai.c3": "Classification",
+
     "skills.web.title": "Web development",
-    "skills.web.c1": "Responsive",
+    "skills.web.c1": "HTML",
+    "skills.web.c2": "PHP",
+    "skills.web.c3": "JavaScript",
+    "skills.web.c4": "React",
+    "skills.web.c5": "PostgreSQL",
+
     "skills.soft.title": "Software development",
-    "skills.soft.c1": "Architecture",
-    "skills.soft.c2": "Network",
-    "skills.soft.c3": "Systems",
-    "skills.method.title": "Method",
-    "skills.method.c1": "Presentation",
-    "skills.method.c2": "Design",
-    "skills.method.c3": "Iteration",
-    "skills.method.c4": "Visual detail",
+    "skills.soft.c1": "C",
+    "skills.soft.c2": "C++",
+    "skills.soft.c3": "UE5",
+
+    "skills.tools.title": "Tools",
+    "skills.tools.c1": "Gitlab",
+    "skills.tools.c2": "Git",
+    "skills.tools.c3": "Docker",
+    "skills.tools.c4": "Bash",
 
     "contact.eyebrow": "Contact",
     "contact.title": "Let's talk",
@@ -249,13 +265,13 @@ function applyLang(lang) {
     if (t[key] !== undefined) el.textContent = t[key];
   });
 
-  /* innerHTML (for HTML tags inside) */
+  /* innerHTML */
   document.querySelectorAll("[data-i18n-html]").forEach((el) => {
     const key = el.getAttribute("data-i18n-html");
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
 
-  /* project card data-attributes (title, subtitle, description, short) */
+  /* project card data-attributes */
   document.querySelectorAll(".project-card").forEach((card) => {
     const fields = ["title", "subtitle", "description", "short"];
 
