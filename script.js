@@ -256,7 +256,7 @@ const translations = {
 
     "projects.portfolio.title": "Portfolio",
     "projects.portfolio.subtitle": "Front-end design and development",
-    "projects.portfolio.description": "Design and development of this personal portfolio built from scratch with vanilla HTML, CSS and JavaScript — no framework. Strong focus on visual hierarchy, animations, responsive design, light/dark theme system, multilingual support (FR/EN), and an interactive modal to showcase projects.",
+    "projects.portfolio.description": "Design and development of this personal portfolio built from scratch with vanilla HTML, CSS and JavaScript, no framework. Strong focus on visual hierarchy, animations, responsive design, light/dark theme system, multilingual support (FR/EN), and an interactive modal to showcase projects.",
     "projects.portfolio.short": "Personal website built from scratch to showcase my projects.",
 
     "projects.rag.title": "RAG Monitor",
@@ -436,7 +436,7 @@ function computeStats() {
   });
 
   animateCounter("statProjects", totalProjects);
-  animateCounter("statDomains", domains.size);
+  animateCounter("statDomains", domains.size - 1);
   animateCounter("statTechs", techs.size);
 }
 
