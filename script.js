@@ -108,6 +108,7 @@ const translations = {
     "skills.web.c3": "JavaScript",
     "skills.web.c4": "React",
     "skills.web.c5": "PostgreSQL",
+    "skills.web.c6": "Flutter",
 
     "skills.soft.title": "Développement logiciel",
     "skills.soft.c1": "C",
@@ -221,6 +222,7 @@ const translations = {
     "skills.web.c3": "JavaScript",
     "skills.web.c4": "React",
     "skills.web.c5": "PostgreSQL",
+    "skills.web.c6": "Flutter",
 
     "skills.soft.title": "Software development",
     "skills.soft.c1": "C",
