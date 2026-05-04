@@ -95,6 +95,51 @@ const translations = {
     "projects.dashboard.short":
       "Interface web pour expérimenter et présenter des fonctionnalités liées à l'IA.",
 
+    "projects.rag.title": "RAG Monitor",
+    "projects.rag.subtitle": "Système RAG local avec monitoring & CI/CD",
+    "projects.rag.description": "Système de question-réponse basé sur des documents, propulsé par un LLM local et gratuit. Le projet intègre un pipeline RAG complet, un monitoring du drift, un versioning des expériences et une pipeline CI/CD entièrement automatisée. Tout s'exécute localement via Docker et se lance en une seule commande.",
+    "projects.rag.short": "Système RAG local complet avec monitoring et pipeline CI/CD automatisée.",
+
+    "projects.elyrii.title": "Elyrii",
+    "projects.elyrii.subtitle": "Application mobile IA de soutien émotionnel",
+    "projects.elyrii.description": "Application mobile innovante intégrant l'IA pour accompagner les personnes en dépression ou en difficulté émotionnelle. Elyrii propose une mascotte interactive intelligente qui dialogue avec l'utilisateur, lui propose des défis quotidiens, et peut jouer le rôle de conseiller bienveillant ou de journal intime numérique.",
+    "projects.elyrii.short": "Mascotte IA mobile pour accompagner les personnes en difficulté émotionnelle.",
+
+    "projects.denoise.title": "Image Denoising",
+    "projects.denoise.subtitle": "Modèle IA de débruitage d'images",
+    "projects.denoise.description": "Entraînement d'un modèle d'IA capable de débruiter des images. Le pipeline ajoute artificiellement du bruit à des images d'entrée, puis entraîne un réseau de neurones à reconstruire l'image originale au plus près. Implémenté sur Google Colab pour profiter de l'accélération GPU.",
+    "projects.denoise.short": "Réseau de neurones entraîné à reconstruire des images bruitées.",
+
+    "projects.recognition.title": "Image Recognition",
+    "projects.recognition.subtitle": "Classification d'images avec CNN",
+    "projects.recognition.description": "Entraînement d'un modèle d'IA dédié à la classification d'images sur différents datasets (chats, chiens, voitures, etc.). Le projet explore les architectures de réseaux convolutifs (CNN) et leurs performances sur des problèmes multi-classes. Réalisé sur Google Colab.",
+    "projects.recognition.short": "CNN entraînés sur plusieurs datasets pour de la classification multi-classes.",
+
+    "projects.chess.title": "Chess Game State",
+    "projects.chess.subtitle": "Analyse visuelle d'un plateau d'échecs",
+    "projects.chess.description": "Projet de vision par ordinateur visant à reconnaître automatiquement l'état d'un échiquier à partir d'une simple image. Mise en œuvre de techniques de traitement d'image, d'extraction de caractéristiques visuelles et d'interprétation du plateau pour identifier la position de chaque pièce.",
+    "projects.chess.short": "Reconnaissance d'un état de jeu d'échecs à partir d'une image.",
+
+    "projects.ue5chess.title": "Échecs Multijoueur UE5",
+    "projects.ue5chess.subtitle": "Jeu d'échecs en ligne sous Unreal Engine 5",
+    "projects.ue5chess.description": "Jeu d'échecs multijoueur en ligne jouable via Steam, développé sous Unreal Engine 5.6.1 en Blueprint et C++. Le jeu réinvente les échecs traditionnels avec un système de factions uniques et de pouvoirs spéciaux, apportant une profondeur stratégique inédite.",
+    "projects.ue5chess.short": "Échecs en ligne sur Steam avec factions et pouvoirs spéciaux.",
+
+    "projects.rtype.title": "R-Type",
+    "projects.rtype.subtitle": "Moteur de jeu réseau en C++ from scratch",
+    "projects.rtype.description": "Recréation du célèbre shoot 'em up R-Type avec un moteur de jeu réseau développé entièrement from scratch en C++. Le projet exploite SFML pour le rendu graphique et Boost pour les utilitaires réseau. Architecture modulaire, multiplateforme et pensée pour la scalabilité.",
+    "projects.rtype.short": "Moteur de jeu réseau multiplateforme codé from scratch en C++.",
+
+    "projects.portfolio.title": "Portfolio",
+    "projects.portfolio.subtitle": "Conception et développement front-end",
+    "projects.portfolio.description": "Conception et développement de ce portfolio personnel from scratch en HTML, CSS et JavaScript pur, sans framework. Travail approfondi sur la hiérarchie visuelle, les animations, le responsive design, le système de thème clair/sombre, le multilingue (FR/EN) et la mise en valeur des projets via une modale interactive.",
+    "projects.portfolio.short": "Site personnel développé from scratch pour présenter mes projets.",
+
+    "tag.ai": "IA",
+    "tag.web": "Web",
+    "tag.software": "Logiciel",
+    "tag.personal": "Personnel",
+
     "skills.eyebrow": "Compétences",
     "skills.title": "Technologies et domaines",
     "skills.ai.title": "Intelligence artificielle",
@@ -209,6 +254,51 @@ const translations = {
     "projects.dashboard.short":
       "Web interface to experiment with and present AI features.",
 
+    "projects.portfolio.title": "Portfolio",
+    "projects.portfolio.subtitle": "Front-end design and development",
+    "projects.portfolio.description": "Design and development of this personal portfolio built from scratch with vanilla HTML, CSS and JavaScript — no framework. Strong focus on visual hierarchy, animations, responsive design, light/dark theme system, multilingual support (FR/EN), and an interactive modal to showcase projects.",
+    "projects.portfolio.short": "Personal website built from scratch to showcase my projects.",
+
+    "projects.rag.title": "RAG Monitor",
+    "projects.rag.subtitle": "Local RAG system with monitoring & CI/CD",
+    "projects.rag.description": "A document-based question-answering system powered by a free, local LLM. It includes a complete RAG pipeline, drift monitoring, experiment versioning, and a fully automated CI/CD pipeline. Everything runs locally through Docker and launches with a single command.",
+    "projects.rag.short": "Full local RAG system with monitoring and automated CI/CD pipeline.",
+
+    "projects.elyrii.title": "Elyrii",
+    "projects.elyrii.subtitle": "AI-powered mobile app for emotional support",
+    "projects.elyrii.description": "An innovative mobile application leveraging AI to support people dealing with depression or emotional struggles. Elyrii features an interactive AI-powered mascot that engages with users, suggests daily challenges, and acts as a caring companion or digital journal.",
+    "projects.elyrii.short": "AI mascot mobile app supporting people facing emotional struggles.",
+
+    "projects.denoise.title": "Image Denoising",
+    "projects.denoise.subtitle": "AI model for image denoising",
+    "projects.denoise.description": "Training of an AI model capable of denoising images. The pipeline artificially adds noise to input images, then trains a neural network to reconstruct the original image as accurately as possible. Implemented on Google Colab to leverage GPU acceleration.",
+    "projects.denoise.short": "Neural network trained to reconstruct noisy images.",
+
+    "projects.recognition.title": "Image Recognition",
+    "projects.recognition.subtitle": "Image classification with CNNs",
+    "projects.recognition.description": "Training of an AI model dedicated to image classification across various datasets (cats, dogs, cars, etc.). The project explores convolutional neural network (CNN) architectures and their performance on multi-class problems. Built on Google Colab.",
+    "projects.recognition.short": "CNNs trained on multiple datasets for multi-class classification.",
+
+    "projects.chess.title": "Chess Game State",
+    "projects.chess.subtitle": "Visual analysis of a chess board",
+    "projects.chess.description": "A computer vision project that automatically recognizes the state of a chessboard from a single image. It applies image processing techniques, visual feature extraction, and board interpretation to detect the position of every piece.",
+    "projects.chess.short": "Chess game state recognition from an image.",
+
+    "projects.ue5chess.title": "Multiplayer Chess UE5",
+    "projects.ue5chess.subtitle": "Online chess game built with Unreal Engine 5",
+    "projects.ue5chess.description": "An online multiplayer chess game playable via Steam, built with Unreal Engine 5.6.1 using both Blueprint and C++. This game reinvents traditional chess with unique factions and special abilities, bringing a fresh strategic depth to the genre.",
+    "projects.ue5chess.short": "Online Steam chess featuring unique factions and special abilities.",
+
+    "projects.rtype.title": "R-Type",
+    "projects.rtype.subtitle": "Networked game engine in C++ from scratch",
+    "projects.rtype.description": "A recreation of the iconic R-Type shoot 'em up, powered by a fully networked game engine built from scratch in C++. Leveraging SFML for rendering and Boost for networking utilities, the project features a modular, cross-platform, and scalable architecture.",
+    "projects.rtype.short": "Cross-platform networked game engine built from scratch in C++.",
+
+    "tag.ai": "AI",
+    "tag.web": "Web",
+    "tag.software": "Software",
+    "tag.personal": "Personal",
+  
     "skills.eyebrow": "Skills",
     "skills.title": "Technologies & domains",
     "skills.ai.title": "Artificial intelligence",
