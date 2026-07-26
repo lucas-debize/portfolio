@@ -201,7 +201,68 @@
             </div>
           </article>
 
-          <!-- 2. Elyrii -->
+          <!-- 2. Chatbot Portfolio IA -->
+          <article
+            class="project-card card"
+            tabindex="0"
+            data-category="ai web personal"
+            data-i18n-title="projects.chatbot.title"
+            data-i18n-subtitle="projects.chatbot.subtitle"
+            data-i18n-description="projects.chatbot.description"
+            data-i18n-short="projects.chatbot.short"
+            data-i18n-badge="projects.badge.perso"
+            data-title="Chatbot IA Portfolio"
+            data-subtitle="Assistant conversationnel sur profil développeur"
+            data-description="Chatbot utilisant React, Express et l'API Google Gemini pour répondre aux questions sur mon profil développeur. Le backend charge profile.json comme base de connaissances et injecte son contenu dans le prompt système Gemini. Architecture : React (5173) → Express (3001) → Gemini API, avec bascule automatique sur un modèle de repli si le modèle configuré est indisponible."
+            data-image="assets/images/work/chatbot_img.png"
+            data-tags="React,Vite,Node.js,Express,Google Gemini"
+            data-link="https://github.com/lucas-debize/chatbot"
+          >
+            <div class="project-cover">
+              <img src="assets/images/work/chatbot_img.png" alt="Aperçu du projet Chatbot IA Portfolio" />
+            </div>
+            <div class="project-body">
+              <div class="project-badges">
+                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
+                <span class="badge" data-i18n="tag.ai">IA</span>
+                <span class="badge" data-i18n="tag.web">Web</span>
+              </div>
+              <h3 class="card-title" data-i18n="projects.chatbot.title">Chatbot IA Portfolio</h3>
+              <p data-i18n="projects.chatbot.short">Chatbot Gemini qui répond aux questions sur mon profil à partir de profile.json.</p>
+            </div>
+          </article>
+
+          <!-- 3. Assistant RH IA -->
+          <article
+            class="project-card card"
+            tabindex="0"
+            data-category="ai personal"
+            data-i18n-title="projects.assistantRh.title"
+            data-i18n-subtitle="projects.assistantRh.subtitle"
+            data-i18n-description="projects.assistantRh.description"
+            data-i18n-short="projects.assistantRh.short"
+            data-i18n-badge="projects.badge.perso"
+            data-title="Assistant RH IA"
+            data-subtitle="Automatisation des candidatures par email"
+            data-description="Workflow 100 % local : réception d'un email avec CV PDF → extraction → analyse IA (Ollama) → stockage PostgreSQL → notification recruteur. Orchestration via n8n, configuration centralisée dans un seul fichier .env, déclenchement à la réception IMAP (sans planification). Stack Docker : n8n, pdf-extractor, Ollama et PostgreSQL."
+            data-image="assets/images/work/assistant-rh-ia_img.png"
+            data-tags="n8n,Docker,Ollama,PostgreSQL,Python,IMAP"
+            data-link="https://github.com/lucas-debize/assistant_RH_IA"
+          >
+            <div class="project-cover">
+              <img src="assets/images/work/assistant-rh-ia_img.png" alt="Aperçu du projet Assistant RH IA" />
+            </div>
+            <div class="project-body">
+              <div class="project-badges">
+                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
+                <span class="badge" data-i18n="tag.ai">IA</span>
+              </div>
+              <h3 class="card-title" data-i18n="projects.assistantRh.title">Assistant RH IA</h3>
+              <p data-i18n="projects.assistantRh.short">Pipeline local n8n : CV par email, analyse Ollama, score PostgreSQL, alerte recruteur.</p>
+            </div>
+          </article>
+
+          <!-- 4. Elyrii -->
           <article
             class="project-card card"
             tabindex="0"

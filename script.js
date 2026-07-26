@@ -100,6 +100,16 @@ const translations = {
     "projects.rag.description": "Système de question-réponse basé sur des documents, propulsé par un LLM local et gratuit. Le projet intègre un pipeline RAG complet, un monitoring du drift, un versioning des expériences et une pipeline CI/CD entièrement automatisée. Tout s'exécute localement via Docker et se lance en une seule commande.",
     "projects.rag.short": "Système RAG local complet avec monitoring et pipeline CI/CD automatisée.",
 
+    "projects.chatbot.title": "Chatbot IA Portfolio",
+    "projects.chatbot.subtitle": "Assistant conversationnel sur profil développeur",
+    "projects.chatbot.description": "Chatbot utilisant React, Express et l'API Google Gemini pour répondre aux questions sur mon profil développeur. Le backend charge profile.json comme base de connaissances et injecte son contenu dans le prompt système Gemini. Architecture : React (5173) → Express (3001) → Gemini API, avec bascule automatique sur un modèle de repli si le modèle configuré est indisponible.",
+    "projects.chatbot.short": "Chatbot Gemini qui répond aux questions sur mon profil à partir de profile.json.",
+
+    "projects.assistantRh.title": "Assistant RH IA",
+    "projects.assistantRh.subtitle": "Automatisation des candidatures par email",
+    "projects.assistantRh.description": "Workflow 100 % local : réception d'un email avec CV PDF → extraction → analyse IA (Ollama) → stockage PostgreSQL → notification recruteur. Orchestration via n8n, configuration centralisée dans un seul fichier .env, déclenchement à la réception IMAP (sans planification). Stack Docker : n8n, pdf-extractor, Ollama et PostgreSQL.",
+    "projects.assistantRh.short": "Pipeline local n8n : CV par email, analyse Ollama, score PostgreSQL, alerte recruteur.",
+
     "projects.elyrii.title": "Elyrii",
     "projects.elyrii.subtitle": "Application mobile IA de soutien émotionnel",
     "projects.elyrii.description": "Application mobile innovante intégrant l'IA pour accompagner les personnes en dépression ou en difficulté émotionnelle. Elyrii propose une mascotte interactive intelligente qui dialogue avec l'utilisateur, lui propose des défis quotidiens, et peut jouer le rôle de conseiller bienveillant ou de journal intime numérique.",
@@ -263,6 +273,16 @@ const translations = {
     "projects.rag.subtitle": "Local RAG system with monitoring & CI/CD",
     "projects.rag.description": "A document-based question-answering system powered by a free, local LLM. It includes a complete RAG pipeline, drift monitoring, experiment versioning, and a fully automated CI/CD pipeline. Everything runs locally through Docker and launches with a single command.",
     "projects.rag.short": "Full local RAG system with monitoring and automated CI/CD pipeline.",
+
+    "projects.chatbot.title": "Chatbot IA Portfolio",
+    "projects.chatbot.subtitle": "Conversational assistant for developer profile",
+    "projects.chatbot.description": "Chatbot built with React, Express and the Google Gemini API to answer questions about my developer profile. The backend loads profile.json as a knowledge base and injects its content into the Gemini system prompt. Architecture: React (5173) → Express (3001) → Gemini API, with automatic fallback to a backup model if the configured one is unavailable.",
+    "projects.chatbot.short": "Gemini-powered chatbot that answers profile questions from profile.json.",
+
+    "projects.assistantRh.title": "HR AI Assistant",
+    "projects.assistantRh.subtitle": "Email-driven application automation",
+    "projects.assistantRh.description": "Fully local workflow: incoming email with PDF resume → extraction → AI analysis (Ollama) → PostgreSQL storage → recruiter notification. Orchestrated with n8n, centralized configuration in a single .env file, triggered on IMAP receipt (no scheduling). Docker stack: n8n, pdf-extractor, Ollama and PostgreSQL.",
+    "projects.assistantRh.short": "Local n8n pipeline: resume by email, Ollama analysis, PostgreSQL scoring, recruiter alert.",
 
     "projects.elyrii.title": "Elyrii",
     "projects.elyrii.subtitle": "AI-powered mobile app for emotional support",
