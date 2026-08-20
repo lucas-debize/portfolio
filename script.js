@@ -1,6 +1,3 @@
-/* =========================
-   THÈME
-========================= */
 const root = document.documentElement;
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
@@ -20,9 +17,6 @@ themeToggle?.addEventListener("click", () => {
   updateThemeIcon();
 });
 
-/* =========================
-   TRADUCTIONS
-========================= */
 const translations = {
   fr: {
     "nav.about": "À propos",
@@ -95,6 +89,11 @@ const translations = {
     "projects.dashboard.short":
       "Interface web pour expérimenter et présenter des fonctionnalités liées à l'IA.",
 
+    "projects.powerAutomate.title": "Microsoft Power Automate",
+    "projects.powerAutomate.subtitle": "Gestion de demandes clients",
+    "projects.powerAutomate.description": "Flux no-code qui prend une demande via Microsoft Forms, la classifie avec IA (catégorie, priorité, résumé) et la stocke dans une liste SharePoint. Une tâche Planner est créée dans le bon compartiment, l’équipe est alertée sur Teams, et un brouillon d’email est généré puis validé manuellement avant envoi au client.",
+    "projects.powerAutomate.short": "Flux no-code : Forms, classification IA, SharePoint, Planner, Teams et validation d'email.",
+
     "projects.rag.title": "RAG Monitor",
     "projects.rag.subtitle": "Système RAG local avec monitoring & CI/CD",
     "projects.rag.description": "Système de question-réponse basé sur des documents, propulsé par un LLM local et gratuit. Le projet intègre un pipeline RAG complet, un monitoring du drift, un versioning des expériences et une pipeline CI/CD entièrement automatisée. Tout s'exécute localement via Docker et se lance en une seule commande.",
@@ -119,6 +118,11 @@ const translations = {
     "projects.denoise.subtitle": "Modèle IA de débruitage d'images",
     "projects.denoise.description": "Entraînement d'un modèle d'IA capable de débruiter des images. Le pipeline ajoute artificiellement du bruit à des images d'entrée, puis entraîne un réseau de neurones à reconstruire l'image originale au plus près. Implémenté sur Google Colab pour profiter de l'accélération GPU.",
     "projects.denoise.short": "Réseau de neurones entraîné à reconstruire des images bruitées.",
+
+    "projects.prospecthor.title": "Prospecthor",
+    "projects.prospecthor.subtitle": "Application de gestion intelligente d'emails",
+    "projects.prospecthor.description": "Application développée en binôme avec mon maître de stage, permettant la gestion automatisée des emails grâce à l'IA. Le système analyse chaque message reçu, détecte s'il s'agit de prospection commerciale, et attribue une note en fonction de l'intention détectée comparée aux critères définis par le client. Stack complète : back-end Python pour les modèles d'IA et l'analyse sémantique, front-end Flutter multiplateforme et services PHP. Projet collaboratif versionné sur GitLab.",
+    "projects.prospecthor.short": "Application de tri d'emails par IA avec scoring d'intention de prospection.",
 
     "projects.recognition.title": "Image Recognition",
     "projects.recognition.subtitle": "Classification d'images avec CNN",
@@ -269,6 +273,11 @@ const translations = {
     "projects.portfolio.description": "Design and development of this personal portfolio built from scratch with vanilla HTML, CSS and JavaScript, no framework. Strong focus on visual hierarchy, animations, responsive design, light/dark theme system, multilingual support (FR/EN), and an interactive modal to showcase projects.",
     "projects.portfolio.short": "Personal website built from scratch to showcase my projects.",
 
+    "projects.powerAutomate.title": "Microsoft Power Automate",
+    "projects.powerAutomate.subtitle": "Client request management",
+    "projects.powerAutomate.description": "No-code flow that takes a request via Microsoft Forms, classifies it with AI (category, priority, summary) and stores it in a SharePoint list. A Planner task is created in the right bucket, the team is alerted on Teams, and an email draft is generated then manually validated before sending to the client.",
+    "projects.powerAutomate.short": "No-code flow: Forms, AI classification, SharePoint, Planner, Teams and email validation.",
+
     "projects.rag.title": "RAG Monitor",
     "projects.rag.subtitle": "Local RAG system with monitoring & CI/CD",
     "projects.rag.description": "A document-based question-answering system powered by a free, local LLM. It includes a complete RAG pipeline, drift monitoring, experiment versioning, and a fully automated CI/CD pipeline. Everything runs locally through Docker and launches with a single command.",
@@ -293,6 +302,11 @@ const translations = {
     "projects.denoise.subtitle": "AI model for image denoising",
     "projects.denoise.description": "Training of an AI model capable of denoising images. The pipeline artificially adds noise to input images, then trains a neural network to reconstruct the original image as accurately as possible. Implemented on Google Colab to leverage GPU acceleration.",
     "projects.denoise.short": "Neural network trained to reconstruct noisy images.",
+
+    "projects.prospecthor.title": "Prospecthor",
+    "projects.prospecthor.subtitle": "Smart email management application",
+    "projects.prospecthor.description": "Application developed as a pair with my internship supervisor, automating email management with AI. The system analyzes each incoming message, detects whether it is commercial prospecting, and assigns a score based on the detected intent compared to the client's criteria. Full stack: Python backend for AI models and semantic analysis, cross-platform Flutter frontend, and PHP services. Collaborative project versioned on GitLab.",
+    "projects.prospecthor.short": "AI email sorting app with prospecting intent scoring.",
 
     "projects.recognition.title": "Image Recognition",
     "projects.recognition.subtitle": "Image classification with CNNs",
@@ -364,26 +378,22 @@ const translations = {
   },
 };
 
-/* ---- apply translations ---- */
 let currentLang = localStorage.getItem("lang") || "fr";
 
 function applyLang(lang) {
   const t = translations[lang];
   if (!t) return;
 
-  /* text nodes */
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (t[key] !== undefined) el.textContent = t[key];
   });
 
-  /* innerHTML */
   document.querySelectorAll("[data-i18n-html]").forEach((el) => {
     const key = el.getAttribute("data-i18n-html");
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
 
-  /* project card data-attributes */
   document.querySelectorAll(".project-card").forEach((card) => {
     const fields = ["title", "subtitle", "description", "short"];
 
@@ -394,7 +404,6 @@ function applyLang(lang) {
       }
     });
 
-    /* update visible text inside card */
     const titleEl = card.querySelector(".card-title");
     const shortEl = card.querySelector(".project-body p");
     const badgeEl = card.querySelector(".badge-main");
@@ -408,31 +417,23 @@ function applyLang(lang) {
     if (badgeEl && badgeKey && t[badgeKey]) badgeEl.textContent = t[badgeKey];
   });
 
-  /* modal CTA button */
   const modalCta = document.getElementById("modalLink");
   if (modalCta && t["modal.cta"]) modalCta.textContent = t["modal.cta"];
 
-  /* html lang attribute */
   document.documentElement.setAttribute("lang", lang);
 
-  /* update button label */
   document.getElementById("langLabel").textContent = lang === "fr" ? "EN" : "FR";
 
   currentLang = lang;
   localStorage.setItem("lang", lang);
 }
 
-/* init */
 applyLang(currentLang);
 
-/* toggle */
 document.getElementById("langToggle")?.addEventListener("click", () => {
   applyLang(currentLang === "fr" ? "en" : "fr");
 });
 
-/* =========================
-   STATS DYNAMIQUES
-========================= */
 function computeStats() {
   const allCards = document.querySelectorAll(".project-card");
 
@@ -483,9 +484,6 @@ function animateCounter(id, target) {
 
 computeStats();
 
-/* =========================
-   FILTRES PROJETS
-========================= */
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 
@@ -503,26 +501,65 @@ filterButtons.forEach((btn) => {
   });
 });
 
-/* =========================
-   MODALE PROJET
-========================= */
 const modal = document.getElementById("projectModal");
 const modalOverlay = document.getElementById("modalOverlay");
 const modalClose = document.getElementById("modalClose");
 const modalImage = document.getElementById("modalImage");
+const modalVideo = document.getElementById("modalVideo");
 const modalTitle = document.getElementById("modalTitle");
 const modalSubtitle = document.getElementById("modalSubtitle");
 const modalDescription = document.getElementById("modalDescription");
 const modalTags = document.getElementById("modalTags");
 const modalLink = document.getElementById("modalLink");
 
+function stopModalVideo() {
+  if (!modalVideo) return;
+  modalVideo.pause();
+  modalVideo.removeAttribute("src");
+  modalVideo.load();
+  modalVideo.hidden = true;
+  modal?.classList.remove("has-video");
+}
+
 function openModal(card) {
   modalTitle.textContent = card.dataset.title || "";
   modalSubtitle.textContent = card.dataset.subtitle || "";
   modalDescription.textContent = card.dataset.description || "";
-  modalImage.src = card.dataset.image || "";
-  modalImage.alt = `Image du projet ${card.dataset.title || ""}`;
-  modalLink.href = card.dataset.link || "#";
+
+  const video = (card.dataset.video || "").trim();
+  if (video) {
+    modal.classList.add("has-video");
+    modalImage.hidden = true;
+    modalImage.removeAttribute("src");
+    modalImage.alt = "";
+    modalVideo.hidden = false;
+    modalVideo.src = video;
+    modalVideo.currentTime = 0;
+    modalVideo.addEventListener(
+      "loadeddata",
+      () => {
+        modalVideo.play().catch(() => {});
+      },
+      { once: true }
+    );
+  } else {
+    stopModalVideo();
+    modalImage.hidden = false;
+    modalImage.src = card.dataset.image || "";
+    modalImage.alt = `Image du projet ${card.dataset.title || ""}`;
+  }
+
+  const link = (card.dataset.link || "").trim();
+  const modalActions = modalLink?.closest(".modal-actions");
+  if (link) {
+    modalLink.href = link;
+    modalLink.hidden = false;
+    if (modalActions) modalActions.hidden = false;
+  } else {
+    modalLink.removeAttribute("href");
+    modalLink.hidden = true;
+    if (modalActions) modalActions.hidden = true;
+  }
 
   const t = translations[currentLang];
   if (t && t["modal.cta"]) modalLink.textContent = t["modal.cta"];
@@ -544,6 +581,7 @@ function openModal(card) {
 }
 
 function closeModal() {
+  stopModalVideo();
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
@@ -565,9 +603,6 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
 });
 
-/* =========================
-   BOUTON RETOUR EN HAUT
-========================= */
 const backToTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {

@@ -478,14 +478,17 @@ h2 {
   overflow: hidden;
 }
 
-.project-cover img {
+.project-cover img,
+.project-cover video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
 
-.project-card:hover .project-cover img { transform: scale(1.05); }
+.project-card:hover .project-cover img,
+.project-card:hover .project-cover video { transform: scale(1.05); }
 
 .project-body {
   padding: 1.25rem 1.4rem 1.5rem;
@@ -851,6 +854,12 @@ h2 {
   animation: modalIn 0.25s ease;
 }
 
+.modal.has-video .modal-dialog {
+  width: min(1080px, calc(100% - 2rem));
+  display: flex;
+  flex-direction: column;
+}
+
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.96); }
   to { opacity: 1; transform: scale(1); }
@@ -885,14 +894,33 @@ h2 {
   max-height: calc(100vh - 3rem);
 }
 
+.modal.has-video .modal-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: auto;
+  max-height: calc(100vh - 3rem);
+  overflow: auto;
+}
+
 .modal-visual {
   background: linear-gradient(135deg, rgba(124,92,255,0.25), rgba(34,211,238,0.18));
-  min-height: 100%;
+  min-width: 0;
+  min-height: 0;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
+}
+
+.modal.has-video .modal-visual {
+  position: static;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  padding: 0.75rem 0.75rem 0;
+  background: #000;
 }
 
 .modal-visual img {
@@ -906,6 +934,18 @@ h2 {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
+.modal-visual video {
+  position: static;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: min(58vh, 620px);
+  object-fit: contain;
+  background: #000;
+  border-radius: var(--radius-md);
+}
+
 .modal-content {
   padding: 2.5rem 2.75rem;
   overflow-y: auto;
@@ -913,6 +953,12 @@ h2 {
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
+}
+
+.modal.has-video .modal-content {
+  flex: 1 1 auto;
+  padding: 1.35rem 1.75rem 1.75rem;
+  justify-content: flex-start;
 }
 
 .modal-tags {
@@ -947,7 +993,8 @@ h2 {
 
 .modal-actions { margin-top: 0.5rem; }
 
-.hidden { display: none !important; }
+.hidden,
+[hidden] { display: none !important; }
 
 /* ====================================================
    RESPONSIVE
@@ -960,7 +1007,20 @@ h2 {
   .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact-wrapper { grid-template-columns: 1fr; }
   .modal-layout { grid-template-columns: 1fr; }
+  .modal.has-video .modal-layout {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
   .modal-visual { min-height: 280px; max-height: 420px; padding: 1rem; }
+  .modal.has-video .modal-visual {
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+  .modal-visual video {
+    max-height: min(42vh, 360px);
+  }
   .contact-quickinfo { grid-template-columns: repeat(3, 1fr); }
 }
 
