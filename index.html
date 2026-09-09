@@ -3,738 +3,347 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Lucas Debize</title>
+    <title>Lucas Debize, développeur IA, web et logiciel</title>
     <meta
       name="description"
-      content="Portfolio étudiant en informatique. Projets en intelligence artificielle, web et développement logiciel."
+      content="Portfolio de Lucas Debize, étudiant en informatique à Epitech. Systèmes d'IA en local, applications web, moteurs de jeu en C++."
     />
-    <meta name="theme-color" content="#0b1020" />
+    <meta name="theme-color" content="#0c0c0b" />
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+    </script>
+    <link rel="preload" href="assets/fonts/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
+    <a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
+    <div id="top-sentinel" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <div class="container nav">
-        <a href="#top" class="brand">
-          <span class="brand-dot"></span>
-          <span>Lucas Debize</span>
-        </a>
-
-        <nav class="desktop-nav">
-          <a href="#about" data-i18n="nav.about">À propos</a>
-          <a href="#projects" data-i18n="nav.projects">Projets</a>
-          <a href="#skills" data-i18n="nav.skills">Compétences</a>
-          <a href="#contact" data-i18n="nav.contact">Contact</a>
-        </nav>
-
-        <div class="header-actions">
-          <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language">
-            <span id="langLabel">FR</span>
-          </button>
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-            <span id="themeIcon">☀</span>
-          </button>
-        </div>
+    <header class="top" id="top">
+      <a href="#top" class="brand">Lucas Debize</a>
+      <nav class="menu" aria-label="Sections">
+        <a href="#about"><span class="mono">01</span><span data-i18n="nav.about">À propos</span></a>
+        <a href="#projects"><span class="mono">02</span><span data-i18n="nav.projects">Projets</span></a>
+        <a href="#stack"><span class="mono">03</span><span data-i18n="nav.stack">Stack</span></a>
+        <a href="#contact"><span class="mono">04</span><span data-i18n="nav.contact">Contact</span></a>
+      </nav>
+      <div class="ctrl">
+        <button class="ctrl-btn mono" id="lang-toggle" type="button" aria-label="Switch to English">EN</button>
+        <button class="ctrl-btn theme-btn" id="theme-toggle" type="button" aria-label="Passer en thème clair">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle class="theme-sun" cx="12" cy="12" r="5" />
+            <path class="theme-moon" d="M15.5 3.5a9 9 0 1 0 5 15 7.5 7.5 0 0 1-5-15z" />
+          </svg>
+        </button>
       </div>
     </header>
 
-    <main id="top">
-      <!-- HERO -->
+    <main id="main">
       <section class="hero">
-        <div class="container hero-grid">
-          <article class="card hero-main">
-            <p class="eyebrow" data-i18n="hero.eyebrow">Portfolio étudiant</p>
-            <h1 data-i18n-html="hero.title">
-              Développeur en devenir,<br />
-              passionné de <span class="grad-text">code</span> &amp; d’<span class="grad-text">IA</span>.
-            </h1>
-            <p class="hero-text" data-i18n="hero.text">
-              Étudiant en informatique, je conçois des projets concrets en
-              intelligence artificielle, web et développement logiciel.
-              Architecture propre, interfaces soignées, logique technique.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Voir les projets</a>
-              <a href="#contact" class="btn btn-secondary" data-i18n="hero.cta2">Me contacter</a>
-            </div>
-
-            <div class="hero-meta">
-              <div class="meta-item">
-                <span class="meta-dot dot-green"></span>
-                <span data-i18n="hero.meta1">Disponible pour un stage</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-dot dot-blue"></span>
-                <span data-i18n="hero.meta2">Basé en France</span>
-              </div>
-            </div>
-          </article>
-
-          <div class="hero-side">
-            <article class="card side-card">
-              <div class="side-icon">⚡</div>
-              <span class="side-label" data-i18n="hero.side1.label">Focus</span>
-              <h4 data-i18n="hero.side1.title">IA · Web · Logiciel</h4>
-              <p data-i18n="hero.side1.text">
-                Développement applicatif, interfaces modernes et expérimentations autour de l’intelligence artificielle.
-              </p>
-            </article>
-
-            <article class="card side-card">
-              <div class="side-icon">◆</div>
-              <span class="side-label" data-i18n="hero.side2.label">Approche</span>
-              <h4 data-i18n="hero.side2.title">Concret &amp; soigné</h4>
-              <p data-i18n="hero.side2.text">
-                Projets aboutis, code structuré, interfaces lisibles et logique technique assumée.
-              </p>
-            </article>
+        <div class="hero-kicker mono">
+          <span data-i18n="hero.role">Développeur · IA, web, logiciel</span>
+          <span class="avail"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.avail">Disponible · stage, CDI, CDD</span></span>
+        </div>
+        <h1 class="hero-name display">
+          <span class="line"><span>Lucas</span></span>
+          <span class="line"><span>Debize</span></span>
+        </h1>
+        <div class="hero-foot">
+          <p class="hero-lede" data-i18n="hero.lede">
+            Étudiant en informatique à Epitech. Je construis des systèmes d'IA qui tournent en local, des applications web et des moteurs de jeu en C++.
+          </p>
+          <div class="hero-links">
+            <a class="arrow-link" href="#projects"><span data-i18n="hero.cta1">Voir les projets</span><span aria-hidden="true">↓</span></a>
+            <a class="arrow-link" href="#contact"><span data-i18n="hero.cta2">Me contacter</span><span aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
 
-      <!-- STATS -->
-      <section class="stats-section">
-        <div class="container stats-grid">
-          <article class="card stat-card">
-            <span class="stat-value" id="statProjects">0</span>
-            <span class="stat-label" data-i18n="stats.projects">Projets réalisés</span>
-          </article>
-          <article class="card stat-card">
-            <span class="stat-value" id="statDomains">0</span>
-            <span class="stat-label" data-i18n="stats.domains">Domaines principaux</span>
-          </article>
-          <article class="card stat-card">
-            <span class="stat-value" id="statTechs">0</span>
-            <span class="stat-label" data-i18n="stats.techs">Technologies utilisées</span>
-          </article>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="about-section" id="about">
-        <div class="container">
-          <header class="section-head">
-            <p class="eyebrow" data-i18n="about.eyebrow">À propos</p>
-            <h2 data-i18n="about.title">Profil</h2>
-          </header>
-        </div>
-
-        <div class="container about-grid">
-          <article class="card about-card">
-            <p data-i18n="about.p1">
-              Étudiant en informatique, j’utilise ce portfolio pour présenter
-              différents projets réalisés en intelligence artificielle, web et
-              développement logiciel.
-            </p>
+      <section class="sec" id="about">
+        <header class="sec-head" data-reveal>
+          <span class="mono">01</span>
+          <h2 data-i18n="about.title">À propos</h2>
+        </header>
+        <div class="about">
+          <p class="lede" data-reveal data-i18n="about.p1">
+            Étudiant en informatique à Epitech, je construis des projets qui tournent de bout en bout. Pipelines d'IA exécutés en local, applications web, moteurs de jeu en C++.
+          </p>
+          <div class="about-side" data-reveal>
             <p data-i18n="about.p2">
-              L’objectif : montrer des réalisations concrètes, la manière
-              dont elles ont été conçues, ainsi que les outils et technologies
-              utilisés.
+              Ce que je vise dans chaque projet. Une architecture qu'on peut expliquer en une phrase, une interface qui se comprend sans notice, un résultat reproductible.
             </p>
-          </article>
-
-          <article class="card about-card">
-            <h3 class="card-title" data-i18n="about.listTitle">Ce que je cherche à montrer</h3>
-            <ul class="about-list">
-              <li data-i18n="about.li1">des projets variés et structurés</li>
-              <li data-i18n="about.li2">une approche technique claire</li>
-              <li data-i18n="about.li3">une attention à l’interface et à l’expérience utilisateur</li>
-              <li data-i18n="about.li4">un intérêt réel pour les sujets liés à l’IA</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section class="projects-section" id="projects">
-        <div class="container">
-          <header class="section-head section-head-row">
-            <div>
-              <p class="eyebrow" data-i18n="projects.eyebrow">Projets</p>
-              <h2 data-i18n="projects.title">Sélection de réalisations</h2>
-            </div>
-
-            <div class="filters" id="projectFilters">
-              <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
-              <button class="filter-btn" data-filter="ai" data-i18n="projects.filterAi">IA</button>
-              <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb">Web</button>
-              <button class="filter-btn" data-filter="software" data-i18n="projects.filterSoft">Logiciel</button>
-              <button class="filter-btn" data-filter="personal" data-i18n="projects.filterPerso">Personnel</button>
-            </div>
-          </header>
-        </div>
-
-        <div class="container projects-grid">
-
-          <!-- 1. RAG Monitor -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai personal"
-            data-i18n-title="projects.rag.title"
-            data-i18n-subtitle="projects.rag.subtitle"
-            data-i18n-description="projects.rag.description"
-            data-i18n-short="projects.rag.short"
-            data-i18n-badge="projects.badge.perso"
-            data-title="RAG Monitor"
-            data-subtitle="Système RAG local avec monitoring & CI/CD"
-            data-description="Système de question-réponse basé sur des documents, propulsé par un LLM local et gratuit. Le projet intègre un pipeline RAG complet, un monitoring du drift, un versioning des expériences et une pipeline CI/CD entièrement automatisée. Tout s'exécute localement via Docker et se lance en une seule commande."
-            data-image="assets/images/work/rag-monitor_img.png"
-            data-tags="Python,Docker,LLM local,RAG,CI/CD,MLflow"
-            data-link="https://github.com/lucas-debize/rag-monitor"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/rag-monitor_img.png" alt="Aperçu du projet RAG Monitor" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.rag.title">RAG Monitor</h3>
-              <p data-i18n="projects.rag.short">Système RAG local complet avec monitoring et pipeline CI/CD automatisée.</p>
-            </div>
-          </article>
-
-          <!-- 2. Chatbot Portfolio IA -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai web personal"
-            data-i18n-title="projects.chatbot.title"
-            data-i18n-subtitle="projects.chatbot.subtitle"
-            data-i18n-description="projects.chatbot.description"
-            data-i18n-short="projects.chatbot.short"
-            data-i18n-badge="projects.badge.perso"
-            data-title="Chatbot IA Portfolio"
-            data-subtitle="Assistant conversationnel sur profil développeur"
-            data-description="Chatbot utilisant React, Express et l'API Google Gemini pour répondre aux questions sur mon profil développeur. Le backend charge profile.json comme base de connaissances et injecte son contenu dans le prompt système Gemini. Architecture : React (5173) → Express (3001) → Gemini API, avec bascule automatique sur un modèle de repli si le modèle configuré est indisponible."
-            data-image="assets/images/work/chatbot_img.png"
-            data-tags="React,Vite,Node.js,Express,Google Gemini"
-            data-link="https://github.com/lucas-debize/chatbot"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/chatbot_img.png" alt="Aperçu du projet Chatbot IA Portfolio" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-                <span class="badge" data-i18n="tag.web">Web</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.chatbot.title">Chatbot IA Portfolio</h3>
-              <p data-i18n="projects.chatbot.short">Chatbot Gemini qui répond aux questions sur mon profil à partir de profile.json.</p>
-            </div>
-          </article>
-
-          <!-- 3. Assistant RH IA -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai personal"
-            data-i18n-title="projects.assistantRh.title"
-            data-i18n-subtitle="projects.assistantRh.subtitle"
-            data-i18n-description="projects.assistantRh.description"
-            data-i18n-short="projects.assistantRh.short"
-            data-i18n-badge="projects.badge.perso"
-            data-title="Assistant RH IA"
-            data-subtitle="Automatisation des candidatures par email"
-            data-description="Workflow 100 % local : réception d'un email avec CV PDF → extraction → analyse IA (Ollama) → stockage PostgreSQL → notification recruteur. Orchestration via n8n, configuration centralisée dans un seul fichier .env, déclenchement à la réception IMAP (sans planification). Stack Docker : n8n, pdf-extractor, Ollama et PostgreSQL."
-            data-image="assets/images/work/assistant-rh-ia_img.png"
-            data-tags="n8n,Docker,Ollama,PostgreSQL,Python,IMAP"
-            data-link="https://github.com/lucas-debize/assistant_RH_IA"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/assistant-rh-ia_img.png" alt="Aperçu du projet Assistant RH IA" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.assistantRh.title">Assistant RH IA</h3>
-              <p data-i18n="projects.assistantRh.short">Pipeline local n8n : CV par email, analyse Ollama, score PostgreSQL, alerte recruteur.</p>
-            </div>
-          </article>
-
-          <!-- 4. Microsoft Power Automate -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai personal"
-            data-i18n-title="projects.powerAutomate.title"
-            data-i18n-subtitle="projects.powerAutomate.subtitle"
-            data-i18n-description="projects.powerAutomate.description"
-            data-i18n-short="projects.powerAutomate.short"
-            data-i18n-badge="projects.badge.perso"
-            data-title="Microsoft Power Automate"
-            data-subtitle="Gestion de demandes clients"
-            data-description="Flux no-code qui prend une demande via Microsoft Forms, la classifie avec IA (catégorie, priorité, résumé) et la stocke dans une liste SharePoint. Une tâche Planner est créée dans le bon compartiment, l’équipe est alertée sur Teams, et un brouillon d’email est généré en étant validé manuellement avant envoi au client."
-            data-image="assets/images/work/power_automate_img.png"
-            data-video="assets/videos/power_automate.mp4"
-            data-tags="Power Automate,Microsoft Forms,SharePoint,Planner,Teams,IA"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/power_automate_img.png" alt="Aperçu du projet Microsoft Power Automate" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.powerAutomate.title">Microsoft Power Automate</h3>
-              <p data-i18n="projects.powerAutomate.short">Flux no-code : Forms, classification IA, SharePoint, Planner, Teams et validation d'email.</p>
-            </div>
-          </article>
-
-          <!-- 5. Elyrii -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai web"
-            data-i18n-title="projects.elyrii.title"
-            data-i18n-subtitle="projects.elyrii.subtitle"
-            data-i18n-description="projects.elyrii.description"
-            data-i18n-short="projects.elyrii.short"
-            data-i18n-badge="projects.badge.tech"
-            data-title="Elyrii"
-            data-subtitle="Application mobile IA de soutien émotionnel"
-            data-description="Application mobile innovante intégrant l'IA pour accompagner les personnes en dépression ou en difficulté émotionnelle. Elyrii propose une mascotte interactive intelligente qui dialogue avec l'utilisateur, lui propose des défis quotidiens, et peut jouer le rôle de conseiller bienveillant ou de journal intime numérique."
-            data-image="assets/images/work/elyrii_img.png"
-            data-tags="Flutter,Python,IA conversationnelle"
-            data-link="https://github.com/elyrii-epitech/Elyrii"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/elyrii_img.png" alt="Aperçu du projet Elyrii" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.tech">Projet technique</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-                <span class="badge" data-i18n="tag.web">Web</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.elyrii.title">Elyrii</h3>
-              <p data-i18n="projects.elyrii.short">Mascotte IA mobile pour accompagner les personnes en difficulté émotionnelle.</p>
-            </div>
-          </article>
-
-          <!-- 6. Image Denoising -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai personal"
-            data-i18n-title="projects.denoise.title"
-            data-i18n-subtitle="projects.denoise.subtitle"
-            data-i18n-description="projects.denoise.description"
-            data-i18n-short="projects.denoise.short"
-            data-i18n-badge="projects.badge.perso"
-            data-title="Image Denoising"
-            data-subtitle="Modèle IA de débruitage d'images"
-            data-description="Entraînement d'un modèle d'IA capable de débruiter des images. Le pipeline ajoute artificiellement du bruit à des images d'entrée, puis entraîne un réseau de neurones à reconstruire l'image originale au plus près. Implémenté sur Google Colab pour profiter de l'accélération GPU."
-            data-image="assets/images/work/denoising_img.png"
-            data-tags="Python,TensorFlow,PyTorch,Google Colab"
-            data-link="https://colab.research.google.com/drive/1zJbH6VJuVqlFDpuNGjOCFL9J8-la3GLz?usp=sharing"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/denoising_img.png" alt="Aperçu du projet Image Denoising" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.denoise.title">Image Denoising</h3>
-              <p data-i18n="projects.denoise.short">Réseau de neurones entraîné à reconstruire des images bruitées.</p>
-            </div>
-          </article>
-
-          <!-- 7. Prospecthor -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai web"
-            data-i18n-title="projects.prospecthor.title"
-            data-i18n-subtitle="projects.prospecthor.subtitle"
-            data-i18n-description="projects.prospecthor.description"
-            data-i18n-short="projects.prospecthor.short"
-            data-i18n-badge="projects.badge.tech"
-            data-title="Prospecthor"
-            data-subtitle="Application de gestion intelligente d'emails"
-            data-description="Application développée en binôme avec mon maître de stage, permettant la gestion automatisée des emails grâce à l'IA. Le système analyse chaque message reçu, détecte s'il s'agit de prospection commerciale, et attribue une note en fonction de l'intention détectée comparée aux critères définis par le client. Stack complète : back-end Python pour les modèles d'IA et l'analyse sémantique, front-end Flutter multiplateforme et services PHP. Projet collaboratif versionné sur GitLab."
-            data-image="assets/images/work/prospecthor_img.png"
-            data-tags="Python,Flutter,PHP,IA,NLP,GitLab"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/prospecthor_img.png" alt="Aperçu du projet Prospecthor" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.tech">Projet technique</span>
-                <span class="badge" data-i18n="tag.web">Web</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.prospecthor.title">Prospecthor</h3>
-              <p data-i18n="projects.prospecthor.short">Application de tri d'emails par IA avec scoring d'intention de prospection.</p>
-            </div>
-          </article>
-
-          <!-- 8. Image Recognition -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai personal"
-            data-i18n-title="projects.recognition.title"
-            data-i18n-subtitle="projects.recognition.subtitle"
-            data-i18n-description="projects.recognition.description"
-            data-i18n-short="projects.recognition.short"
-            data-i18n-badge="projects.badge.perso"
-            data-title="Image Recognition"
-            data-subtitle="Classification d'images avec CNN"
-            data-description="Entraînement d'un modèle d'IA dédié à la classification d'images sur différents datasets (chats, chiens, voitures, etc.). Le projet explore les architectures de réseaux convolutifs (CNN) et leurs performances sur des problèmes multi-classes. Réalisé sur Google Colab."
-            data-image="assets/images/work/classification_img.png"
-            data-tags="Python,TensorFlow,Keras,CNN,Google Colab"
-            data-link="https://colab.research.google.com/drive/1e0b2ujHG--1ifloviWWq55Q5_G5B9dJP?usp=sharing"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/classification_img.png" alt="Aperçu du projet Image Recognition" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.recognition.title">Image Recognition</h3>
-              <p data-i18n="projects.recognition.short">CNN entraînés sur plusieurs datasets pour de la classification multi-classes.</p>
-            </div>
-          </article>
-
-          <!-- 9. Chess Game State -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="ai personal"
-            data-i18n-title="projects.chess.title"
-            data-i18n-subtitle="projects.chess.subtitle"
-            data-i18n-description="projects.chess.description"
-            data-i18n-short="projects.chess.short"
-            data-i18n-badge="projects.badge.perso"
-            data-title="Chess Game State"
-            data-subtitle="Analyse visuelle d'un plateau d'échecs"
-            data-description="Projet de vision par ordinateur visant à reconnaître automatiquement l'état d'un échiquier à partir d'une simple image. Mise en œuvre de techniques de traitement d'image, d'extraction de caractéristiques visuelles et d'interprétation du plateau pour identifier la position de chaque pièce."
-            data-image="assets/images/work/chess_img.png"
-            data-tags="Python,OpenCV,NumPy,Vision par ordinateur"
-            data-link="https://github.com/lucas-debize/chess_game_state"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/chess_img.png" alt="Aperçu du projet Chess Game State" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
-                <span class="badge" data-i18n="tag.ai">IA</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.chess.title">Chess Game State</h3>
-              <p data-i18n="projects.chess.short">Reconnaissance d'un état de jeu d'échecs à partir d'une image.</p>
-            </div>
-          </article>
-
-          <!-- 10. Échecs Multijoueur UE5 -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="software"
-            data-i18n-title="projects.ue5chess.title"
-            data-i18n-subtitle="projects.ue5chess.subtitle"
-            data-i18n-description="projects.ue5chess.description"
-            data-i18n-short="projects.ue5chess.short"
-            data-i18n-badge="projects.badge.tech"
-            data-title="Échecs Multijoueur UE5"
-            data-subtitle="Jeu d'échecs en ligne sous Unreal Engine 5"
-            data-description="Jeu d'échecs multijoueur en ligne jouable via Steam, développé sous Unreal Engine 5.6.1 en Blueprint et C++. Le jeu réinvente les échecs traditionnels avec un système de factions uniques et de pouvoirs spéciaux, apportant une profondeur stratégique inédite."
-            data-image="assets/images/work/chessmulti_img.png"
-            data-tags="Unreal Engine 5,C++,Blueprint,Steam SDK"
-            data-link="https://www.swisstransfer.com/d/71e4927b-1197-46d7-b092-b38ad3949bed"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/chessmulti_img.png" alt="Aperçu du projet Échecs Multijoueur UE5" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.tech">Projet technique</span>
-                <span class="badge" data-i18n="tag.software">Logiciel</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.ue5chess.title">Échecs Multijoueur UE5</h3>
-              <p data-i18n="projects.ue5chess.short">Échecs en ligne sur Steam avec factions et pouvoirs spéciaux.</p>
-            </div>
-          </article>
-
-          <!-- 11. R-Type -->
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="software"
-            data-i18n-title="projects.rtype.title"
-            data-i18n-subtitle="projects.rtype.subtitle"
-            data-i18n-description="projects.rtype.description"
-            data-i18n-short="projects.rtype.short"
-            data-i18n-badge="projects.badge.tech"
-            data-title="R-Type"
-            data-subtitle="Moteur de jeu réseau en C++ from scratch"
-            data-description="Recréation du célèbre shoot 'em up R-Type avec un moteur de jeu réseau développé entièrement from scratch en C++. Le projet exploite SFML pour le rendu graphique et Boost pour les utilitaires réseau. Architecture modulaire, multiplateforme et pensée pour la scalabilité."
-            data-image="assets/images/work/r-type_img.png"
-            data-tags="C++,SFML,Boost,CMake"
-            data-link="https://github.com/lucas-debize/r-type"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/r-type_img.png" alt="Aperçu du projet R-Type" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.tech">Projet technique</span>
-                <span class="badge" data-i18n="tag.software">Logiciel</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.rtype.title">R-Type</h3>
-              <p data-i18n="projects.rtype.short">Moteur de jeu réseau multiplateforme codé from scratch en C++.</p>
-            </div>
-          </article>
-
-          <!-- 12. Portfolio -->
-
-          <article
-            class="project-card card"
-            tabindex="0"
-            data-category="web personal"
-            data-i18n-title="projects.portfolio.title"
-            data-i18n-subtitle="projects.portfolio.subtitle"
-            data-i18n-description="projects.portfolio.description"
-            data-i18n-short="projects.portfolio.short"
-            data-i18n-badge="projects.badge.perso"
-            data-title="Portfolio"
-            data-subtitle="Conception et développement front-end"
-            data-description="Conception et développement de ce portfolio personnel from scratch en HTML, CSS et JavaScript pur, sans framework. Travail approfondi sur la hiérarchie visuelle, les animations, le responsive design, le système de thème clair/sombre, le multilingue (FR/EN) et la mise en valeur des projets via une modale interactive."
-            data-image="assets/images/work/portfolio_img.png"
-            data-tags="HTML,CSS,JavaScript,Responsive,i18n"
-            data-link="https://github.com/lucas-debize/portfolio"
-          >
-            <div class="project-cover">
-              <img src="assets/images/work/portfolio_img.png" alt="Aperçu du projet Portfolio" />
-            </div>
-            <div class="project-body">
-              <div class="project-badges">
-                <span class="badge badge-main" data-i18n="projects.badge.perso">Projet personnel</span>
-                <span class="badge" data-i18n="tag.web">Web</span>
-              </div>
-              <h3 class="card-title" data-i18n="projects.portfolio.title">Portfolio</h3>
-              <p data-i18n="projects.portfolio.short">Site personnel développé from scratch pour présenter mes projets.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- SKILLS -->
-      <section class="skills-section" id="skills">
-        <div class="container">
-          <header class="section-head">
-            <p class="eyebrow" data-i18n="skills.eyebrow">Compétences</p>
-            <h2 data-i18n="skills.title">Technologies et domaines</h2>
-          </header>
-        </div>
-
-        <div class="container skills-grid">
-          <article class="card skill-card">
-            <div class="skill-head">
-              <div class="skill-icon">✦</div>
-              <h3 class="card-title" data-i18n="skills.ai.title">Intelligence artificielle</h3>
-            </div>
-            <div class="chips">
-              <span class="chip" data-i18n="skills.ai.c1">Python</span>
-              <span class="chip" data-i18n="skills.ai.c2">NLP</span>
-              <span class="chip" data-i18n="skills.ai.c3">Classification</span>
-            </div>
-          </article>
-
-          <article class="card skill-card">
-            <div class="skill-head">
-              <div class="skill-icon">&lt;/&gt;</div>
-              <h3 class="card-title" data-i18n="skills.web.title">Développement web</h3>
-            </div>
-            <div class="chips">
-              <span class="chip" data-i18n="skills.web.c1">HTML</span>
-              <span class="chip" data-i18n="skills.web.c2">PHP</span>
-              <span class="chip" data-i18n="skills.web.c3">JavaScript</span>
-              <span class="chip" data-i18n="skills.web.c4">React</span>
-              <span class="chip" data-i18n="skills.web.c5">PostgreSQL</span>
-              <span class="chip" data-i18n="skills.web.c6">Flutter</span>
-            </div>
-          </article>
-
-          <article class="card skill-card">
-            <div class="skill-head">
-              <div class="skill-icon">{ }</div>
-              <h3 class="card-title" data-i18n="skills.soft.title">Développement logiciel</h3>
-            </div>
-            <div class="chips">
-              <span class="chip" data-i18n="skills.soft.c1">C</span>
-              <span class="chip" data-i18n="skills.soft.c2">C++</span>
-              <span class="chip" data-i18n="skills.soft.c3">UE5</span>
-            </div>
-          </article>
-
-          <article class="card skill-card">
-            <div class="skill-head">
-              <div class="skill-icon">◎</div>
-              <h3 class="card-title" data-i18n="skills.tools.title">Outils</h3>
-            </div>
-            <div class="chips">
-              <span class="chip" data-i18n="skills.tools.c1">Gitlab</span>
-              <span class="chip" data-i18n="skills.tools.c2">Git</span>
-              <span class="chip" data-i18n="skills.tools.c3">Docker</span>
-              <span class="chip" data-i18n="skills.tools.c4">Bash</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="contact-section" id="contact">
-        <div class="container">
-          <header class="section-head">
-            <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
-            <h2 data-i18n="contact.title">Échangeons</h2>
-          </header>
-        </div>
-
-        <div class="container contact-wrapper">
-          <article class="card contact-intro">
-            <div class="contact-intro-text">
-              <h3 class="card-title" data-i18n="contact.headline">Une idée, un projet, une opportunité ?</h3>
-              <p data-i18n="contact.text">
-                Que ce soit pour un stage, une collaboration ou simplement
-                pour échanger autour d’un projet, je serai ravi de discuter.
-                Réponse rapide garantie.
-              </p>
-
-              <div class="contact-availability">
-                <span class="meta-dot dot-green pulse"></span>
-                <div>
-                  <strong data-i18n="contact.statusTitle">Disponible immédiatement</strong>
-                  <span data-i18n="contact.statusText">Stage / alternance / projets</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="contact-quickinfo">
-              <div class="qinfo">
-                <span class="qinfo-label" data-i18n="contact.location">Localisation</span>
-                <span class="qinfo-value">🇫🇷 France</span>
-              </div>
-              <div class="qinfo">
-                <span class="qinfo-label" data-i18n="contact.response">Délai de réponse</span>
-                <span class="qinfo-value" data-i18n="contact.responseValue">Sous 24h</span>
-              </div>
-              <div class="qinfo">
-                <span class="qinfo-label" data-i18n="contact.languages">Langues</span>
-                <span class="qinfo-value" data-i18n="contact.languagesValue">Français · Anglais</span>
-              </div>
-            </div>
-          </article>
-
-          <div class="contact-channels">
-            <a class="card contact-channel" href="mailto:lucasdebize@epitech.eu">
-              <div class="channel-icon channel-icon-mail">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                  <path d="m3 7 9 6 9-6"></path>
-                </svg>
-              </div>
-              <div class="channel-body">
-                <span class="channel-label">Email</span>
-                <span class="channel-value">lucasdebize@epitech.eu</span>
-              </div>
-              <span class="channel-arrow">→</span>
-            </a>
-
-            <a class="card contact-channel" href="https://github.com/lucas-debize" target="_blank" rel="noreferrer">
-              <div class="channel-icon channel-icon-github">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-.99-.02-1.95-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.08 0 4.42-2.7 5.39-5.27 5.68.41.35.78 1.04.78 2.1 0 1.51-.01 2.73-.01 3.1 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path>
-                </svg>
-              </div>
-              <div class="channel-body">
-                <span class="channel-label">GitHub</span>
-                <span class="channel-value">@lucas-debize</span>
-              </div>
-              <span class="channel-arrow">→</span>
-            </a>
-
-            <a class="card contact-channel" href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noreferrer">
-              <div class="channel-icon channel-icon-linkedin">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.35 3.3a2.06 2.06 0 0 1-.01 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"></path>
-                </svg>
-              </div>
-              <div class="channel-body">
-                <span class="channel-label">LinkedIn</span>
-                <span class="channel-value">Lucas Debize</span>
-              </div>
-              <span class="channel-arrow">→</span>
-            </a>
-
-            <a class="card contact-channel" href="assets/images/CV.pdf" target="_blank" rel="noreferrer">
-              <div class="channel-icon channel-icon-cv">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <path d="M14 2v6h6"></path>
-                  <path d="M16 13H8"></path>
-                  <path d="M16 17H8"></path>
-                  <path d="M10 9H8"></path>
-                </svg>
-              </div>
-              <div class="channel-body">
-                <span class="channel-label" data-i18n="contact.cv">CV</span>
-                <span class="channel-value" data-i18n="contact.cvValue">Voir le PDF</span>
-              </div>
-              <span class="channel-arrow">→</span>
-            </a>
+            <dl class="facts">
+              <div><dt data-i18n="about.f1k">Formation</dt><dd>Epitech</dd></div>
+              <div><dt data-i18n="about.f2k">Domaines</dt><dd data-i18n="about.f2v">IA, web, logiciel</dd></div>
+              <div><dt data-i18n="about.f3k">Méthode</dt><dd data-i18n="about.f3v">Docker, CI/CD, code versionné</dd></div>
+              <div><dt data-i18n="about.f4k">Localisation</dt><dd>France</dd></div>
+            </dl>
           </div>
+        </div>
+        <ul class="values" data-reveal>
+          <li data-i18n="about.v1">Des projets complets, pas des démos.</li>
+          <li data-i18n="about.v2">Une architecture qu'on peut expliquer en une phrase.</li>
+          <li data-i18n="about.v3">Des interfaces qui se comprennent sans notice.</li>
+          <li data-i18n="about.v4">L'IA comme outil concret, pas comme argument.</li>
+        </ul>
+      </section>
+
+      <section class="sec" id="projects">
+        <header class="sec-head" data-reveal>
+          <span class="mono">02</span>
+          <h2 data-i18n="projects.title">Projets</h2>
+          <p class="sec-note" data-i18n="projects.note">Quatre projets en détail, huit en index.</p>
+        </header>
+
+        <article class="scene" data-project data-image="assets/images/work/rag-monitor.webp" data-link="https://github.com/lucas-debize/rag-monitor">
+          <figure class="scene-media" data-reveal>
+            <img src="assets/images/work/rag-monitor.webp" width="1024" height="1024" alt="Illustration du projet RAG Monitor" loading="lazy" decoding="async" />
+          </figure>
+          <div class="scene-text" data-reveal>
+            <p class="mono scene-num">01 / 12</p>
+            <h3 class="scene-title display">RAG Monitor</h3>
+            <p class="tagline" data-i18n="rag.tagline">Question-réponse sur documents, LLM local, monitoring du drift.</p>
+            <ul class="tags"><li>Python</li><li>Docker</li><li data-i18n="tag.localLlm">LLM local</li><li>RAG</li><li>CI/CD</li><li>MLflow</li></ul>
+            <button class="arrow-link open-project" type="button"><span data-i18n="projects.open">Voir le projet</span><span aria-hidden="true">→</span></button>
+            <p class="kind" hidden data-i18n="kind.perso">Projet personnel</p>
+            <p class="desc" hidden data-i18n="rag.desc">Un système de question-réponse sur documents, propulsé par un LLM local et gratuit. Pipeline RAG complet, monitoring du drift, versioning des expériences avec MLflow et CI/CD automatisée. Tout tourne dans Docker et se lance en une seule commande.</p>
+          </div>
+        </article>
+
+        <article class="scene" data-project data-image="assets/images/work/assistant-rh-ia.webp" data-link="https://github.com/lucas-debize/assistant_RH_IA">
+          <figure class="scene-media" data-reveal>
+            <img src="assets/images/work/assistant-rh-ia.webp" width="1600" height="782" alt="Workflow n8n du projet Assistant RH IA" loading="lazy" decoding="async" />
+          </figure>
+          <div class="scene-text" data-reveal>
+            <p class="mono scene-num">02 / 12</p>
+            <h3 class="scene-title display" data-i18n="rh.title">Assistant RH IA</h3>
+            <p class="tagline" data-i18n="rh.tagline">Un CV arrive par email, un score sort en base.</p>
+            <ul class="tags"><li>n8n</li><li>Docker</li><li>Ollama</li><li>PostgreSQL</li><li>Python</li><li>IMAP</li></ul>
+            <button class="arrow-link open-project" type="button"><span data-i18n="projects.open">Voir le projet</span><span aria-hidden="true">→</span></button>
+            <p class="kind" hidden data-i18n="kind.perso">Projet personnel</p>
+            <p class="desc" hidden data-i18n="rh.desc">Workflow entièrement local. Un email avec un CV en PDF déclenche l'extraction, l'analyse par Ollama, le stockage PostgreSQL et la notification du recruteur. Orchestration n8n, déclenchement IMAP à la réception, un seul fichier .env pour toute la configuration. Stack Docker avec n8n, pdf-extractor, Ollama et PostgreSQL.</p>
+          </div>
+        </article>
+
+        <article class="scene" data-project data-image="assets/images/work/chessmulti.webp" data-link="https://www.swisstransfer.com/d/71e4927b-1197-46d7-b092-b38ad3949bed" data-link-label="download">
+          <figure class="scene-media" data-reveal>
+            <img src="assets/images/work/chessmulti.webp" width="1376" height="711" alt="Partie en cours dans le jeu d'échecs multijoueur Unreal Engine 5" loading="lazy" decoding="async" />
+          </figure>
+          <div class="scene-text" data-reveal>
+            <p class="mono scene-num">03 / 12</p>
+            <h3 class="scene-title display" data-i18n="ue5.title">Échecs Multijoueur UE5</h3>
+            <p class="tagline" data-i18n="ue5.tagline">Des échecs en ligne sur Steam, avec factions et pouvoirs.</p>
+            <ul class="tags"><li>Unreal Engine 5</li><li>C++</li><li>Blueprint</li><li>Steam SDK</li></ul>
+            <button class="arrow-link open-project" type="button"><span data-i18n="projects.open">Voir le projet</span><span aria-hidden="true">→</span></button>
+            <p class="kind" hidden data-i18n="kind.tech">Projet technique</p>
+            <p class="desc" hidden data-i18n="ue5.desc">Jeu d'échecs multijoueur en ligne jouable via Steam, développé sous Unreal Engine 5.6 en Blueprint et C++. Les règles classiques sont étendues par un système de factions et de pouvoirs spéciaux qui change la lecture stratégique de chaque partie.</p>
+          </div>
+        </article>
+
+        <article class="scene" data-project data-image="assets/images/work/r-type.webp" data-link="https://github.com/lucas-debize/r-type">
+          <figure class="scene-media" data-reveal>
+            <img src="assets/images/work/r-type.webp" width="1600" height="814" alt="Capture du jeu R-Type recréé en C++" loading="lazy" decoding="async" />
+          </figure>
+          <div class="scene-text" data-reveal>
+            <p class="mono scene-num">04 / 12</p>
+            <h3 class="scene-title display">R-Type</h3>
+            <p class="tagline" data-i18n="rtype.tagline">Un moteur de jeu réseau écrit from scratch en C++.</p>
+            <ul class="tags"><li>C++</li><li>SFML</li><li>Boost</li><li>CMake</li></ul>
+            <button class="arrow-link open-project" type="button"><span data-i18n="projects.open">Voir le projet</span><span aria-hidden="true">→</span></button>
+            <p class="kind" hidden data-i18n="kind.tech">Projet technique</p>
+            <p class="desc" hidden data-i18n="rtype.desc">Recréation du shoot 'em up R-Type sur un moteur de jeu réseau développé de zéro en C++. SFML pour le rendu, Boost pour le réseau, CMake pour le build. Architecture modulaire et multiplateforme.</p>
+          </div>
+        </article>
+
+        <ol class="index" start="5" data-reveal>
+          <li data-project data-image="assets/images/work/chatbot.webp" data-link="https://github.com/lucas-debize/chatbot">
+            <button class="row" type="button">
+              <span class="mono row-num">05</span>
+              <span class="row-title" data-i18n="chatbot.title">Chatbot IA Portfolio</span>
+              <span class="row-tagline tagline" data-i18n="chatbot.tagline">Un assistant Gemini qui répond sur mon profil.</span>
+              <span class="row-cat mono" data-i18n="chatbot.cat">IA · Web</span>
+              <span class="row-arrow" aria-hidden="true">→</span>
+            </button>
+            <ul class="tags" hidden><li>React</li><li>Vite</li><li>Node.js</li><li>Express</li><li>Google Gemini</li></ul>
+            <p class="kind" hidden data-i18n="kind.perso">Projet personnel</p>
+            <p class="desc" hidden data-i18n="chatbot.desc">Chatbot React, Express et API Google Gemini qui répond aux questions sur mon parcours. Le backend charge profile.json comme base de connaissances et l'injecte dans le prompt système. Bascule automatique sur un modèle de repli si le modèle configuré est indisponible.</p>
+          </li>
+          <li data-project data-image="assets/images/work/power_automate.webp" data-video="assets/videos/power_automate.mp4">
+            <button class="row" type="button">
+              <span class="mono row-num">06</span>
+              <span class="row-title">Microsoft Power Automate</span>
+              <span class="row-tagline tagline" data-i18n="pa.tagline">Des demandes clients triées et planifiées sans code.</span>
+              <span class="row-cat mono" data-i18n="cat.ai">IA</span>
+              <span class="row-arrow" aria-hidden="true">→</span>
+            </button>
+            <ul class="tags" hidden><li>Power Automate</li><li>Microsoft Forms</li><li>SharePoint</li><li>Planner</li><li>Teams</li><li data-i18n="cat.ai">IA</li></ul>
+            <p class="kind" hidden data-i18n="kind.perso">Projet personnel</p>
+            <p class="desc" hidden data-i18n="pa.desc">Flux no-code. Une demande arrive par Microsoft Forms, l'IA la classifie (catégorie, priorité, résumé) et l'enregistre dans une liste SharePoint. Une tâche Planner est créée dans le bon compartiment, l'équipe est prévenue sur Teams et un brouillon d'email est validé à la main avant envoi au client.</p>
+          </li>
+          <li data-project data-image="assets/images/work/elyrii.webp" data-link="https://github.com/elyrii-epitech/Elyrii">
+            <button class="row" type="button">
+              <span class="mono row-num">07</span>
+              <span class="row-title">Elyrii</span>
+              <span class="row-tagline tagline" data-i18n="elyrii.tagline">Une mascotte IA pour le soutien émotionnel.</span>
+              <span class="row-cat mono" data-i18n="elyrii.cat">IA · Mobile</span>
+              <span class="row-arrow" aria-hidden="true">→</span>
+            </button>
+            <ul class="tags" hidden><li>Flutter</li><li>Python</li><li data-i18n="tag.convAi">IA conversationnelle</li></ul>
+            <p class="kind" hidden data-i18n="kind.tech">Projet technique</p>
+            <p class="desc" hidden data-i18n="elyrii.desc">Application mobile qui accompagne les personnes en dépression ou en difficulté émotionnelle. Une mascotte interactive dialogue avec l'utilisateur, propose des défis quotidiens et joue le rôle de conseiller ou de journal intime.</p>
+          </li>
+          <li data-project data-image="assets/images/work/denoising.webp" data-link="https://colab.research.google.com/drive/1zJbH6VJuVqlFDpuNGjOCFL9J8-la3GLz?usp=sharing" data-link-label="notebook">
+            <button class="row" type="button">
+              <span class="mono row-num">08</span>
+              <span class="row-title">Image Denoising</span>
+              <span class="row-tagline tagline" data-i18n="denoise.tagline">Un réseau qui reconstruit des images bruitées.</span>
+              <span class="row-cat mono" data-i18n="cat.ai">IA</span>
+              <span class="row-arrow" aria-hidden="true">→</span>
+            </button>
+            <ul class="tags" hidden><li>Python</li><li>TensorFlow</li><li>PyTorch</li><li>Google Colab</li></ul>
+            <p class="kind" hidden data-i18n="kind.perso">Projet personnel</p>
+            <p class="desc" hidden data-i18n="denoise.desc">Le pipeline ajoute du bruit à des images, puis entraîne un réseau de neurones à reconstruire l'original au plus près. Entraîné sur Google Colab avec accélération GPU.</p>
+          </li>
+          <li data-project data-image="assets/images/work/prospecthor.webp">
+            <button class="row" type="button">
+              <span class="mono row-num">09</span>
+              <span class="row-title">Prospecthor</span>
+              <span class="row-tagline tagline" data-i18n="prospecthor.tagline">Tri d'emails par IA et scoring d'intention de prospection.</span>
+              <span class="row-cat mono" data-i18n="prospecthor.cat">IA · Web</span>
+              <span class="row-arrow" aria-hidden="true">→</span>
+            </button>
+            <ul class="tags" hidden><li>Python</li><li>Flutter</li><li>PHP</li><li>NLP</li><li>GitLab</li></ul>
+            <p class="kind" hidden data-i18n="kind.stage">Projet de stage</p>
+            <p class="desc" hidden data-i18n="prospecthor.desc">Développée en binôme avec mon maître de stage. Le système analyse chaque email reçu, détecte la prospection commerciale et attribue une note selon l'intention détectée face aux critères du client. Backend Python pour les modèles et l'analyse sémantique, frontend Flutter multiplateforme, services PHP, versionné sur GitLab.</p>
+          </li>
+          <li data-project data-image="assets/images/work/classification.webp" data-link="https://colab.research.google.com/drive/1e0b2ujHG--1ifloviWWq55Q5_G5B9dJP?usp=sharing" data-link-label="notebook">
+            <button class="row" type="button">
+              <span class="mono row-num">10</span>
+              <span class="row-title">Image Recognition</span>
+              <span class="row-tagline tagline" data-i18n="recog.tagline">Classification multi-classes avec des CNN.</span>
+              <span class="row-cat mono" data-i18n="cat.ai">IA</span>
+              <span class="row-arrow" aria-hidden="true">→</span>
+            </button>
+            <ul class="tags" hidden><li>Python</li><li>TensorFlow</li><li>Keras</li><li>CNN</li><li>Google Colab</li></ul>
+            <p class="kind" hidden data-i18n="kind.perso">Projet personnel</p>
+            <p class="desc" hidden data-i18n="recog.desc">Entraînement de réseaux convolutifs pour classer des images sur plusieurs datasets (chats, chiens, voitures). Comparaison d'architectures CNN et de leurs performances en multi-classes. Réalisé sur Google Colab.</p>
+          </li>
+          <li data-project data-image="assets/images/work/chess.webp" data-link="https://github.com/lucas-debize/chess_game_state">
+            <button class="row" type="button">
+              <span class="mono row-num">11</span>
+              <span class="row-title">Chess Game State</span>
+              <span class="row-tagline tagline" data-i18n="chess.tagline">Lire la position d'un échiquier depuis une photo.</span>
+              <span class="row-cat mono" data-i18n="cat.ai">IA</span>
+              <span class="row-arrow" aria-hidden="true">→</span>
+            </button>
+            <ul class="tags" hidden><li>Python</li><li>OpenCV</li><li>NumPy</li><li data-i18n="tag.cv">Vision par ordinateur</li></ul>
+            <p class="kind" hidden data-i18n="kind.perso">Projet personnel</p>
+            <p class="desc" hidden data-i18n="chess.desc">Vision par ordinateur. Le programme reconnaît l'état d'un échiquier à partir d'une seule image. Traitement d'image, extraction de caractéristiques et interprétation du plateau pour situer chaque pièce.</p>
+          </li>
+          <li data-project data-image="assets/images/work/portfolio.webp" data-link="https://github.com/lucas-debize/portfolio">
+            <button class="row" type="button">
+              <span class="mono row-num">12</span>
+              <span class="row-title">Portfolio</span>
+              <span class="row-tagline tagline" data-i18n="pf.tagline">Ce site. HTML, CSS et JavaScript, sans framework.</span>
+              <span class="row-cat mono">Web</span>
+              <span class="row-arrow" aria-hidden="true">→</span>
+            </button>
+            <ul class="tags" hidden><li>HTML</li><li>CSS</li><li>JavaScript</li><li>i18n</li><li data-i18n="tag.a11y">Accessibilité</li></ul>
+            <p class="kind" hidden data-i18n="kind.perso">Projet personnel</p>
+            <p class="desc" hidden data-i18n="pf.desc">Conçu et développé sans framework. Typographie variable, thème clair et sombre, FR/EN, animations au scroll qui respectent prefers-reduced-motion, formulaire de contact et fiche projet en panneau latéral.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="sec" id="stack">
+        <header class="sec-head" data-reveal>
+          <span class="mono">03</span>
+          <h2 data-i18n="stack.title">Stack</h2>
+          <p class="sec-note" data-i18n="stack.note">Ce que les projets ci-dessus utilisent vraiment.</p>
+        </header>
+        <dl class="stack" data-reveal>
+          <div class="stack-row">
+            <dt data-i18n="stack.ai">Intelligence artificielle</dt>
+            <dd>Python, PyTorch, TensorFlow, Keras, OpenCV, Ollama, RAG, NLP</dd>
+          </div>
+          <div class="stack-row">
+            <dt data-i18n="stack.web">Web</dt>
+            <dd>HTML, CSS, JavaScript, React, Node.js, PHP, PostgreSQL, Flutter</dd>
+          </div>
+          <div class="stack-row">
+            <dt data-i18n="stack.soft">Logiciel</dt>
+            <dd>C, C++, SFML, Boost, CMake, Unreal Engine 5</dd>
+          </div>
+          <div class="stack-row">
+            <dt data-i18n="stack.tools">Outils</dt>
+            <dd>Git, GitLab, Docker, Bash, n8n, MLflow, Google Colab</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="sec" id="contact">
+        <header class="sec-head" data-reveal>
+          <span class="mono">04</span>
+          <h2 data-i18n="contact.title">Contact</h2>
+        </header>
+        <div class="contact">
+          <div class="contact-text" data-reveal>
+            <h3 class="display contact-headline" data-i18n="contact.headline">Parlons-en.</h3>
+            <p data-i18n="contact.lede">Stage, CDI, CDD ou simplement un projet à discuter. Je réponds sous 24 h, en français ou en anglais.</p>
+            <a class="big-mail" href="mailto:lucasdebize@epitech.eu">lucasdebize@epitech.eu</a>
+            <ul class="links">
+              <li><a class="arrow-link" href="https://github.com/lucas-debize" target="_blank" rel="noreferrer"><span>GitHub</span><span aria-hidden="true">↗</span></a></li>
+              <li><a class="arrow-link" href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noreferrer"><span>LinkedIn</span><span aria-hidden="true">↗</span></a></li>
+              <li><a class="arrow-link" href="assets/images/CV.pdf" target="_blank" rel="noreferrer"><span data-i18n="contact.cv">CV (PDF)</span><span aria-hidden="true">↗</span></a></li>
+            </ul>
+          </div>
+          <form class="form" id="contact-form" data-reveal novalidate>
+            <input type="hidden" name="contact_number" value="697483" />
+            <div class="field">
+              <label for="f-name" data-i18n="form.name">Nom</label>
+              <input id="f-name" type="text" name="user_name" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="f-email" data-i18n="form.email">Email</label>
+              <input id="f-email" type="email" name="user_email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="f-message" data-i18n="form.message">Message</label>
+              <textarea id="f-message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-foot">
+              <button class="btn" type="submit"><span data-i18n="form.send">Envoyer</span><span aria-hidden="true">→</span></button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
         </div>
       </section>
     </main>
 
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+    <footer class="foot">
+      <span>© 2026 Lucas Debize</span>
+      <span data-i18n="foot.made">HTML, CSS, JavaScript. Sans framework.</span>
+      <a class="arrow-link" href="#top"><span data-i18n="foot.top">Haut de page</span><span aria-hidden="true">↑</span></a>
+    </footer>
 
-    <!-- MODAL PROJET -->
-    <div class="modal" id="projectModal" aria-hidden="true">
-      <div class="modal-overlay" id="modalOverlay"></div>
-
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button class="modal-close" id="modalClose" aria-label="Fermer">×</button>
-
-        <div class="modal-layout">
-          <div class="modal-visual">
-            <img id="modalImage" src="" alt="" />
-            <video id="modalVideo" controls playsinline hidden></video>
-          </div>
-
-          <div class="modal-content">
-            <div class="modal-tags" id="modalTags"></div>
-            <p class="modal-subtitle" id="modalSubtitle"></p>
-            <h3 id="modalTitle"></h3>
-            <p class="modal-description" id="modalDescription"></p>
-
-            <div class="modal-actions">
-              <a href="#" id="modalLink" class="btn btn-primary" target="_blank" rel="noreferrer" data-i18n="modal.cta">
-                Voir le projet
-              </a>
-            </div>
-          </div>
-        </div>
+    <dialog class="dialog" id="project-dialog" aria-labelledby="d-title">
+      <div class="dialog-bar">
+        <span class="mono" id="d-num"></span>
+        <button class="arrow-link" id="d-close" type="button"><span data-i18n="dialog.close">Fermer</span><span aria-hidden="true">×</span></button>
       </div>
-    </div>
+      <figure class="dialog-media">
+        <img id="d-img" src="" alt="" decoding="async" />
+        <video id="d-video" controls playsinline preload="none" hidden></video>
+      </figure>
+      <div class="dialog-body">
+        <p class="mono" id="d-kind"></p>
+        <h3 class="display" id="d-title"></h3>
+        <p class="tagline" id="d-tagline"></p>
+        <p class="desc" id="d-desc"></p>
+        <ul class="tags" id="d-tags"></ul>
+        <a class="btn" id="d-link" href="#" target="_blank" rel="noreferrer"><span id="d-link-label"></span><span aria-hidden="true">↗</span></a>
+      </div>
+    </dialog>
   </body>
 </html>

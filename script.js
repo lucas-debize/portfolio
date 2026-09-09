@@ -1,614 +1,330 @@
-const root = document.documentElement;
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
+const en = {
+  skip: "Skip to content",
+  "nav.about": "About",
+  "nav.projects": "Projects",
+  "nav.stack": "Stack",
+  "nav.contact": "Contact",
 
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) root.setAttribute("data-theme", savedTheme);
+  "hero.role": "Developer · AI, web, software",
+  "hero.avail": "Available · internship, full-time, contract",
+  "hero.lede":
+    "Computer science student at Epitech. I build AI systems that run locally, web applications and game engines in C++.",
+  "hero.cta1": "See the projects",
+  "hero.cta2": "Get in touch",
 
-function updateThemeIcon() {
-  themeIcon.textContent = root.getAttribute("data-theme") === "light" ? "☾" : "☀";
-}
-updateThemeIcon();
+  "about.title": "About",
+  "about.p1":
+    "Computer science student at Epitech, I build projects that run end to end. AI pipelines executed locally, web applications, game engines in C++.",
+  "about.p2":
+    "What I aim for in every project. An architecture you can explain in one sentence, an interface that needs no manual, a result you can reproduce.",
+  "about.f1k": "Education",
+  "about.f2k": "Fields",
+  "about.f2v": "AI, web, software",
+  "about.f3k": "Method",
+  "about.f3v": "Docker, CI/CD, versioned code",
+  "about.f4k": "Location",
+  "about.v1": "Complete projects, not demos.",
+  "about.v2": "An architecture you can explain in one sentence.",
+  "about.v3": "Interfaces that need no manual.",
+  "about.v4": "AI as a concrete tool, not a selling point.",
 
-themeToggle?.addEventListener("click", () => {
-  const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-  root.setAttribute("data-theme", next);
-  localStorage.setItem("theme", next);
-  updateThemeIcon();
-});
+  "projects.title": "Projects",
+  "projects.note": "Four projects in depth, eight in the index.",
+  "projects.open": "View project",
+  "kind.perso": "Personal project",
+  "kind.tech": "Technical project",
+  "kind.stage": "Internship project",
+  "cat.ai": "AI",
+  "tag.localLlm": "Local LLM",
+  "tag.convAi": "Conversational AI",
+  "tag.cv": "Computer vision",
+  "tag.a11y": "Accessibility",
 
-const translations = {
+  "rag.tagline": "Question answering over documents, local LLM, drift monitoring.",
+  "rag.desc":
+    "A document question-answering system powered by a free, local LLM. Complete RAG pipeline, drift monitoring, experiment versioning with MLflow and automated CI/CD. Everything runs in Docker and starts with a single command.",
+  "rh.title": "HR AI Assistant",
+  "rh.tagline": "A resume arrives by email, a score lands in the database.",
+  "rh.desc":
+    "Fully local workflow. An email with a PDF resume triggers extraction, analysis by Ollama, PostgreSQL storage and a recruiter notification. n8n orchestration, IMAP trigger on receipt, one .env file for the whole configuration. Docker stack with n8n, pdf-extractor, Ollama and PostgreSQL.",
+  "ue5.title": "Multiplayer Chess UE5",
+  "ue5.tagline": "Online chess on Steam, with factions and powers.",
+  "ue5.desc":
+    "Online multiplayer chess playable through Steam, built with Unreal Engine 5.6 in Blueprint and C++. The classic rules are extended by a system of factions and special powers that changes the strategic reading of every game.",
+  "rtype.tagline": "A networked game engine written from scratch in C++.",
+  "rtype.desc":
+    "A recreation of the R-Type shoot 'em up on a networked game engine built from zero in C++. SFML for rendering, Boost for networking, CMake for the build. Modular, cross-platform architecture.",
+
+  "chatbot.title": "AI Portfolio Chatbot",
+  "chatbot.cat": "AI · Web",
+  "chatbot.tagline": "A Gemini assistant that answers questions about my profile.",
+  "chatbot.desc":
+    "React, Express and Google Gemini API chatbot that answers questions about my background. The backend loads profile.json as a knowledge base and injects it into the system prompt. Automatic fallback to a backup model if the configured one is unavailable.",
+  "pa.tagline": "Customer requests sorted and scheduled without code.",
+  "pa.desc":
+    "No-code flow. A request comes in through Microsoft Forms, AI classifies it (category, priority, summary) and stores it in a SharePoint list. A Planner task is created in the right bucket, the team is notified on Teams and an email draft is reviewed by hand before it goes to the customer.",
+  "elyrii.cat": "AI · Mobile",
+  "elyrii.tagline": "An AI mascot for emotional support.",
+  "elyrii.desc":
+    "Mobile app that supports people dealing with depression or emotional difficulty. An interactive mascot talks with the user, suggests daily challenges and acts as a counselor or a private journal.",
+  "denoise.tagline": "A network that rebuilds noisy images.",
+  "denoise.desc":
+    "The pipeline adds noise to images, then trains a neural network to reconstruct the original as closely as possible. Trained on Google Colab with GPU acceleration.",
+  "prospecthor.cat": "AI · Web",
+  "prospecthor.tagline": "AI email sorting with prospecting intent scoring.",
+  "prospecthor.desc":
+    "Built in a pair with my internship supervisor. The system analyzes every incoming email, detects commercial prospecting and assigns a score based on the detected intent against the client's criteria. Python backend for the models and semantic analysis, cross-platform Flutter frontend, PHP services, versioned on GitLab.",
+  "recog.tagline": "Multi-class classification with CNNs.",
+  "recog.desc":
+    "Training convolutional networks to classify images across several datasets (cats, dogs, cars). Comparison of CNN architectures and their multi-class performance. Built on Google Colab.",
+  "chess.tagline": "Reading a chessboard position from a photo.",
+  "chess.desc":
+    "Computer vision. The program recognizes the state of a chessboard from a single image. Image processing, feature extraction and board interpretation to locate every piece.",
+  "pf.tagline": "This site. HTML, CSS and JavaScript, no framework.",
+  "pf.desc":
+    "Designed and built without a framework. Variable typography, light and dark theme, FR/EN, scroll animations that respect prefers-reduced-motion, contact form and a side-panel project sheet.",
+
+  "stack.title": "Stack",
+  "stack.note": "What the projects above actually use.",
+  "stack.ai": "Artificial intelligence",
+  "stack.web": "Web",
+  "stack.soft": "Software",
+  "stack.tools": "Tools",
+
+  "contact.title": "Contact",
+  "contact.headline": "Let's talk.",
+  "contact.lede":
+    "Internship, full-time, contract, or simply a project to discuss. I reply within 24 hours, in French or English.",
+  "contact.cv": "Resume (PDF)",
+  "form.name": "Name",
+  "form.email": "Email",
+  "form.message": "Message",
+  "form.send": "Send",
+
+  "foot.made": "HTML, CSS, JavaScript. No framework.",
+  "foot.top": "Back to top",
+  "dialog.close": "Close",
+};
+
+const ui = {
   fr: {
-    "nav.about": "À propos",
-    "nav.projects": "Projets",
-    "nav.skills": "Compétences",
-    "nav.contact": "Contact",
-
-    "hero.eyebrow": "Portfolio étudiant",
-    "hero.title":
-      "Développeur en devenir,<br/>passionné de <span class=\"grad-text\">code</span> &amp; d'<span class=\"grad-text\">IA</span>.",
-    "hero.text":
-      "Étudiant en informatique, je conçois des projets concrets en intelligence artificielle, web et développement logiciel. Architecture propre, interfaces soignées, logique technique.",
-    "hero.cta1": "Voir les projets",
-    "hero.cta2": "Me contacter",
-    "hero.meta1": "Disponible pour un stage",
-    "hero.meta2": "Basé en France",
-    "hero.side1.label": "Focus",
-    "hero.side1.title": "IA · Web · Logiciel",
-    "hero.side1.text":
-      "Développement applicatif, interfaces modernes et expérimentations autour de l'intelligence artificielle.",
-    "hero.side2.label": "Approche",
-    "hero.side2.title": "Concret & soigné",
-    "hero.side2.text":
-      "Projets aboutis, code structuré, interfaces lisibles et logique technique assumée.",
-
-    "stats.projects": "Projets réalisés",
-    "stats.domains": "Domaines principaux",
-    "stats.techs": "Technologies utilisées",
-
-    "about.eyebrow": "À propos",
-    "about.title": "Profil",
-    "about.p1":
-      "Étudiant en informatique, j'utilise ce portfolio pour présenter différents projets réalisés en intelligence artificielle, web et développement logiciel.",
-    "about.p2":
-      "L'objectif : montrer des réalisations concrètes, la manière dont elles ont été conçues, ainsi que les outils et technologies utilisés.",
-    "about.listTitle": "Ce que je cherche à montrer",
-    "about.li1": "des projets variés et structurés",
-    "about.li2": "une approche technique claire",
-    "about.li3": "une attention à l'interface et à l'expérience utilisateur",
-    "about.li4": "un intérêt réel pour les sujets liés à l'IA",
-
-    "projects.eyebrow": "Projets",
-    "projects.title": "Sélection de réalisations",
-    "projects.filterAll": "Tous",
-    "projects.filterSoft": "Logiciel",
-    "projects.filterWeb": "Web",
-    "projects.filterAi": "IA",
-    "projects.filterPerso": "Personnel",
-    "projects.badge.tech": "Projet technique",
-    "projects.badge.perso": "Projet personnel",
-
-    "projects.chess.title": "Chess Vision",
-    "projects.chess.subtitle": "Analyse visuelle d'un plateau d'échecs",
-    "projects.chess.description":
-      "Projet orienté vision par ordinateur visant à reconnaître l'état d'un échiquier à partir d'une image. Travail sur le traitement d'image, l'extraction d'informations visuelles et l'interprétation du plateau.",
-    "projects.chess.short":
-      "Reconnaissance d'un état de jeu d'échecs à partir d'une image.",
-
-    "projects.portfolio.title": "Portfolio",
-    "projects.portfolio.subtitle": "Conception et développement front-end",
-    "projects.portfolio.description":
-      "Création de ce portfolio avec une attention particulière portée à la hiérarchie visuelle, aux animations, au responsive et à la mise en valeur des projets.",
-    "projects.portfolio.short":
-      "Interface pensée pour présenter des projets et compétences de manière claire.",
-
-    "projects.dashboard.title": "Dashboard IA",
-    "projects.dashboard.subtitle": "Intégration d'outils IA dans une interface web",
-    "projects.dashboard.description":
-      "Prototype d'interface permettant de manipuler différents traitements liés à l'IA dans une interface web claire. Travail sur la structuration front-end et l'intégration de fonctionnalités interactives.",
-    "projects.dashboard.short":
-      "Interface web pour expérimenter et présenter des fonctionnalités liées à l'IA.",
-
-    "projects.powerAutomate.title": "Microsoft Power Automate",
-    "projects.powerAutomate.subtitle": "Gestion de demandes clients",
-    "projects.powerAutomate.description": "Flux no-code qui prend une demande via Microsoft Forms, la classifie avec IA (catégorie, priorité, résumé) et la stocke dans une liste SharePoint. Une tâche Planner est créée dans le bon compartiment, l’équipe est alertée sur Teams, et un brouillon d’email est généré puis validé manuellement avant envoi au client.",
-    "projects.powerAutomate.short": "Flux no-code : Forms, classification IA, SharePoint, Planner, Teams et validation d'email.",
-
-    "projects.rag.title": "RAG Monitor",
-    "projects.rag.subtitle": "Système RAG local avec monitoring & CI/CD",
-    "projects.rag.description": "Système de question-réponse basé sur des documents, propulsé par un LLM local et gratuit. Le projet intègre un pipeline RAG complet, un monitoring du drift, un versioning des expériences et une pipeline CI/CD entièrement automatisée. Tout s'exécute localement via Docker et se lance en une seule commande.",
-    "projects.rag.short": "Système RAG local complet avec monitoring et pipeline CI/CD automatisée.",
-
-    "projects.chatbot.title": "Chatbot IA Portfolio",
-    "projects.chatbot.subtitle": "Assistant conversationnel sur profil développeur",
-    "projects.chatbot.description": "Chatbot utilisant React, Express et l'API Google Gemini pour répondre aux questions sur mon profil développeur. Le backend charge profile.json comme base de connaissances et injecte son contenu dans le prompt système Gemini. Architecture : React (5173) → Express (3001) → Gemini API, avec bascule automatique sur un modèle de repli si le modèle configuré est indisponible.",
-    "projects.chatbot.short": "Chatbot Gemini qui répond aux questions sur mon profil à partir de profile.json.",
-
-    "projects.assistantRh.title": "Assistant RH IA",
-    "projects.assistantRh.subtitle": "Automatisation des candidatures par email",
-    "projects.assistantRh.description": "Workflow 100 % local : réception d'un email avec CV PDF → extraction → analyse IA (Ollama) → stockage PostgreSQL → notification recruteur. Orchestration via n8n, configuration centralisée dans un seul fichier .env, déclenchement à la réception IMAP (sans planification). Stack Docker : n8n, pdf-extractor, Ollama et PostgreSQL.",
-    "projects.assistantRh.short": "Pipeline local n8n : CV par email, analyse Ollama, score PostgreSQL, alerte recruteur.",
-
-    "projects.elyrii.title": "Elyrii",
-    "projects.elyrii.subtitle": "Application mobile IA de soutien émotionnel",
-    "projects.elyrii.description": "Application mobile innovante intégrant l'IA pour accompagner les personnes en dépression ou en difficulté émotionnelle. Elyrii propose une mascotte interactive intelligente qui dialogue avec l'utilisateur, lui propose des défis quotidiens, et peut jouer le rôle de conseiller bienveillant ou de journal intime numérique.",
-    "projects.elyrii.short": "Mascotte IA mobile pour accompagner les personnes en difficulté émotionnelle.",
-
-    "projects.denoise.title": "Image Denoising",
-    "projects.denoise.subtitle": "Modèle IA de débruitage d'images",
-    "projects.denoise.description": "Entraînement d'un modèle d'IA capable de débruiter des images. Le pipeline ajoute artificiellement du bruit à des images d'entrée, puis entraîne un réseau de neurones à reconstruire l'image originale au plus près. Implémenté sur Google Colab pour profiter de l'accélération GPU.",
-    "projects.denoise.short": "Réseau de neurones entraîné à reconstruire des images bruitées.",
-
-    "projects.prospecthor.title": "Prospecthor",
-    "projects.prospecthor.subtitle": "Application de gestion intelligente d'emails",
-    "projects.prospecthor.description": "Application développée en binôme avec mon maître de stage, permettant la gestion automatisée des emails grâce à l'IA. Le système analyse chaque message reçu, détecte s'il s'agit de prospection commerciale, et attribue une note en fonction de l'intention détectée comparée aux critères définis par le client. Stack complète : back-end Python pour les modèles d'IA et l'analyse sémantique, front-end Flutter multiplateforme et services PHP. Projet collaboratif versionné sur GitLab.",
-    "projects.prospecthor.short": "Application de tri d'emails par IA avec scoring d'intention de prospection.",
-
-    "projects.recognition.title": "Image Recognition",
-    "projects.recognition.subtitle": "Classification d'images avec CNN",
-    "projects.recognition.description": "Entraînement d'un modèle d'IA dédié à la classification d'images sur différents datasets (chats, chiens, voitures, etc.). Le projet explore les architectures de réseaux convolutifs (CNN) et leurs performances sur des problèmes multi-classes. Réalisé sur Google Colab.",
-    "projects.recognition.short": "CNN entraînés sur plusieurs datasets pour de la classification multi-classes.",
-
-    "projects.chess.title": "Chess Game State",
-    "projects.chess.subtitle": "Analyse visuelle d'un plateau d'échecs",
-    "projects.chess.description": "Projet de vision par ordinateur visant à reconnaître automatiquement l'état d'un échiquier à partir d'une simple image. Mise en œuvre de techniques de traitement d'image, d'extraction de caractéristiques visuelles et d'interprétation du plateau pour identifier la position de chaque pièce.",
-    "projects.chess.short": "Reconnaissance d'un état de jeu d'échecs à partir d'une image.",
-
-    "projects.ue5chess.title": "Échecs Multijoueur UE5",
-    "projects.ue5chess.subtitle": "Jeu d'échecs en ligne sous Unreal Engine 5",
-    "projects.ue5chess.description": "Jeu d'échecs multijoueur en ligne jouable via Steam, développé sous Unreal Engine 5.6.1 en Blueprint et C++. Le jeu réinvente les échecs traditionnels avec un système de factions uniques et de pouvoirs spéciaux, apportant une profondeur stratégique inédite.",
-    "projects.ue5chess.short": "Échecs en ligne sur Steam avec factions et pouvoirs spéciaux.",
-
-    "projects.rtype.title": "R-Type",
-    "projects.rtype.subtitle": "Moteur de jeu réseau en C++ from scratch",
-    "projects.rtype.description": "Recréation du célèbre shoot 'em up R-Type avec un moteur de jeu réseau développé entièrement from scratch en C++. Le projet exploite SFML pour le rendu graphique et Boost pour les utilitaires réseau. Architecture modulaire, multiplateforme et pensée pour la scalabilité.",
-    "projects.rtype.short": "Moteur de jeu réseau multiplateforme codé from scratch en C++.",
-
-    "projects.portfolio.title": "Portfolio",
-    "projects.portfolio.subtitle": "Conception et développement front-end",
-    "projects.portfolio.description": "Conception et développement de ce portfolio personnel from scratch en HTML, CSS et JavaScript pur, sans framework. Travail approfondi sur la hiérarchie visuelle, les animations, le responsive design, le système de thème clair/sombre, le multilingue (FR/EN) et la mise en valeur des projets via une modale interactive.",
-    "projects.portfolio.short": "Site personnel développé from scratch pour présenter mes projets.",
-
-    "tag.ai": "IA",
-    "tag.web": "Web",
-    "tag.software": "Logiciel",
-    "tag.personal": "Personnel",
-
-    "skills.eyebrow": "Compétences",
-    "skills.title": "Technologies et domaines",
-    "skills.ai.title": "Intelligence artificielle",
-    "skills.ai.c1": "Python",
-    "skills.ai.c2": "NLP",
-    "skills.ai.c3": "Classification",
-
-    "skills.web.title": "Développement web",
-    "skills.web.c1": "HTML",
-    "skills.web.c2": "PHP",
-    "skills.web.c3": "JavaScript",
-    "skills.web.c4": "React",
-    "skills.web.c5": "PostgreSQL",
-    "skills.web.c6": "Flutter",
-
-    "skills.soft.title": "Développement logiciel",
-    "skills.soft.c1": "C",
-    "skills.soft.c2": "C++",
-    "skills.soft.c3": "UE5",
-
-    "skills.tools.title": "Outils",
-    "skills.tools.c1": "Gitlab",
-    "skills.tools.c2": "Git",
-    "skills.tools.c3": "Docker",
-    "skills.tools.c4": "Bash",
-
-    "contact.eyebrow": "Contact",
-    "contact.title": "Échangeons",
-    "contact.headline": "Une idée, un projet, une opportunité ?",
-    "contact.text":
-      "Que ce soit pour un stage, une collaboration ou simplement pour échanger autour d'un projet, je serai ravi de discuter. Réponse rapide garantie.",
-    "contact.statusTitle": "Disponible immédiatement",
-    "contact.statusText": "Stage / CDI / CDD / Projets",
-    "contact.location": "Localisation",
-    "contact.response": "Délai de réponse",
-    "contact.responseValue": "Sous 24h",
-    "contact.languages": "Langues",
-    "contact.languagesValue": "Français · Anglais",
-    "contact.cv": "CV",
-    "contact.cvValue": "Voir le PDF",
-
-    "modal.cta": "Voir le projet",
+    langToggle: "Switch to English",
+    langLabel: "EN",
+    themeToLight: "Passer en thème clair",
+    themeToDark: "Passer en thème sombre",
+    link: { default: "Voir le code", download: "Télécharger le jeu", notebook: "Ouvrir le notebook" },
+    imageAlt: (title) => `Aperçu du projet ${title}`,
+    sending: "Envoi en cours…",
+    sent: "Message envoyé. Je vous réponds sous 24 h.",
+    invalid: "Nom, email valide et message sont requis.",
+    failed: "L'envoi a échoué. Écrivez-moi directement à lucasdebize@epitech.eu.",
   },
-
   en: {
-    "nav.about": "About",
-    "nav.projects": "Projects",
-    "nav.skills": "Skills",
-    "nav.contact": "Contact",
-
-    "hero.eyebrow": "Student portfolio",
-    "hero.title":
-      "Developer in the making,<br/>passionate about <span class=\"grad-text\">code</span> &amp; <span class=\"grad-text\">AI</span>.",
-    "hero.text":
-      "Computer science student building concrete projects in artificial intelligence, web development and software development. Clean architecture, polished interfaces, solid technical logic.",
-    "hero.cta1": "View projects",
-    "hero.cta2": "Contact me",
-    "hero.meta1": "Open to internship",
-    "hero.meta2": "Based in France",
-    "hero.side1.label": "Focus",
-    "hero.side1.title": "AI · Web · Software",
-    "hero.side1.text":
-      "Application development, modern interfaces and experiments around artificial intelligence.",
-    "hero.side2.label": "Approach",
-    "hero.side2.title": "Concrete & polished",
-    "hero.side2.text":
-      "Solid projects, structured code, readable interfaces and committed technical logic.",
-
-    "stats.projects": "Projects completed",
-    "stats.domains": "Main domains",
-    "stats.techs": "Technologies used",
-
-    "about.eyebrow": "About",
-    "about.title": "Profile",
-    "about.p1":
-      "Computer science student, I use this portfolio to showcase various projects in artificial intelligence, web development and software development.",
-    "about.p2":
-      "The goal: show concrete work, how it was designed, and the tools and technologies used.",
-    "about.listTitle": "What I aim to show",
-    "about.li1": "varied and structured projects",
-    "about.li2": "a clear technical approach",
-    "about.li3": "attention to interface and user experience",
-    "about.li4": "a genuine interest in AI-related topics",
-
-    "projects.eyebrow": "Projects",
-    "projects.title": "Selected works",
-    "projects.filterAll": "All",
-    "projects.filterSoft": "Software",
-    "projects.filterWeb": "Web",
-    "projects.filterAi": "AI",
-    "projects.filterPerso": "Personal",
-    "projects.badge.tech": "Technical project",
-    "projects.badge.perso": "Personal project",
-
-    "projects.chess.title": "Chess Vision",
-    "projects.chess.subtitle": "Visual analysis of a chess board",
-    "projects.chess.description":
-      "Computer vision project aimed at recognising the state of a chessboard from an image. Work on image processing, visual information extraction and board interpretation.",
-    "projects.chess.short": "Chess game state recognition from an image.",
-
-    "projects.portfolio.title": "Portfolio",
-    "projects.portfolio.subtitle": "Front-end design and development",
-    "projects.portfolio.description":
-      "Creation of this portfolio with particular attention to visual hierarchy, animations, responsiveness and project showcasing.",
-    "projects.portfolio.short":
-      "Interface designed to clearly present projects and skills.",
-
-    "projects.dashboard.title": "AI Dashboard",
-    "projects.dashboard.subtitle": "Integrating AI tools into a web interface",
-    "projects.dashboard.description":
-      "Interface prototype for manipulating various AI-related processes in a clear web interface. Work on front-end structure and integration of interactive features.",
-    "projects.dashboard.short":
-      "Web interface to experiment with and present AI features.",
-
-    "projects.portfolio.title": "Portfolio",
-    "projects.portfolio.subtitle": "Front-end design and development",
-    "projects.portfolio.description": "Design and development of this personal portfolio built from scratch with vanilla HTML, CSS and JavaScript, no framework. Strong focus on visual hierarchy, animations, responsive design, light/dark theme system, multilingual support (FR/EN), and an interactive modal to showcase projects.",
-    "projects.portfolio.short": "Personal website built from scratch to showcase my projects.",
-
-    "projects.powerAutomate.title": "Microsoft Power Automate",
-    "projects.powerAutomate.subtitle": "Client request management",
-    "projects.powerAutomate.description": "No-code flow that takes a request via Microsoft Forms, classifies it with AI (category, priority, summary) and stores it in a SharePoint list. A Planner task is created in the right bucket, the team is alerted on Teams, and an email draft is generated then manually validated before sending to the client.",
-    "projects.powerAutomate.short": "No-code flow: Forms, AI classification, SharePoint, Planner, Teams and email validation.",
-
-    "projects.rag.title": "RAG Monitor",
-    "projects.rag.subtitle": "Local RAG system with monitoring & CI/CD",
-    "projects.rag.description": "A document-based question-answering system powered by a free, local LLM. It includes a complete RAG pipeline, drift monitoring, experiment versioning, and a fully automated CI/CD pipeline. Everything runs locally through Docker and launches with a single command.",
-    "projects.rag.short": "Full local RAG system with monitoring and automated CI/CD pipeline.",
-
-    "projects.chatbot.title": "Chatbot IA Portfolio",
-    "projects.chatbot.subtitle": "Conversational assistant for developer profile",
-    "projects.chatbot.description": "Chatbot built with React, Express and the Google Gemini API to answer questions about my developer profile. The backend loads profile.json as a knowledge base and injects its content into the Gemini system prompt. Architecture: React (5173) → Express (3001) → Gemini API, with automatic fallback to a backup model if the configured one is unavailable.",
-    "projects.chatbot.short": "Gemini-powered chatbot that answers profile questions from profile.json.",
-
-    "projects.assistantRh.title": "HR AI Assistant",
-    "projects.assistantRh.subtitle": "Email-driven application automation",
-    "projects.assistantRh.description": "Fully local workflow: incoming email with PDF resume → extraction → AI analysis (Ollama) → PostgreSQL storage → recruiter notification. Orchestrated with n8n, centralized configuration in a single .env file, triggered on IMAP receipt (no scheduling). Docker stack: n8n, pdf-extractor, Ollama and PostgreSQL.",
-    "projects.assistantRh.short": "Local n8n pipeline: resume by email, Ollama analysis, PostgreSQL scoring, recruiter alert.",
-
-    "projects.elyrii.title": "Elyrii",
-    "projects.elyrii.subtitle": "AI-powered mobile app for emotional support",
-    "projects.elyrii.description": "An innovative mobile application leveraging AI to support people dealing with depression or emotional struggles. Elyrii features an interactive AI-powered mascot that engages with users, suggests daily challenges, and acts as a caring companion or digital journal.",
-    "projects.elyrii.short": "AI mascot mobile app supporting people facing emotional struggles.",
-
-    "projects.denoise.title": "Image Denoising",
-    "projects.denoise.subtitle": "AI model for image denoising",
-    "projects.denoise.description": "Training of an AI model capable of denoising images. The pipeline artificially adds noise to input images, then trains a neural network to reconstruct the original image as accurately as possible. Implemented on Google Colab to leverage GPU acceleration.",
-    "projects.denoise.short": "Neural network trained to reconstruct noisy images.",
-
-    "projects.prospecthor.title": "Prospecthor",
-    "projects.prospecthor.subtitle": "Smart email management application",
-    "projects.prospecthor.description": "Application developed as a pair with my internship supervisor, automating email management with AI. The system analyzes each incoming message, detects whether it is commercial prospecting, and assigns a score based on the detected intent compared to the client's criteria. Full stack: Python backend for AI models and semantic analysis, cross-platform Flutter frontend, and PHP services. Collaborative project versioned on GitLab.",
-    "projects.prospecthor.short": "AI email sorting app with prospecting intent scoring.",
-
-    "projects.recognition.title": "Image Recognition",
-    "projects.recognition.subtitle": "Image classification with CNNs",
-    "projects.recognition.description": "Training of an AI model dedicated to image classification across various datasets (cats, dogs, cars, etc.). The project explores convolutional neural network (CNN) architectures and their performance on multi-class problems. Built on Google Colab.",
-    "projects.recognition.short": "CNNs trained on multiple datasets for multi-class classification.",
-
-    "projects.chess.title": "Chess Game State",
-    "projects.chess.subtitle": "Visual analysis of a chess board",
-    "projects.chess.description": "A computer vision project that automatically recognizes the state of a chessboard from a single image. It applies image processing techniques, visual feature extraction, and board interpretation to detect the position of every piece.",
-    "projects.chess.short": "Chess game state recognition from an image.",
-
-    "projects.ue5chess.title": "Multiplayer Chess UE5",
-    "projects.ue5chess.subtitle": "Online chess game built with Unreal Engine 5",
-    "projects.ue5chess.description": "An online multiplayer chess game playable via Steam, built with Unreal Engine 5.6.1 using both Blueprint and C++. This game reinvents traditional chess with unique factions and special abilities, bringing a fresh strategic depth to the genre.",
-    "projects.ue5chess.short": "Online Steam chess featuring unique factions and special abilities.",
-
-    "projects.rtype.title": "R-Type",
-    "projects.rtype.subtitle": "Networked game engine in C++ from scratch",
-    "projects.rtype.description": "A recreation of the iconic R-Type shoot 'em up, powered by a fully networked game engine built from scratch in C++. Leveraging SFML for rendering and Boost for networking utilities, the project features a modular, cross-platform, and scalable architecture.",
-    "projects.rtype.short": "Cross-platform networked game engine built from scratch in C++.",
-
-    "tag.ai": "AI",
-    "tag.web": "Web",
-    "tag.software": "Software",
-    "tag.personal": "Personal",
-  
-    "skills.eyebrow": "Skills",
-    "skills.title": "Technologies & domains",
-    "skills.ai.title": "Artificial intelligence",
-    "skills.ai.c1": "Python",
-    "skills.ai.c2": "NLP",
-    "skills.ai.c3": "Classification",
-
-    "skills.web.title": "Web development",
-    "skills.web.c1": "HTML",
-    "skills.web.c2": "PHP",
-    "skills.web.c3": "JavaScript",
-    "skills.web.c4": "React",
-    "skills.web.c5": "PostgreSQL",
-    "skills.web.c6": "Flutter",
-
-    "skills.soft.title": "Software development",
-    "skills.soft.c1": "C",
-    "skills.soft.c2": "C++",
-    "skills.soft.c3": "UE5",
-
-    "skills.tools.title": "Tools",
-    "skills.tools.c1": "Gitlab",
-    "skills.tools.c2": "Git",
-    "skills.tools.c3": "Docker",
-    "skills.tools.c4": "Bash",
-
-    "contact.eyebrow": "Contact",
-    "contact.title": "Let's talk",
-    "contact.headline": "An idea, a project, an opportunity?",
-    "contact.text":
-      "Whether for an internship, a collaboration or simply to discuss a project, I would be happy to chat. Quick reply guaranteed.",
-    "contact.statusTitle": "Available now",
-    "contact.statusText": "Internship / Permanent / Fixed-term / Projects",
-    "contact.location": "Location",
-    "contact.response": "Response time",
-    "contact.responseValue": "Within 24h",
-    "contact.languages": "Languages",
-    "contact.languagesValue": "French · English",
-    "contact.cv": "Resume",
-    "contact.cvValue": "View PDF",
-
-    "modal.cta": "View project",
+    langToggle: "Passer en français",
+    langLabel: "FR",
+    themeToLight: "Switch to light theme",
+    themeToDark: "Switch to dark theme",
+    link: { default: "View the code", download: "Download the game", notebook: "Open the notebook" },
+    imageAlt: (title) => `Preview of the ${title} project`,
+    sending: "Sending…",
+    sent: "Message sent. I reply within 24 hours.",
+    invalid: "Name, a valid email and a message are required.",
+    failed: "Sending failed. Email me directly at lucasdebize@epitech.eu.",
   },
 };
 
-let currentLang = localStorage.getItem("lang") || "fr";
+const root = document.documentElement;
+const $ = (sel, scope = document) => scope.querySelector(sel);
+const $$ = (sel, scope = document) => [...scope.querySelectorAll(sel)];
 
-function applyLang(lang) {
-  const t = translations[lang];
-  if (!t) return;
+/* i18n. The HTML is the French source; `en` overrides by key. */
+const i18nNodes = $$("[data-i18n]").map((el) => ({ el, key: el.dataset.i18n, fr: el.textContent.trim() }));
+let lang = localStorage.getItem("lang") === "en" ? "en" : "fr";
 
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    if (t[key] !== undefined) el.textContent = t[key];
-  });
-
-  document.querySelectorAll("[data-i18n-html]").forEach((el) => {
-    const key = el.getAttribute("data-i18n-html");
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-
-  document.querySelectorAll(".project-card").forEach((card) => {
-    const fields = ["title", "subtitle", "description", "short"];
-
-    fields.forEach((field) => {
-      const key = card.getAttribute(`data-i18n-${field}`);
-      if (key && t[key] !== undefined) {
-        card.setAttribute(`data-${field}`, t[key]);
-      }
-    });
-
-    const titleEl = card.querySelector(".card-title");
-    const shortEl = card.querySelector(".project-body p");
-    const badgeEl = card.querySelector(".badge-main");
-
-    const titleKey = card.getAttribute("data-i18n-title");
-    const shortKey = card.getAttribute("data-i18n-short");
-    const badgeKey = card.getAttribute("data-i18n-badge");
-
-    if (titleEl && titleKey && t[titleKey]) titleEl.textContent = t[titleKey];
-    if (shortEl && shortKey && t[shortKey]) shortEl.textContent = t[shortKey];
-    if (badgeEl && badgeKey && t[badgeKey]) badgeEl.textContent = t[badgeKey];
-  });
-
-  const modalCta = document.getElementById("modalLink");
-  if (modalCta && t["modal.cta"]) modalCta.textContent = t["modal.cta"];
-
-  document.documentElement.setAttribute("lang", lang);
-
-  document.getElementById("langLabel").textContent = lang === "fr" ? "EN" : "FR";
-
-  currentLang = lang;
-  localStorage.setItem("lang", lang);
+function applyLang(next) {
+  lang = next;
+  for (const { el, key, fr } of i18nNodes) el.textContent = next === "en" ? en[key] ?? fr : fr;
+  root.lang = next;
+  const langBtn = $("#lang-toggle");
+  langBtn.textContent = ui[next].langLabel;
+  langBtn.setAttribute("aria-label", ui[next].langToggle);
+  updateThemeLabel();
+  localStorage.setItem("lang", next);
 }
 
-applyLang(currentLang);
+$("#lang-toggle").addEventListener("click", () => applyLang(lang === "fr" ? "en" : "fr"));
 
-document.getElementById("langToggle")?.addEventListener("click", () => {
-  applyLang(currentLang === "fr" ? "en" : "fr");
+const themeColor = { dark: "#0c0c0b", light: "#f3efe7" };
+
+function updateThemeLabel() {
+  const dark = root.dataset.theme !== "light";
+  $("#theme-toggle").setAttribute("aria-label", dark ? ui[lang].themeToLight : ui[lang].themeToDark);
+  $('meta[name="theme-color"]').content = themeColor[dark ? "dark" : "light"];
+}
+
+$("#theme-toggle").addEventListener("click", () => {
+  root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+  localStorage.setItem("theme", root.dataset.theme);
+  updateThemeLabel();
 });
 
-function computeStats() {
-  const allCards = document.querySelectorAll(".project-card");
+applyLang(lang);
 
-  const totalProjects = allCards.length;
+/* Header state and active section, both driven by IntersectionObserver rather than a scroll listener. */
+const header = $("#top");
+new IntersectionObserver(([entry]) => header.classList.toggle("is-scrolled", !entry.isIntersecting)).observe(
+  $("#top-sentinel")
+);
 
-  const domains = new Set();
-  allCards.forEach((c) => {
-    (c.getAttribute("data-category") || "")
-      .split(" ")
-      .filter(Boolean)
-      .forEach((d) => domains.add(d));
-  });
+const menuLinks = new Map($$(".menu a").map((a) => [a.hash.slice(1), a]));
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      for (const a of menuLinks.values()) a.removeAttribute("aria-current");
+      menuLinks.get(entry.target.id)?.setAttribute("aria-current", "true");
+    }
+  },
+  { rootMargin: "-40% 0px -55% 0px" }
+);
+$$(".sec").forEach((sec) => sectionObserver.observe(sec));
 
-  const techs = new Set();
-  allCards.forEach((c) => {
-    (c.getAttribute("data-tags") || "")
-      .split(",")
-      .map((t) => t.trim())
-      .filter(Boolean)
-      .forEach((t) => techs.add(t));
-  });
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add("is-in");
+      revealObserver.unobserve(entry.target);
+    }
+  },
+  { rootMargin: "0px 0px -10% 0px" }
+);
+$$("[data-reveal]").forEach((el) => revealObserver.observe(el));
 
-  animateCounter("statProjects", totalProjects);
-  animateCounter("statDomains", domains.size - 1);
-  animateCounter("statTechs", techs.size);
+/* Project dialog. A project is read from its [data-project] element. */
+const projects = $$("[data-project]");
+const dialog = $("#project-dialog");
+const dImg = $("#d-img");
+const dVideo = $("#d-video");
+const dLink = $("#d-link");
+
+function readProject(el) {
+  const text = (sel) => $(sel, el)?.textContent.trim() ?? "";
+  return {
+    num: el.closest(".index") ? `${text(".row-num")} / 12` : text(".scene-num"),
+    title: text(".scene-title, .row-title"),
+    tagline: text(".tagline"),
+    desc: text(".desc"),
+    kind: text(".kind"),
+    tags: $$(".tags li", el).map((li) => li.textContent.trim()),
+    image: el.dataset.image,
+    video: el.dataset.video,
+    link: el.dataset.link,
+    linkLabel: ui[lang].link[el.dataset.linkLabel ?? "default"],
+  };
 }
 
-function animateCounter(id, target) {
-  const el = document.getElementById(id);
-  if (!el) return;
+function openProject(el) {
+  const p = readProject(el);
+  $("#d-num").textContent = p.num;
+  $("#d-kind").textContent = p.kind;
+  $("#d-title").textContent = p.title;
+  $("#d-tagline").textContent = p.tagline;
+  $("#d-desc").textContent = p.desc;
+  $("#d-tags").replaceChildren(
+    ...p.tags.map((tag) => {
+      const li = document.createElement("li");
+      li.textContent = tag;
+      return li;
+    })
+  );
 
-  if (target <= 0) {
-    el.textContent = "0";
+  dImg.hidden = Boolean(p.video);
+  dVideo.hidden = !p.video;
+  if (p.video) {
+    dVideo.src = p.video;
+  } else {
+    dImg.src = p.image;
+    dImg.alt = ui[lang].imageAlt(p.title);
+  }
+
+  dLink.hidden = !p.link;
+  if (p.link) {
+    dLink.href = p.link;
+    $("#d-link-label").textContent = p.linkLabel;
+  }
+
+  dialog.showModal();
+  dialog.scrollTop = 0;
+}
+
+for (const el of projects) {
+  $(".open-project, .row", el).addEventListener("click", () => openProject(el));
+}
+$("#d-close").addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", (e) => {
+  if (e.target === dialog) dialog.close();
+});
+dialog.addEventListener("close", () => {
+  dVideo.pause();
+  dVideo.removeAttribute("src");
+  dVideo.load();
+});
+
+/* Contact form. EmailJS loads on first interaction so it never costs the initial page. */
+const EMAILJS = {
+  sdk: "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js",
+  publicKey: "9BcxSy1PlF-zOjG-U",
+  service: "service_h4k901q",
+  template: "template_8naughk",
+};
+
+const form = $("#contact-form");
+const formStatus = $("#form-status");
+let sdkReady;
+
+function loadEmailJs() {
+  sdkReady ??= new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = EMAILJS.sdk;
+    s.onload = () => {
+      window.emailjs.init({ publicKey: EMAILJS.publicKey });
+      resolve(window.emailjs);
+    };
+    s.onerror = () => {
+      sdkReady = undefined;
+      reject(new Error("EmailJS SDK failed to load"));
+    };
+    document.head.append(s);
+  });
+  return sdkReady;
+}
+
+form.addEventListener("focusin", loadEmailJs, { once: true });
+
+function setStatus(message, isError = false) {
+  formStatus.textContent = message;
+  formStatus.classList.toggle("is-error", isError);
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!form.checkValidity()) {
+    setStatus(ui[lang].invalid, true);
+    form.querySelector(":invalid")?.focus();
     return;
   }
-
-  const suffix = target >= 10 ? "+" : "";
-  let start = 0;
-  const duration = 900;
-  const step = Math.max(30, Math.ceil(duration / target));
-
-  const timer = setInterval(() => {
-    start++;
-    el.textContent = start + (start >= target ? suffix : "");
-    if (start >= target) clearInterval(timer);
-  }, step);
-}
-
-computeStats();
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project-card");
-
-filterButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const filter = btn.dataset.filter;
-
-    filterButtons.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    projectCards.forEach((card) => {
-      const cats = card.dataset.category || "";
-      card.classList.toggle("hidden", filter !== "all" && !cats.includes(filter));
-    });
-  });
-});
-
-const modal = document.getElementById("projectModal");
-const modalOverlay = document.getElementById("modalOverlay");
-const modalClose = document.getElementById("modalClose");
-const modalImage = document.getElementById("modalImage");
-const modalVideo = document.getElementById("modalVideo");
-const modalTitle = document.getElementById("modalTitle");
-const modalSubtitle = document.getElementById("modalSubtitle");
-const modalDescription = document.getElementById("modalDescription");
-const modalTags = document.getElementById("modalTags");
-const modalLink = document.getElementById("modalLink");
-
-function stopModalVideo() {
-  if (!modalVideo) return;
-  modalVideo.pause();
-  modalVideo.removeAttribute("src");
-  modalVideo.load();
-  modalVideo.hidden = true;
-  modal?.classList.remove("has-video");
-}
-
-function openModal(card) {
-  modalTitle.textContent = card.dataset.title || "";
-  modalSubtitle.textContent = card.dataset.subtitle || "";
-  modalDescription.textContent = card.dataset.description || "";
-
-  const video = (card.dataset.video || "").trim();
-  if (video) {
-    modal.classList.add("has-video");
-    modalImage.hidden = true;
-    modalImage.removeAttribute("src");
-    modalImage.alt = "";
-    modalVideo.hidden = false;
-    modalVideo.src = video;
-    modalVideo.currentTime = 0;
-    modalVideo.addEventListener(
-      "loadeddata",
-      () => {
-        modalVideo.play().catch(() => {});
-      },
-      { once: true }
-    );
-  } else {
-    stopModalVideo();
-    modalImage.hidden = false;
-    modalImage.src = card.dataset.image || "";
-    modalImage.alt = `Image du projet ${card.dataset.title || ""}`;
+  const button = $("button[type=submit]", form);
+  button.disabled = true;
+  setStatus(ui[lang].sending);
+  try {
+    const emailjs = await loadEmailJs();
+    await emailjs.sendForm(EMAILJS.service, EMAILJS.template, form);
+    form.reset();
+    setStatus(ui[lang].sent);
+  } catch {
+    setStatus(ui[lang].failed, true);
+  } finally {
+    button.disabled = false;
   }
-
-  const link = (card.dataset.link || "").trim();
-  const modalActions = modalLink?.closest(".modal-actions");
-  if (link) {
-    modalLink.href = link;
-    modalLink.hidden = false;
-    if (modalActions) modalActions.hidden = false;
-  } else {
-    modalLink.removeAttribute("href");
-    modalLink.hidden = true;
-    if (modalActions) modalActions.hidden = true;
-  }
-
-  const t = translations[currentLang];
-  if (t && t["modal.cta"]) modalLink.textContent = t["modal.cta"];
-
-  modalTags.innerHTML = "";
-  (card.dataset.tags || "")
-    .split(",")
-    .filter(Boolean)
-    .forEach((tag) => {
-      const span = document.createElement("span");
-      span.className = "badge";
-      span.textContent = tag.trim();
-      modalTags.appendChild(span);
-    });
-
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal() {
-  stopModalVideo();
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-}
-
-projectCards.forEach((card) => {
-  card.addEventListener("click", () => openModal(card));
-  card.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      openModal(card);
-    }
-  });
-});
-
-modalOverlay?.addEventListener("click", closeModal);
-modalClose?.addEventListener("click", closeModal);
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
-});
-
-const backToTop = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  backToTop?.classList.toggle("visible", window.scrollY > 400);
-});
-
-backToTop?.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
 });
