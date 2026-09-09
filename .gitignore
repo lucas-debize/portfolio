@@ -2,3 +2,4 @@
 .vscode
 parameters
 .env
+node_modules/
