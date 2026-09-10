@@ -8,45 +8,64 @@
       name="description"
       content="Portfolio étudiant en informatique. Projets en intelligence artificielle, web et développement logiciel."
     />
-    <meta name="theme-color" content="#0b1020" />
+    <meta name="theme-color" content="#100f0d" />
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
-
     <header class="site-header">
-      <div class="container nav">
-        <a href="#top" class="brand">
-          <span class="brand-dot"></span>
-          <span>Lucas Debize</span>
-        </a>
+      <div class="container">
+        <div class="nav-bar">
+          <a href="#top" class="brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>Lucas Debize</span>
+          </a>
 
-        <nav class="desktop-nav">
-          <a href="#about" data-i18n="nav.about">À propos</a>
-          <a href="#projects" data-i18n="nav.projects">Projets</a>
-          <a href="#skills" data-i18n="nav.skills">Compétences</a>
-          <a href="#contact" data-i18n="nav.contact">Contact</a>
-        </nav>
+          <nav class="desktop-nav" id="primaryNav">
+            <a href="#about" data-i18n="nav.about">À propos</a>
+            <a href="#projects" data-i18n="nav.projects">Projets</a>
+            <a href="#skills" data-i18n="nav.skills">Compétences</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
+          </nav>
 
-        <div class="header-actions">
-          <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language">
-            <span id="langLabel">FR</span>
-          </button>
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-            <span id="themeIcon">☀</span>
-          </button>
+          <div class="header-actions">
+            <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language">
+              <span id="langLabel">FR</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 3v1.5M12 19.5V21M4.93 4.93l1.06 1.06M18.01 18.01l1.06 1.06M3 12h1.5M19.5 12H21M4.93 19.07l1.06-1.06M18.01 5.99l1.06-1.06"></path>
+              </svg>
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M20 14.5A7.5 7.5 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"></path>
+              </svg>
+            </button>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+              <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <path d="M5 7h14M5 12h14M5 17h14"></path>
+              </svg>
+              <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18"></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
+
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="#about" data-i18n="nav.about">À propos</a>
+        <a href="#projects" data-i18n="nav.projects">Projets</a>
+        <a href="#skills" data-i18n="nav.skills">Compétences</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
     </header>
 
     <main id="top">
       <!-- HERO -->
       <section class="hero">
         <div class="container hero-grid">
-          <article class="card hero-main">
+          <article class="hero-main">
             <p class="eyebrow" data-i18n="hero.eyebrow">Portfolio étudiant</p>
             <h1 data-i18n-html="hero.title">
               Développeur en devenir,<br />
@@ -76,8 +95,7 @@
           </article>
 
           <div class="hero-side">
-            <article class="card side-card">
-              <div class="side-icon">⚡</div>
+            <article class="hero-note">
               <span class="side-label" data-i18n="hero.side1.label">Focus</span>
               <h4 data-i18n="hero.side1.title">IA · Web · Logiciel</h4>
               <p data-i18n="hero.side1.text">
@@ -85,8 +103,7 @@
               </p>
             </article>
 
-            <article class="card side-card">
-              <div class="side-icon">◆</div>
+            <article class="hero-note">
               <span class="side-label" data-i18n="hero.side2.label">Approche</span>
               <h4 data-i18n="hero.side2.title">Concret &amp; soigné</h4>
               <p data-i18n="hero.side2.text">
@@ -100,15 +117,15 @@
       <!-- STATS -->
       <section class="stats-section">
         <div class="container stats-grid">
-          <article class="card stat-card">
+          <article class="stat-card">
             <span class="stat-value" id="statProjects">0</span>
             <span class="stat-label" data-i18n="stats.projects">Projets réalisés</span>
           </article>
-          <article class="card stat-card">
+          <article class="stat-card">
             <span class="stat-value" id="statDomains">0</span>
             <span class="stat-label" data-i18n="stats.domains">Domaines principaux</span>
           </article>
-          <article class="card stat-card">
+          <article class="stat-card">
             <span class="stat-value" id="statTechs">0</span>
             <span class="stat-label" data-i18n="stats.techs">Technologies utilisées</span>
           </article>
@@ -125,7 +142,7 @@
         </div>
 
         <div class="container about-grid">
-          <article class="card about-card">
+          <article class="about-copy">
             <p data-i18n="about.p1">
               Étudiant en informatique, j’utilise ce portfolio pour présenter
               différents projets réalisés en intelligence artificielle, web et
@@ -138,7 +155,7 @@
             </p>
           </article>
 
-          <article class="card about-card">
+          <article class="about-aside">
             <h3 class="card-title" data-i18n="about.listTitle">Ce que je cherche à montrer</h3>
             <ul class="about-list">
               <li data-i18n="about.li1">des projets variés et structurés</li>
@@ -173,7 +190,7 @@
 
           <!-- 1. RAG Monitor -->
           <article
-            class="project-card card"
+            class="project-card project-card--featured"
             tabindex="0"
             data-category="ai personal"
             data-i18n-title="projects.rag.title"
@@ -203,7 +220,7 @@
 
           <!-- 2. Chatbot Portfolio IA -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="ai web personal"
             data-i18n-title="projects.chatbot.title"
@@ -234,7 +251,7 @@
 
           <!-- 3. Assistant RH IA -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="ai personal"
             data-i18n-title="projects.assistantRh.title"
@@ -264,7 +281,7 @@
 
           <!-- 4. Microsoft Power Automate -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="ai personal"
             data-i18n-title="projects.powerAutomate.title"
@@ -294,7 +311,7 @@
 
           <!-- 5. Elyrii -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="ai web"
             data-i18n-title="projects.elyrii.title"
@@ -325,7 +342,7 @@
 
           <!-- 6. Image Denoising -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="ai personal"
             data-i18n-title="projects.denoise.title"
@@ -355,7 +372,7 @@
 
           <!-- 7. Prospecthor -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="ai web"
             data-i18n-title="projects.prospecthor.title"
@@ -385,7 +402,7 @@
 
           <!-- 8. Image Recognition -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="ai personal"
             data-i18n-title="projects.recognition.title"
@@ -415,7 +432,7 @@
 
           <!-- 9. Chess Game State -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="ai personal"
             data-i18n-title="projects.chess.title"
@@ -445,7 +462,7 @@
 
           <!-- 10. Échecs Multijoueur UE5 -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="software"
             data-i18n-title="projects.ue5chess.title"
@@ -475,7 +492,7 @@
 
           <!-- 11. R-Type -->
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="software"
             data-i18n-title="projects.rtype.title"
@@ -506,7 +523,7 @@
           <!-- 12. Portfolio -->
 
           <article
-            class="project-card card"
+            class="project-card"
             tabindex="0"
             data-category="web personal"
             data-i18n-title="projects.portfolio.title"
@@ -546,55 +563,128 @@
         </div>
 
         <div class="container skills-grid">
-          <article class="card skill-card">
+          <article class="skill-card">
             <div class="skill-head">
-              <div class="skill-icon">✦</div>
+              <div class="skill-icon" aria-hidden="true"></div>
               <h3 class="card-title" data-i18n="skills.ai.title">Intelligence artificielle</h3>
             </div>
             <div class="chips">
-              <span class="chip" data-i18n="skills.ai.c1">Python</span>
-              <span class="chip" data-i18n="skills.ai.c2">NLP</span>
-              <span class="chip" data-i18n="skills.ai.c3">Classification</span>
+              <span class="chip">
+                <img src="assets/images/skills/python.webp" alt="" />
+                <span data-i18n="skills.ai.c1">Python</span>
+              </span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M5 7h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"></path>
+                </svg>
+                <span data-i18n="skills.ai.c2">NLP</span>
+              </span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7" rx="1.2"></rect>
+                  <rect x="14" y="3" width="7" height="7" rx="1.2"></rect>
+                  <rect x="3" y="14" width="7" height="7" rx="1.2"></rect>
+                  <rect x="14" y="14" width="7" height="7" rx="1.2"></rect>
+                </svg>
+                <span data-i18n="skills.ai.c3">Classification</span>
+              </span>
             </div>
           </article>
 
-          <article class="card skill-card">
+          <article class="skill-card">
             <div class="skill-head">
-              <div class="skill-icon">&lt;/&gt;</div>
+              <div class="skill-icon" aria-hidden="true"></div>
               <h3 class="card-title" data-i18n="skills.web.title">Développement web</h3>
             </div>
             <div class="chips">
-              <span class="chip" data-i18n="skills.web.c1">HTML</span>
-              <span class="chip" data-i18n="skills.web.c2">PHP</span>
-              <span class="chip" data-i18n="skills.web.c3">JavaScript</span>
-              <span class="chip" data-i18n="skills.web.c4">React</span>
-              <span class="chip" data-i18n="skills.web.c5">PostgreSQL</span>
-              <span class="chip" data-i18n="skills.web.c6">Flutter</span>
+              <span class="chip">
+                <img src="assets/images/skills/html.webp" alt="" />
+                <span data-i18n="skills.web.c1">HTML</span>
+              </span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M8 8h8M8 12h5M8 16h8"></path>
+                  <rect x="4" y="4" width="16" height="16" rx="3"></rect>
+                </svg>
+                <span data-i18n="skills.web.c2">PHP</span>
+              </span>
+              <span class="chip">
+                <img src="assets/images/skills/js.webp" alt="" />
+                <span data-i18n="skills.web.c3">JavaScript</span>
+              </span>
+              <span class="chip">
+                <img src="assets/images/skills/react.webp" alt="" />
+                <span data-i18n="skills.web.c4">React</span>
+              </span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <ellipse cx="12" cy="6.5" rx="7" ry="2.5"></ellipse>
+                  <path d="M5 6.5v11c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-11"></path>
+                  <path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"></path>
+                </svg>
+                <span data-i18n="skills.web.c5">PostgreSQL</span>
+              </span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="m5 12 7-8 7 8-7 8-7-8z"></path>
+                  <path d="M12 4v16"></path>
+                </svg>
+                <span data-i18n="skills.web.c6">Flutter</span>
+              </span>
             </div>
           </article>
 
-          <article class="card skill-card">
+          <article class="skill-card">
             <div class="skill-head">
-              <div class="skill-icon">{ }</div>
+              <div class="skill-icon" aria-hidden="true"></div>
               <h3 class="card-title" data-i18n="skills.soft.title">Développement logiciel</h3>
             </div>
             <div class="chips">
-              <span class="chip" data-i18n="skills.soft.c1">C</span>
-              <span class="chip" data-i18n="skills.soft.c2">C++</span>
-              <span class="chip" data-i18n="skills.soft.c3">UE5</span>
+              <span class="chip">
+                <img src="assets/images/skills/c.webp" alt="" />
+                <span data-i18n="skills.soft.c1">C</span>
+              </span>
+              <span class="chip">
+                <img src="assets/images/skills/cpp.webp" alt="" />
+                <span data-i18n="skills.soft.c2">C++</span>
+              </span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M12 3 20 7.5v9L12 21 4 16.5v-9L12 3z"></path>
+                  <path d="M12 12 20 7.5M12 12v9M12 12 4 7.5"></path>
+                </svg>
+                <span data-i18n="skills.soft.c3">UE5</span>
+              </span>
             </div>
           </article>
 
-          <article class="card skill-card">
+          <article class="skill-card">
             <div class="skill-head">
-              <div class="skill-icon">◎</div>
+              <div class="skill-icon" aria-hidden="true"></div>
               <h3 class="card-title" data-i18n="skills.tools.title">Outils</h3>
             </div>
             <div class="chips">
-              <span class="chip" data-i18n="skills.tools.c1">Gitlab</span>
-              <span class="chip" data-i18n="skills.tools.c2">Git</span>
-              <span class="chip" data-i18n="skills.tools.c3">Docker</span>
-              <span class="chip" data-i18n="skills.tools.c4">Bash</span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="m12 20-8-6 2-8 6 3 6-3 2 8-8 6z"></path>
+                </svg>
+                <span data-i18n="skills.tools.c1">Gitlab</span>
+              </span>
+              <span class="chip">
+                <img src="assets/images/skills/git.webp" alt="" />
+                <span data-i18n="skills.tools.c2">Git</span>
+              </span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <rect x="3" y="8" width="18" height="10" rx="2"></rect>
+                  <path d="M7 8V6h10v2M8 18v2h8v-2"></path>
+                </svg>
+                <span data-i18n="skills.tools.c3">Docker</span>
+              </span>
+              <span class="chip">
+                <img src="assets/images/skills/shell.webp" alt="" />
+                <span data-i18n="skills.tools.c4">Bash</span>
+              </span>
             </div>
           </article>
         </div>
@@ -610,7 +700,7 @@
         </div>
 
         <div class="container contact-wrapper">
-          <article class="card contact-intro">
+          <article class="contact-intro">
             <div class="contact-intro-text">
               <h3 class="card-title" data-i18n="contact.headline">Une idée, un projet, une opportunité ?</h3>
               <p data-i18n="contact.text">
@@ -645,7 +735,7 @@
           </article>
 
           <div class="contact-channels">
-            <a class="card contact-channel" href="mailto:lucasdebize@epitech.eu">
+            <a class="contact-channel" href="mailto:lucasdebize@epitech.eu">
               <div class="channel-icon channel-icon-mail">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="5" width="18" height="14" rx="2"></rect>
@@ -659,7 +749,7 @@
               <span class="channel-arrow">→</span>
             </a>
 
-            <a class="card contact-channel" href="https://github.com/lucas-debize" target="_blank" rel="noreferrer">
+            <a class="contact-channel" href="https://github.com/lucas-debize" target="_blank" rel="noreferrer">
               <div class="channel-icon channel-icon-github">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
                   <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-.99-.02-1.95-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.08 0 4.42-2.7 5.39-5.27 5.68.41.35.78 1.04.78 2.1 0 1.51-.01 2.73-.01 3.1 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path>
@@ -672,7 +762,7 @@
               <span class="channel-arrow">→</span>
             </a>
 
-            <a class="card contact-channel" href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noreferrer">
+            <a class="contact-channel" href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noreferrer">
               <div class="channel-icon channel-icon-linkedin">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
                   <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.35 3.3a2.06 2.06 0 0 1-.01 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"></path>
@@ -685,7 +775,7 @@
               <span class="channel-arrow">→</span>
             </a>
 
-            <a class="card contact-channel" href="assets/images/CV.pdf" target="_blank" rel="noreferrer">
+            <a class="contact-channel" href="assets/images/CV.pdf" target="_blank" rel="noreferrer">
               <div class="channel-icon channel-icon-cv">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -705,6 +795,20 @@
         </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <a href="#top" class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Lucas Debize</span>
+        </a>
+        <div class="footer-links">
+          <a href="mailto:lucasdebize@epitech.eu">Email</a>
+          <a href="https://github.com/lucas-debize" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/lucas-debize" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
 
     <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
 

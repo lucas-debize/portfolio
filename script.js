@@ -1,20 +1,24 @@
 const root = document.documentElement;
 const themeToggle = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) root.setAttribute("data-theme", savedTheme);
 
-function updateThemeIcon() {
-  themeIcon.textContent = root.getAttribute("data-theme") === "light" ? "☾" : "☀";
+function syncThemeColor() {
+  if (!themeColorMeta) return;
+  themeColorMeta.setAttribute(
+    "content",
+    root.getAttribute("data-theme") === "light" ? "#f3eee5" : "#100f0d"
+  );
 }
-updateThemeIcon();
+syncThemeColor();
 
 themeToggle?.addEventListener("click", () => {
   const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
   root.setAttribute("data-theme", next);
   localStorage.setItem("theme", next);
-  updateThemeIcon();
+  syncThemeColor();
 });
 
 const translations = {
@@ -465,12 +469,18 @@ function animateCounter(id, target) {
   const el = document.getElementById(id);
   if (!el) return;
 
+  const suffix = target >= 10 ? "+" : "";
+
   if (target <= 0) {
     el.textContent = "0";
     return;
   }
 
-  const suffix = target >= 10 ? "+" : "";
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    el.textContent = target + suffix;
+    return;
+  }
+
   let start = 0;
   const duration = 900;
   const step = Math.max(30, Math.ceil(duration / target));
@@ -486,6 +496,7 @@ computeStats();
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
+const projectsGrid = document.querySelector(".projects-grid");
 
 filterButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -493,6 +504,7 @@ filterButtons.forEach((btn) => {
 
     filterButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
+    projectsGrid?.classList.toggle("is-filtered", filter !== "all");
 
     projectCards.forEach((card) => {
       const cats = card.dataset.category || "";
@@ -611,4 +623,57 @@ window.addEventListener("scroll", () => {
 
 backToTop?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+const menuToggle = document.getElementById("menuToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+function setMenuOpen(open) {
+  mobileNav?.classList.toggle("open", open);
+  document.body.classList.toggle("nav-open", open);
+  menuToggle?.setAttribute("aria-expanded", String(open));
+  menuToggle?.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+}
+
+menuToggle?.addEventListener("click", () => {
+  setMenuOpen(!mobileNav?.classList.contains("open"));
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 760) setMenuOpen(false);
+});
+
+mobileNav?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setMenuOpen(false));
+});
+
+const sectionIds = ["about", "projects", "skills", "contact"];
+const navLinks = document.querySelectorAll(".desktop-nav a, .mobile-nav a");
+
+function updateScrollSpy() {
+  const probe = window.scrollY + window.innerHeight * 0.42;
+  let current = "";
+
+  sectionIds.forEach((id) => {
+    const section = document.getElementById(id);
+    if (section && section.offsetTop <= probe) current = id;
+  });
+
+  const reachedEnd =
+    window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 48;
+  if (reachedEnd) current = "contact";
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    link.classList.toggle("is-active", current !== "" && href === `#${current}`);
+  });
+}
+
+window.addEventListener("scroll", updateScrollSpy, { passive: true });
+updateScrollSpy();
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && mobileNav?.classList.contains("open")) {
+    setMenuOpen(false);
+  }
 });
