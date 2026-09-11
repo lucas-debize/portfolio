@@ -82,7 +82,7 @@ const translations = {
     "projects.portfolio.title": "Portfolio",
     "projects.portfolio.subtitle": "Conception et développement front-end",
     "projects.portfolio.description":
-      "Création de ce portfolio avec une attention particulière portée à la hiérarchie visuelle, aux animations, au responsive et à la mise en valeur des projets.",
+      "Création de ce portfolio from scratch en HTML, CSS et JavaScript, sans framework. Travail sur la hiérarchie visuelle, le responsive, le thème clair/sombre, le bilingue FR/EN et une modale pour présenter les projets.",
     "projects.portfolio.short":
       "Interface pensée pour présenter des projets et compétences de manière claire.",
 
@@ -150,7 +150,7 @@ const translations = {
 
     "projects.portfolio.title": "Portfolio",
     "projects.portfolio.subtitle": "Conception et développement front-end",
-    "projects.portfolio.description": "Conception et développement de ce portfolio personnel from scratch en HTML, CSS et JavaScript pur, sans framework. Travail approfondi sur la hiérarchie visuelle, les animations, le responsive design, le système de thème clair/sombre, le multilingue (FR/EN) et la mise en valeur des projets via une modale interactive.",
+    "projects.portfolio.description": "Conception et développement de ce portfolio from scratch en HTML, CSS et JavaScript, sans framework. Travail sur la hiérarchie visuelle, le responsive, le thème clair/sombre, le bilingue FR/EN et une modale pour présenter les projets.",
     "projects.portfolio.short": "Site personnel développé from scratch pour présenter mes projets.",
 
     "tag.ai": "IA",
@@ -261,7 +261,7 @@ const translations = {
     "projects.portfolio.title": "Portfolio",
     "projects.portfolio.subtitle": "Front-end design and development",
     "projects.portfolio.description":
-      "Creation of this portfolio with particular attention to visual hierarchy, animations, responsiveness and project showcasing.",
+      "Creation of this portfolio from scratch in HTML, CSS and JavaScript, no framework. Focus on visual hierarchy, responsive layout, light/dark theme, bilingual FR/EN support, and a modal to present projects.",
     "projects.portfolio.short":
       "Interface designed to clearly present projects and skills.",
 
@@ -274,7 +274,7 @@ const translations = {
 
     "projects.portfolio.title": "Portfolio",
     "projects.portfolio.subtitle": "Front-end design and development",
-    "projects.portfolio.description": "Design and development of this personal portfolio built from scratch with vanilla HTML, CSS and JavaScript, no framework. Strong focus on visual hierarchy, animations, responsive design, light/dark theme system, multilingual support (FR/EN), and an interactive modal to showcase projects.",
+    "projects.portfolio.description": "Design and development of this personal portfolio from scratch in HTML, CSS and JavaScript, no framework. Focus on visual hierarchy, responsive layout, light/dark theme, bilingual FR/EN support, and a modal to present projects.",
     "projects.portfolio.short": "Personal website built from scratch to showcase my projects.",
 
     "projects.powerAutomate.title": "Microsoft Power Automate",
