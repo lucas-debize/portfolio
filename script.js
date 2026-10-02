@@ -590,6 +590,12 @@ function openModal(card) {
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+
+  const modalLayout = modal.querySelector(".modal-layout");
+  if (modalLayout) modalLayout.scrollTop = 0;
+  const modalDialog = modal.querySelector(".modal-dialog");
+  if (modalDialog) modalDialog.scrollTop = 0;
+  modal.scrollTop = 0;
 }
 
 function closeModal() {
