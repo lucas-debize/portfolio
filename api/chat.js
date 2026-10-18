@@ -1,4 +1,4 @@
-import { profile } from "./profileData.js";
+import { KNOWLEDGE } from "./knowledge.js";
 
 // Limiteur de débit en mémoire (15 requêtes / minute par IP)
 const ipRequests = new Map();
@@ -16,28 +16,52 @@ function isRateLimited(ip) {
   return false;
 }
 
-function buildSystemPrompt(profileData) {
+function buildSystemPrompt() {
   const cvLink =
     process.env.CV_URL ||
-    profileData.contact?.cv ||
+    KNOWLEDGE.contact?.cvLink ||
     "https://lucas-debize.github.io/portfolio/assets/images/CV.pdf";
 
-  return `Tu es l'assistant portfolio de ${profileData.name}, ${profileData.role}.
-${profileData.tagline || ""}. ${profileData.availability || ""}.
+  const projectsSummary = (KNOWLEDGE.projects || [])
+    .map(
+      (p) =>
+        `- ${p.title} (${p.category}) : ${p.description} [Technologies : ${p.tags.join(", ")}]`
+    )
+    .join("\n");
 
-Tu réponds aux questions des visiteurs (recruteurs, collaborateurs, curieux) sur son profil, compétences, projets, expérience, formation, disponibilité et contacts.
+  const skillsSummary = Object.entries(KNOWLEDGE.skills || {})
+    .map(([cat, list]) => `${cat}: ${Array.isArray(list) ? list.join(", ") : list}`)
+    .join(" | ");
 
-Règles importantes :
-- Réponds en français (ou dans la langue de la question), de manière professionnelle mais chaleureuse
-- Utilise UNIQUEMENT les informations du profil ci-dessous
-- Si tu ne connais pas la réponse, dis-le honnêtement
-- Sois concis (2-4 phrases maximum sauf si on demande des détails)
-- Ne invente jamais d'informations
-- Mentionne les projets pertinents quand c'est utile (Prospecthor, RAG Monitor, Elyrii, Assistant RH IA, Chatbot Portfolio, etc.)
+  return `Tu es l'assistant IA officiel du portfolio de Lucas Debize.
+Rôle : Étudiant en 5ème année à Epitech Lyon - Développeur IA Junior / Full-Stack.
+Statut actuel : ${KNOWLEDGE.hero?.status || "Disponible pour un stage"} (${KNOWLEDGE.contact?.statusText || "Stage / CDI / CDD / Projets"}).
+Localisation : ${KNOWLEDGE.hero?.location || "Lyon, France"}.
+
+Tu réponds aux questions des visiteurs (recruteurs, collaborateurs, curieux) en te basant STRICTEMENT et EXCLUSIVEMENT sur les informations officielles ci-dessous extraites directement du CV et du portfolio.
+
+--- 1. CONTENU OFFICIEL DU CV (assets/images/CV.pdf) ---
+${KNOWLEDGE.cvText}
+
+--- 2. TOUS LES PROJETS DU PORTFOLIO (${(KNOWLEDGE.projects || []).length} projets) ---
+${projectsSummary}
+
+--- 3. COMPÉTENCES DU PORTFOLIO ---
+${skillsSummary}
+
+--- 4. CONTACT & PROFIL ---
+Email : ${KNOWLEDGE.contact?.email || "lucas.debize@epitech.eu"}
+GitHub : ${KNOWLEDGE.contact?.github || "https://github.com/lucas-debize"}
+LinkedIn : ${KNOWLEDGE.contact?.linkedin || "https://linkedin.com/in/lucas-debize"}
+Portfolio : ${KNOWLEDGE.contact?.portfolio || "https://lucas-debize.github.io/portfolio/"}
+Lien CV officiel : ${cvLink}
+
+RÈGLES IMPORTANTES :
+- Réponds en français (ou dans la langue de la question du visiteur), de manière professionnelle mais chaleureuse et naturelle.
+- Utilise UNIQUEMENT les faits réels ci-dessus. N'invente jamais d'informations.
+- Sois concis (2-4 phrases max sauf si l'utilisateur demande explicitement des détails ou une liste complète).
 - Si l'utilisateur demande à consulter ou télécharger le CV, fournis-lui directement ce lien : ${cvLink}
-
-Profil complet :
-${JSON.stringify(profileData, null, 2)}`;
+- Mentionne les projets ou expériences pertinents quand la question s'y prête (MyAIFactory, SBDR Team, Prospecthor, RAG Monitor, Assistant RH IA, Image Denoising, etc.).`;
 }
 
 const DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile";
@@ -66,7 +90,7 @@ async function requestGroq(model, message, apiKey) {
     body: JSON.stringify({
       model,
       messages: [
-        { role: "system", content: buildSystemPrompt(profile) },
+        { role: "system", content: buildSystemPrompt() },
         { role: "user", content: message },
       ],
       temperature: 0.7,
@@ -98,7 +122,7 @@ async function requestGemini(model, message, apiKey) {
     },
     body: JSON.stringify({
       systemInstruction: {
-        parts: [{ text: buildSystemPrompt(profile) }],
+        parts: [{ text: buildSystemPrompt() }],
       },
       contents: [{ role: "user", parts: [{ text: message }] }],
       generationConfig: { temperature: 0.7, maxOutputTokens: 500 },
