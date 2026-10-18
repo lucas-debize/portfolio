@@ -737,7 +737,7 @@ document.addEventListener("keydown", (e) => {
       ? "http://localhost:3001"
       : (window.location.hostname.endsWith("vercel.app")
           ? ""
-          : "https://portfolio-lucas-debize.vercel.app"));
+          : "https://portfolio-tau-black-5qvho3bbbc.vercel.app"));
 
   let chatHistory = [];
   let isSending = false;
