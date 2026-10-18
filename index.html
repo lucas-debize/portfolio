@@ -843,5 +843,91 @@
         </div>
       </div>
     </div>
+
+    <!-- CHATBOT WIDGET -->
+    <aside class="chatbot-widget" id="chatbotWidget" aria-label="Assistant virtuel IA">
+      <!-- Trigger Button -->
+      <button
+        class="chatbot-toggle-btn"
+        id="chatbotToggleBtn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="chatbotPanel"
+        aria-label="Discuter avec l'assistant IA"
+      >
+        <span class="chatbot-badge-ping" aria-hidden="true"></span>
+        <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 3c-4.4 0-8 2.7-8 6v4l-2 2v1h20v-1l-2-2V9c0-3.3-3.6-6-8-6Z" />
+          <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none" />
+          <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none" />
+        </svg>
+        <svg class="icon-chat-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+        <span class="chatbot-label" data-i18n="chatbot.toggleLabel">Assistant IA</span>
+      </button>
+
+      <!-- Chatbot Panel -->
+      <div class="chatbot-panel" id="chatbotPanel" role="dialog" aria-modal="false" aria-labelledby="chatbotHeaderTitle" hidden>
+        <!-- Header -->
+        <div class="chatbot-panel-header">
+          <div class="chatbot-header-info">
+            <div class="chatbot-avatar-header" aria-hidden="true">
+              <span class="status-indicator"></span>
+              <span>IA</span>
+            </div>
+            <div>
+              <h3 class="chatbot-header-title" id="chatbotHeaderTitle" data-i18n="chatbot.title">Assistant Lucas Debize</h3>
+              <p class="chatbot-header-status" id="chatbotHeaderStatus" data-i18n="chatbot.statusOnline">En ligne · IA hybride (Groq / Gemini)</p>
+            </div>
+          </div>
+          <div class="chatbot-header-actions">
+            <button class="chatbot-header-btn" id="chatbotResetBtn" type="button" title="Nouvelle conversation" aria-label="Nouvelle conversation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                <path d="M3 3v5h5" />
+              </svg>
+            </button>
+            <button class="chatbot-header-btn" id="chatbotCloseBtn" type="button" title="Fermer" aria-label="Fermer le chatbot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Messages container -->
+        <div class="chatbot-messages" id="chatbotMessages" role="log" aria-live="polite" aria-label="Messages de l'assistant">
+          <!-- Rempli par JavaScript -->
+        </div>
+
+        <!-- Suggestions -->
+        <div class="chatbot-suggestions" id="chatbotSuggestions" aria-label="Suggestions de questions">
+          <!-- Boutons de suggestions dynamiques -->
+        </div>
+
+        <!-- Form -->
+        <form class="chatbot-form" id="chatbotForm">
+          <div class="chatbot-input-wrap">
+            <input
+              type="text"
+              class="chatbot-input"
+              id="chatbotInput"
+              placeholder="Posez une question sur le profil..."
+              data-i18n-placeholder="chatbot.inputPlaceholder"
+              maxlength="500"
+              autocomplete="off"
+              aria-label="Votre message à l'assistant"
+            />
+            <span class="chatbot-char-count" id="chatbotCharCount" aria-hidden="true">0/500</span>
+          </div>
+          <button class="chatbot-send-btn" id="chatbotSendBtn" type="submit" aria-label="Envoyer" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </aside>
   </body>
 </html>

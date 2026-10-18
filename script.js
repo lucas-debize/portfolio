@@ -200,6 +200,18 @@ const translations = {
     "contact.cvValue": "Voir le PDF",
 
     "modal.cta": "Voir le projet",
+
+    "chatbot.toggleLabel": "Assistant IA",
+    "chatbot.title": "Assistant Lucas Debize",
+    "chatbot.statusOnline": "En ligne · IA hybride (Groq / Gemini)",
+    "chatbot.welcome": "Bonjour ! Je suis l'assistant IA de Lucas. Posez-moi des questions sur son parcours, ses projets (Prospecthor, RAG Monitor, Elyrii...), ses compétences ou son CV !",
+    "chatbot.suggestion1": "Quelles sont tes compétences en IA ?",
+    "chatbot.suggestion2": "Parle-moi de tes projets",
+    "chatbot.suggestion3": "Où télécharger ton CV ?",
+    "chatbot.suggestion4": "Es-tu disponible pour un stage/part-time ?",
+    "chatbot.inputPlaceholder": "Posez une question sur le profil...",
+    "chatbot.offlineNotice": "Le serveur de l'assistant IA n'est pas joignable pour le moment. Vous pouvez consulter directement le CV officiel ou me contacter via les liens ci-dessous.",
+    "chatbot.cvBtn": "Télécharger le CV (PDF)",
   },
 
   en: {
@@ -379,6 +391,18 @@ const translations = {
     "contact.cvValue": "View PDF",
 
     "modal.cta": "View project",
+
+    "chatbot.toggleLabel": "AI Assistant",
+    "chatbot.title": "Lucas Debize's Assistant",
+    "chatbot.statusOnline": "Online · Hybrid AI (Groq / Gemini)",
+    "chatbot.welcome": "Hello! I am Lucas's AI assistant. Ask me anything about his background, projects (Prospecthor, RAG Monitor, Elyrii...), skills, or resume!",
+    "chatbot.suggestion1": "What are your AI skills?",
+    "chatbot.suggestion2": "Tell me about your projects",
+    "chatbot.suggestion3": "Where can I download your resume?",
+    "chatbot.suggestion4": "Are you available for an internship?",
+    "chatbot.inputPlaceholder": "Ask a question about the profile...",
+    "chatbot.offlineNotice": "The AI assistant server is currently unreachable. You can consult the official resume directly or reach out via the contact channels below.",
+    "chatbot.cvBtn": "Download Resume (PDF)",
   },
 };
 
@@ -398,6 +422,10 @@ function applyLang(lang) {
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
 
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (t[key] !== undefined) el.setAttribute("placeholder", t[key]);
+  });
   document.querySelectorAll(".project-card").forEach((card) => {
     const fields = ["title", "subtitle", "description", "short"];
 
@@ -430,6 +458,7 @@ function applyLang(lang) {
 
   currentLang = lang;
   localStorage.setItem("lang", lang);
+  window.dispatchEvent(new CustomEvent("languageChanged", { detail: { lang } }));
 }
 
 applyLang(currentLang);
@@ -683,3 +712,244 @@ document.addEventListener("keydown", (e) => {
     setMenuOpen(false);
   }
 });
+
+/* ==========================================================================
+   CHATBOT CONTROLLER
+   ========================================================================== */
+(function initChatbot() {
+  const widget = document.getElementById("chatbotWidget");
+  const toggleBtn = document.getElementById("chatbotToggleBtn");
+  const panel = document.getElementById("chatbotPanel");
+  const closeBtn = document.getElementById("chatbotCloseBtn");
+  const resetBtn = document.getElementById("chatbotResetBtn");
+  const messagesEl = document.getElementById("chatbotMessages");
+  const suggestionsEl = document.getElementById("chatbotSuggestions");
+  const form = document.getElementById("chatbotForm");
+  const input = document.getElementById("chatbotInput");
+  const charCount = document.getElementById("chatbotCharCount");
+  const sendBtn = document.getElementById("chatbotSendBtn");
+
+  if (!widget || !toggleBtn || !panel || !messagesEl) return;
+
+  const CHATBOT_BACKEND_URL =
+    window.CHATBOT_BACKEND_URL ||
+    (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+      ? "http://localhost:3001"
+      : (window.location.hostname.endsWith("vercel.app")
+          ? ""
+          : "https://portfolio-lucas-debize.vercel.app"));
+
+  let chatHistory = [];
+  let isSending = false;
+  let isOpen = false;
+  let lastSendTimestamp = 0;
+  function getTranslation(key, fallback) {
+    const t = translations[currentLang] || translations.fr;
+    return t[key] || fallback || "";
+  }
+
+  function setOpen(open) {
+    isOpen = open;
+    widget.classList.toggle("is-open", open);
+    panel.hidden = !open;
+    toggleBtn.setAttribute("aria-expanded", String(open));
+    if (open) {
+      if (chatHistory.length === 0) {
+        showWelcomeMessage();
+      }
+      setTimeout(() => input?.focus(), 150);
+      scrollToBottom();
+    }
+  }
+
+  toggleBtn.addEventListener("click", () => setOpen(!isOpen));
+  closeBtn?.addEventListener("click", () => setOpen(false));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen) {
+      setOpen(false);
+    }
+  });
+
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function formatTime(date = new Date()) {
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  }
+
+  function sanitizeAndLinkify(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    let safe = div.innerHTML;
+
+    const urlPattern = /(https?:\/\/[^\s<]+)/g;
+    safe = safe.replace(urlPattern, (url) => {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+    });
+
+    return safe;
+  }
+
+  function appendMessage(role, content) {
+    const msgEl = document.createElement("div");
+    msgEl.className = `chatbot-msg ${role}`;
+
+    const bubble = document.createElement("div");
+    bubble.className = "chatbot-msg-bubble";
+    bubble.innerHTML = sanitizeAndLinkify(content);
+
+    const time = document.createElement("span");
+    time.className = "chatbot-msg-time";
+    time.textContent = formatTime();
+
+    msgEl.appendChild(bubble);
+    msgEl.appendChild(time);
+    messagesEl.appendChild(msgEl);
+
+    chatHistory.push({ role, content });
+    scrollToBottom();
+  }
+
+  function showWelcomeMessage() {
+    messagesEl.innerHTML = "";
+    chatHistory = [];
+    appendMessage(
+      "assistant",
+      getTranslation(
+        "chatbot.welcome",
+        "Bonjour ! Je suis l'assistant IA de Lucas. Posez-moi des questions sur son parcours, ses projets, ses compétences ou son CV !"
+      )
+    );
+    renderSuggestions();
+  }
+
+  function renderSuggestions() {
+    if (!suggestionsEl) return;
+    suggestionsEl.innerHTML = "";
+    suggestionsEl.style.display = "flex";
+    const suggestions = [
+      getTranslation("chatbot.suggestion1", "Quelles sont tes compétences en IA ?"),
+      getTranslation("chatbot.suggestion2", "Parle-moi de tes projets"),
+      getTranslation("chatbot.suggestion3", "Où télécharger ton CV ?"),
+      getTranslation("chatbot.suggestion4", "Es-tu disponible pour un stage/part-time ?"),
+    ];
+
+    suggestions.forEach((text) => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "chatbot-suggestion-chip";
+      chip.textContent = text;
+      chip.addEventListener("click", () => {
+        if (isSending) return;
+        input.value = text;
+        updateInputState();
+        sendMessage(text);
+      });
+      suggestionsEl.appendChild(chip);
+    });
+  }
+
+  function updateInputState() {
+    const val = input.value;
+    charCount.textContent = `${val.length}/500`;
+    sendBtn.disabled = isSending || val.trim().length === 0;
+  }
+
+  input?.addEventListener("input", updateInputState);
+
+  function showTypingIndicator() {
+    const typing = document.createElement("div");
+    typing.className = "chatbot-typing";
+    typing.id = "chatbotTyping";
+    typing.innerHTML = "<span></span><span></span><span></span>";
+    messagesEl.appendChild(typing);
+    scrollToBottom();
+  }
+
+  function removeTypingIndicator() {
+    document.getElementById("chatbotTyping")?.remove();
+  }
+
+  async function sendMessage(text) {
+    const message = (text || input.value).trim();
+    if (!message || isSending) return;
+
+    const now = Date.now();
+    if (now - lastSendTimestamp < 1500) return;
+    lastSendTimestamp = now;
+    appendMessage("user", message);
+    input.value = "";
+    updateInputState();
+    isSending = true;
+    sendBtn.disabled = true;
+
+    if (suggestionsEl) suggestionsEl.style.display = "none";
+
+    showTypingIndicator();
+
+    try {
+      const response = await fetch(`${CHATBOT_BACKEND_URL}/api/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message }),
+      });
+
+      removeTypingIndicator();
+      const data = await response.json();
+
+      if (response.ok && data.reply) {
+        appendMessage("assistant", data.reply);
+      } else if (response.status === 429 || data.code === "RATE_LIMIT_EXCEEDED") {
+        appendMessage(
+          "assistant",
+          `⏳ ${data.error || "Trop de messages envoyés. Veuillez patienter une minute avant de réessayer."}`
+        );
+      } else {
+        const errorMsg =
+          data.error ||
+          getTranslation(
+            "chatbot.offlineNotice",
+            "Le serveur de l'assistant IA n'est pas joignable."
+          );
+        appendMessage(
+          "assistant",
+          `${errorMsg}\n\n👉 CV officiel disponible ici : https://lucas-debize.github.io/portfolio/assets/images/CV.pdf`
+        );
+      }
+    } catch {
+      removeTypingIndicator();
+      const offlineText = getTranslation(
+        "chatbot.offlineNotice",
+        "Le serveur de l'assistant IA n'est pas joignable pour le moment."
+      );
+      appendMessage(
+        "assistant",
+        `${offlineText}\n\n👉 Vous pouvez consulter et télécharger le CV officiel ici : https://lucas-debize.github.io/portfolio/assets/images/CV.pdf`
+      );
+    } finally {
+      isSending = false;
+      updateInputState();
+      input?.focus();
+    }
+  }
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    sendMessage();
+  });
+
+  resetBtn?.addEventListener("click", () => {
+    if (suggestionsEl) suggestionsEl.style.display = "flex";
+    showWelcomeMessage();
+  });
+
+  window.addEventListener("languageChanged", () => {
+    if (chatHistory.length <= 1) {
+      showWelcomeMessage();
+    } else {
+      renderSuggestions();
+    }
+  });
+})();
