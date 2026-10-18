@@ -1,3 +1,5 @@
+import { KNOWLEDGE } from "./knowledge.js";
+
 export default function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
@@ -10,6 +12,8 @@ export default function handler(req, res) {
   res.status(200).json({
     status: "ok",
     profile: "Lucas Debize",
-    environment: process.env.VERCEL ? "vercel-serverless" : "local",
+    lastSyncedAt: KNOWLEDGE.lastSyncedAt,
+    projectsCount: KNOWLEDGE.projects?.length || 0,
+    projects: KNOWLEDGE.projects?.map((p) => p.title),
   });
 }
