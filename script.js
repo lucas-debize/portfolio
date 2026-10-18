@@ -208,7 +208,7 @@ const translations = {
     "chatbot.suggestion1": "Quelles sont tes compétences en IA ?",
     "chatbot.suggestion2": "Parle-moi de tes projets",
     "chatbot.suggestion3": "Où télécharger ton CV ?",
-    "chatbot.suggestion4": "Es-tu disponible pour un stage/part-time ?",
+    "chatbot.suggestion4": "Es-tu disponible pour un stage de fin d'études / CDI ?",
     "chatbot.inputPlaceholder": "Posez une question sur le profil...",
     "chatbot.offlineNotice": "Le serveur de l'assistant IA n'est pas joignable pour le moment. Vous pouvez consulter directement le CV officiel ou me contacter via les liens ci-dessous.",
     "chatbot.cvBtn": "Télécharger le CV (PDF)",
@@ -833,7 +833,7 @@ document.addEventListener("keydown", (e) => {
       getTranslation("chatbot.suggestion1", "Quelles sont tes compétences en IA ?"),
       getTranslation("chatbot.suggestion2", "Parle-moi de tes projets"),
       getTranslation("chatbot.suggestion3", "Où télécharger ton CV ?"),
-      getTranslation("chatbot.suggestion4", "Es-tu disponible pour un stage/part-time ?"),
+      getTranslation("chatbot.suggestion4", "Es-tu disponible pour un stage de fin d'études / CDI ?"),
     ];
 
     suggestions.forEach((text) => {
