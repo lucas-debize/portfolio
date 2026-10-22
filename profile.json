@@ -1,10 +1,10 @@
 {
   "name": "Lucas Debize",
-  "role": "Étudiant Epitech - Développeur IA Junior / Full-Stack",
-  "tagline": "Développeur en devenir, passionné de code & d'IA",
+  "role": "Développeur IA, Automatisation & Full-Stack",
+  "tagline": "Développeur IA, Automatisation & Full-Stack",
   "availability": "Recherche stage de fin d'études (6 mois) ou CDI à partir de Mars 2027 (Disponible également pour des missions / projets)",
   "location": "Lyon, France",
-  "bio": "Étudiant en informatique en 5ème année à Epitech Lyon (diplôme d'Expert en Technologies de l'Information attendu en 2027), avec une 4ème année réalisée à l'international à Epitech Berlin. Je conçois des projets concrets en intelligence artificielle, automatisation, web et développement logiciel : architecture propre, interfaces soignées, logique technique.",
+  "bio": "En 5ème année à Epitech Lyon (Expert en Technologies de l'Information, promotion 2027) après une 4ème année internationale à Epitech Berlin, je conçois et déploie des solutions concrètes en intelligence artificielle, automatisation et développement web full-stack : architectures logicielles robustes, intégration IA et interfaces soignées.",
   "languages": [
     { "name": "Français", "level": "Maternel" },
     { "name": "Anglais", "level": "Courant (C1)" }
@@ -13,7 +13,7 @@
     "languages": ["Python", "JavaScript", "C", "C++", "PHP", "Dart", "HTML/CSS"],
     "frameworks": ["Vue.js", "React.js", "Node.js", "Flutter"],
     "ia_and_data": ["NLP", "Classification", "RAG", "Deep Learning / Vision", "Ollama", "ChromaDB", "MLflow"],
-    "automation_and_tools": ["Claude Code", "Cursor", "Microsoft Power Automate", "Microsoft 365", "n8n", "Docker", "Git", "GitLab", "APIs REST", "Webhooks"],
+    "automation_and_tools": ["Claude Code", "Cursor", "Microsoft Power Automate", "Microsoft 365", "n8n", "Docker", "Git", "GitLab", "Linux", "Bash", "UE5", "APIs REST", "Webhooks"],
     "databases": ["PostgreSQL", "MySQL"]
   },
   "interests": [
@@ -57,7 +57,7 @@
     {
       "name": "Image Denoising",
       "category": "Deep Learning · Vision",
-      "description": "Entraînement d'un réseau de neurones convolutionnel dédié à la reconstruction et au débruitage d'images."
+      "description": "Autoencodeur U-Net avec connexions résiduelles développé sous TensorFlow et Keras pour débruiter des images CIFAR-10."
     },
     {
       "name": "Chatbot Portfolio",

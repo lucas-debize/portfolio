@@ -112,30 +112,22 @@ function extractSections(t) {
       ].filter(Boolean),
     },
     skills: {
-      ai: [
-        t["skills.ai.c1"],
-        t["skills.ai.c2"],
-        t["skills.ai.c3"],
-      ].filter(Boolean),
-      web: [
-        t["skills.web.c1"],
-        t["skills.web.c2"],
-        t["skills.web.c3"],
-        t["skills.web.c4"],
-        t["skills.web.c5"],
-        t["skills.web.c6"],
-      ].filter(Boolean),
-      software: [
-        t["skills.soft.c1"],
-        t["skills.soft.c2"],
-        t["skills.soft.c3"],
-      ].filter(Boolean),
-      tools: [
-        t["skills.tools.c1"],
-        t["skills.tools.c2"],
-        t["skills.tools.c3"],
-        t["skills.tools.c4"],
-      ].filter(Boolean),
+      ai: Object.keys(t)
+        .filter((k) => k.startsWith("skills.ai.c"))
+        .map((k) => t[k])
+        .filter(Boolean),
+      web: Object.keys(t)
+        .filter((k) => k.startsWith("skills.web.c"))
+        .map((k) => t[k])
+        .filter(Boolean),
+      software: Object.keys(t)
+        .filter((k) => k.startsWith("skills.soft.c"))
+        .map((k) => t[k])
+        .filter(Boolean),
+      tools: Object.keys(t)
+        .filter((k) => k.startsWith("skills.tools.c"))
+        .map((k) => t[k])
+        .filter(Boolean),
     },
     contact: {
       statusTitle: t["contact.statusTitle"] || "",

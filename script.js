@@ -28,24 +28,23 @@ const translations = {
     "nav.skills": "Compétences",
     "nav.contact": "Contact",
 
-    "hero.eyebrow": "Portfolio étudiant",
+    "hero.eyebrow": "Portfolio · Développeur Full-Stack & IA",
     "hero.title":
-      "Développeur en devenir,<br/>passionné de <span class=\"grad-text\">code</span> &amp; d'<span class=\"grad-text\">IA</span>.",
+      "Développeur <span class=\"grad-text\">IA</span> &amp; <span class=\"grad-text\">full-stack</span>,<br/>expert en <span class=\"grad-text\">automatisation</span>.",
     "hero.text":
-      "Étudiant en informatique, je conçois des projets concrets en intelligence artificielle, web et développement logiciel. Architecture propre, interfaces soignées, logique technique.",
+      "En 5ème année à Epitech Lyon, je conçois et déploie des solutions concrètes en intelligence artificielle, automatisation de processus et développement web full-stack. Architectures robustes, interfaces soignées et logique technique maîtrisée.",
     "hero.cta1": "Voir les projets",
     "hero.cta2": "Me contacter",
-    "hero.meta1": "Disponible pour un stage",
-    "hero.meta2": "Basé en France",
+    "hero.meta1": "Stage fin d'études / CDI (Mars 2027)",
+    "hero.meta2": "Lyon, France",
     "hero.side1.label": "Focus",
-    "hero.side1.title": "IA · Web · Logiciel",
+    "hero.side1.title": "IA · Automatisation · Full-Stack",
     "hero.side1.text":
-      "Développement applicatif, interfaces modernes et expérimentations autour de l'intelligence artificielle.",
+      "Déploiement de workflows d'automatisation, intégration de modèles d'IA (LLMs, RAG, NLP) et développement d'applications SaaS complètes.",
     "hero.side2.label": "Approche",
     "hero.side2.title": "Concret & soigné",
     "hero.side2.text":
-      "Projets aboutis, code structuré, interfaces lisibles et logique technique assumée.",
-
+      "Projets aboutis, code structuré, interfaces ergonomiques et rigueur technique de bout en bout.",
     "stats.projects": "Projets réalisés",
     "stats.domains": "Domaines principaux",
     "stats.techs": "Technologies utilisées",
@@ -53,15 +52,14 @@ const translations = {
     "about.eyebrow": "À propos",
     "about.title": "Profil",
     "about.p1":
-      "Étudiant en informatique, j'utilise ce portfolio pour présenter différents projets réalisés en intelligence artificielle, web et développement logiciel.",
+      "Actuellement en 5ème année à Epitech Lyon après une 4ème année internationale à Epitech Berlin, je développe des solutions performantes alliant intelligence artificielle, automatisation de processus et développement logiciel full-stack.",
     "about.p2":
-      "L'objectif : montrer des réalisations concrètes, la manière dont elles ont été conçues, ainsi que les outils et technologies utilisés.",
-    "about.listTitle": "Ce que je cherche à montrer",
-    "about.li1": "des projets variés et structurés",
-    "about.li2": "une approche technique claire",
-    "about.li3": "une attention à l'interface et à l'expérience utilisateur",
-    "about.li4": "un intérêt réel pour les sujets liés à l'IA",
-
+      "De la conception d'architectures SaaS à la mise en production de pipelines RAG locaux et de workflows d'automatisation, je privilégie l'efficacité opérationnelle et la qualité d'exécution.",
+    "about.listTitle": "Domaines d'expertise & atouts",
+    "about.li1": "des architectures logicielles structurées et prêtes pour la production",
+    "about.li2": "une expertise pratique en IA (LLMs, RAG, NLP) et automatisation",
+    "about.li3": "une maîtrise full-stack avec une attention portée à l'expérience utilisateur",
+    "about.li4": "une capacité d'adaptation rapide sur des stacks modernes et exigeantes",
     "projects.eyebrow": "Projets",
     "projects.title": "Sélection de réalisations",
     "projects.filterAll": "Tous",
@@ -71,27 +69,6 @@ const translations = {
     "projects.filterPerso": "Personnel",
     "projects.badge.tech": "Projet technique",
     "projects.badge.perso": "Projet personnel",
-
-    "projects.chess.title": "Chess Vision",
-    "projects.chess.subtitle": "Analyse visuelle d'un plateau d'échecs",
-    "projects.chess.description":
-      "Projet orienté vision par ordinateur visant à reconnaître l'état d'un échiquier à partir d'une image. Travail sur le traitement d'image, l'extraction d'informations visuelles et l'interprétation du plateau.",
-    "projects.chess.short":
-      "Reconnaissance d'un état de jeu d'échecs à partir d'une image.",
-
-    "projects.portfolio.title": "Portfolio",
-    "projects.portfolio.subtitle": "Conception et développement front-end",
-    "projects.portfolio.description":
-      "Création de ce portfolio from scratch en HTML, CSS et JavaScript, sans framework. Travail sur la hiérarchie visuelle, le responsive, le thème clair/sombre, le bilingue FR/EN et une modale pour présenter les projets.",
-    "projects.portfolio.short":
-      "Interface pensée pour présenter des projets et compétences de manière claire.",
-
-    "projects.dashboard.title": "Dashboard IA",
-    "projects.dashboard.subtitle": "Intégration d'outils IA dans une interface web",
-    "projects.dashboard.description":
-      "Prototype d'interface permettant de manipuler différents traitements liés à l'IA dans une interface web claire. Travail sur la structuration front-end et l'intégration de fonctionnalités interactives.",
-    "projects.dashboard.short":
-      "Interface web pour expérimenter et présenter des fonctionnalités liées à l'IA.",
 
     "projects.powerAutomate.title": "Microsoft Power Automate",
     "projects.powerAutomate.subtitle": "Gestion de demandes clients",
@@ -104,9 +81,9 @@ const translations = {
     "projects.rag.short": "Système RAG local complet avec monitoring et pipeline CI/CD automatisée.",
 
     "projects.chatbot.title": "Chatbot IA Portfolio",
-    "projects.chatbot.subtitle": "Assistant conversationnel sur profil développeur",
-    "projects.chatbot.description": "Chatbot utilisant React, Express et l'API Google Gemini pour répondre aux questions sur mon profil développeur. Le backend charge profile.json comme base de connaissances et injecte son contenu dans le prompt système Gemini. Architecture : React (5173) → Express (3001) → Gemini API, avec bascule automatique sur un modèle de repli si le modèle configuré est indisponible.",
-    "projects.chatbot.short": "Chatbot Gemini qui répond aux questions sur mon profil à partir de profile.json.",
+    "projects.chatbot.subtitle": "Assistant conversationnel IA hybride",
+    "projects.chatbot.description": "Assistant conversationnel intelligent pour portfolio propulsé par une architecture IA hybride. Il utilise Groq (Llama 3.3 70B) en moteur principal pour des réponses instantanées, avec bascule automatique sur Google Gemini en cas d'indisponibilité. Stack développée avec React 19, Vite et Express.",
+    "projects.chatbot.short": "Chatbot hybride Groq (Llama 3.3 70B) avec repli automatique sur Google Gemini.",
 
     "projects.assistantRh.title": "Assistant RH IA",
     "projects.assistantRh.subtitle": "Automatisation des candidatures par email",
@@ -115,13 +92,13 @@ const translations = {
 
     "projects.elyrii.title": "Elyrii",
     "projects.elyrii.subtitle": "Application mobile IA de soutien émotionnel",
-    "projects.elyrii.description": "Application mobile innovante intégrant l'IA pour accompagner les personnes en dépression ou en difficulté émotionnelle. Elyrii propose une mascotte interactive intelligente qui dialogue avec l'utilisateur, lui propose des défis quotidiens, et peut jouer le rôle de conseiller bienveillant ou de journal intime numérique.",
-    "projects.elyrii.short": "Mascotte IA mobile pour accompagner les personnes en difficulté émotionnelle.",
+    "projects.elyrii.description": "Application mobile d'accompagnement émotionnel développée en Flutter dans le cadre du projet de fin d'études Epitech. Elle propose une mascotte interactive, un journal numérique et des quêtes quotidiennes, connectés à des microservices TypeScript (Hono) et un modèle Mistral-7B adapté.",
+    "projects.elyrii.short": "Mascotte IA mobile Flutter connectée à des microservices TypeScript (Hono).",
 
     "projects.denoise.title": "Image Denoising",
-    "projects.denoise.subtitle": "Modèle IA de débruitage d'images",
-    "projects.denoise.description": "Entraînement d'un modèle d'IA capable de débruiter des images. Le pipeline ajoute artificiellement du bruit à des images d'entrée, puis entraîne un réseau de neurones à reconstruire l'image originale au plus près. Implémenté sur Google Colab pour profiter de l'accélération GPU.",
-    "projects.denoise.short": "Réseau de neurones entraîné à reconstruire des images bruitées.",
+    "projects.denoise.subtitle": "Autoencodeur U-Net de débruitage d'images",
+    "projects.denoise.description": "Autoencodeur convolutif U-Net avec connexions résiduelles développé sous TensorFlow et Keras. Entraîné sur le jeu de données CIFAR-10 altéré par un bruit gaussien synthétique, le réseau apprend à reconstruire fidèlement les images d'origine avec optimisation de l'erreur quadratique moyenne (MSE).",
+    "projects.denoise.short": "Autoencodeur U-Net entraîné à débruiter des images CIFAR-10.",
 
     "projects.prospecthor.title": "Prospecthor",
     "projects.prospecthor.subtitle": "Application de gestion intelligente d'emails",
@@ -129,29 +106,19 @@ const translations = {
     "projects.prospecthor.short": "Application de tri d'emails par IA avec scoring d'intention de prospection.",
 
     "projects.recognition.title": "Image Recognition",
-    "projects.recognition.subtitle": "Classification d'images avec CNN",
-    "projects.recognition.description": "Entraînement d'un modèle d'IA dédié à la classification d'images sur différents datasets (chats, chiens, voitures, etc.). Le projet explore les architectures de réseaux convolutifs (CNN) et leurs performances sur des problèmes multi-classes. Réalisé sur Google Colab.",
-    "projects.recognition.short": "CNN entraînés sur plusieurs datasets pour de la classification multi-classes.",
+    "projects.recognition.subtitle": "Classification d'images avec CNN & Grad-CAM",
+    "projects.recognition.description": "Modèle de vision par ordinateur convolutif (CNN) entraîné sur le dataset CIFAR-10 avec data augmentation. Le projet intègre un module d'IA explicable (XAI) par Grad-CAM visualisant les zones de décision du réseau, ainsi qu'une démonstration interactive déployée sous Gradio.",
+    "projects.recognition.short": "CNN sur CIFAR-10 avec explicabilité Grad-CAM et interface Gradio.",
 
     "projects.chess.title": "Chess Game State",
-    "projects.chess.subtitle": "Analyse visuelle d'un plateau d'échecs",
-    "projects.chess.description": "Projet de vision par ordinateur visant à reconnaître automatiquement l'état d'un échiquier à partir d'une simple image. Mise en œuvre de techniques de traitement d'image, d'extraction de caractéristiques visuelles et d'interprétation du plateau pour identifier la position de chaque pièce.",
-    "projects.chess.short": "Reconnaissance d'un état de jeu d'échecs à partir d'une image.",
+    "projects.chess.subtitle": "Réseau de neurones pour l'analyse d'échecs",
+    "projects.chess.description": "Réseau de neurones artificiel développé from scratch en Python pour l'analyse d'états de jeu d'échecs. À partir d'une représentation matricielle de 64 cases, le réseau classifie la situation tactique (échec, mat, pat, position normale) via une architecture neuronale optimisée avec Adam et Dropout.",
+    "projects.chess.short": "Réseau de neurones en Python classifiant les états tactiques d'un échiquier.",
 
     "projects.ue5chess.title": "Échecs Multijoueur UE5",
     "projects.ue5chess.subtitle": "Jeu d'échecs en ligne sous Unreal Engine 5",
     "projects.ue5chess.description": "Jeu d'échecs multijoueur en ligne jouable via Steam, développé sous Unreal Engine 5.6.1 en Blueprint et C++. Le jeu réinvente les échecs traditionnels avec un système de factions uniques et de pouvoirs spéciaux, apportant une profondeur stratégique inédite.",
     "projects.ue5chess.short": "Échecs en ligne sur Steam avec factions et pouvoirs spéciaux.",
-
-    "projects.rtype.title": "R-Type",
-    "projects.rtype.subtitle": "Moteur de jeu réseau en C++ from scratch",
-    "projects.rtype.description": "Recréation du célèbre shoot 'em up R-Type avec un moteur de jeu réseau développé entièrement from scratch en C++. Le projet exploite SFML pour le rendu graphique et Boost pour les utilitaires réseau. Architecture modulaire, multiplateforme et pensée pour la scalabilité.",
-    "projects.rtype.short": "Moteur de jeu réseau multiplateforme codé from scratch en C++.",
-
-    "projects.portfolio.title": "Portfolio",
-    "projects.portfolio.subtitle": "Conception et développement front-end",
-    "projects.portfolio.description": "Conception et développement de ce portfolio from scratch en HTML, CSS et JavaScript, sans framework. Travail sur la hiérarchie visuelle, le responsive, le thème clair/sombre, le bilingue FR/EN et une modale pour présenter les projets.",
-    "projects.portfolio.short": "Site personnel développé from scratch pour présenter mes projets.",
 
     "tag.ai": "IA",
     "tag.web": "Web",
@@ -164,26 +131,36 @@ const translations = {
     "skills.ai.c1": "Python",
     "skills.ai.c2": "NLP",
     "skills.ai.c3": "Classification",
+    "skills.ai.c4": "RAG",
+    "skills.ai.c5": "Ollama",
+    "skills.ai.c6": "Deep Learning",
 
-    "skills.web.title": "Développement web",
-    "skills.web.c1": "HTML",
-    "skills.web.c2": "PHP",
-    "skills.web.c3": "JavaScript",
-    "skills.web.c4": "React",
-    "skills.web.c5": "PostgreSQL",
-    "skills.web.c6": "Flutter",
+    "skills.web.title": "Développement web & BDD",
+    "skills.web.c1": "JavaScript",
+    "skills.web.c2": "React",
+    "skills.web.c3": "Vue.js",
+    "skills.web.c4": "Node.js",
+    "skills.web.c5": "HTML / CSS",
+    "skills.web.c6": "PHP",
+    "skills.web.c7": "Dart",
+    "skills.web.c8": "Flutter",
+    "skills.web.c9": "PostgreSQL",
+    "skills.web.c10": "MySQL",
 
     "skills.soft.title": "Développement logiciel",
     "skills.soft.c1": "C",
     "skills.soft.c2": "C++",
     "skills.soft.c3": "UE5",
+    "skills.soft.c4": "Linux",
 
-    "skills.tools.title": "Outils",
-    "skills.tools.c1": "Gitlab",
-    "skills.tools.c2": "Git",
+    "skills.tools.title": "Outils & Automatisation",
+    "skills.tools.c1": "Git",
+    "skills.tools.c2": "GitLab",
     "skills.tools.c3": "Docker",
-    "skills.tools.c4": "Bash",
-
+    "skills.tools.c4": "n8n",
+    "skills.tools.c5": "Power Automate",
+    "skills.tools.c6": "Bash",
+    "skills.tools.c7": "Microsoft 365",
     "contact.eyebrow": "Contact",
     "contact.title": "Échangeons",
     "contact.headline": "Une idée, un projet, une opportunité ?",
@@ -205,10 +182,10 @@ const translations = {
     "chatbot.title": "Assistant Lucas Debize",
     "chatbot.statusOnline": "En ligne · IA hybride (Groq / Gemini)",
     "chatbot.welcome": "Bonjour ! Je suis l'assistant IA de Lucas. Posez-moi des questions sur son parcours, ses projets (Prospecthor, RAG Monitor, Elyrii...), ses compétences ou son CV !",
-    "chatbot.suggestion1": "Quelles sont tes compétences en IA ?",
-    "chatbot.suggestion2": "Parle-moi de tes projets",
-    "chatbot.suggestion3": "Où télécharger ton CV ?",
-    "chatbot.suggestion4": "Es-tu disponible pour un stage de fin d'études / CDI ?",
+    "chatbot.suggestion1": "Quelles sont ses compétences en IA ?",
+    "chatbot.suggestion2": "Parle-moi de ses projets phares",
+    "chatbot.suggestion3": "Où télécharger son CV ?",
+    "chatbot.suggestion4": "Quelles sont ses disponibilités professionnelles ?",
     "chatbot.inputPlaceholder": "Posez une question sur le profil...",
     "chatbot.offlineNotice": "Le serveur de l'assistant IA n'est pas joignable pour le moment. Vous pouvez consulter directement le CV officiel ou me contacter via les liens ci-dessous.",
     "chatbot.cvBtn": "Télécharger le CV (PDF)",
@@ -220,23 +197,23 @@ const translations = {
     "nav.skills": "Skills",
     "nav.contact": "Contact",
 
-    "hero.eyebrow": "Student portfolio",
+    "hero.eyebrow": "Portfolio · Full-Stack & AI Developer",
     "hero.title":
-      "Developer in the making,<br/>passionate about <span class=\"grad-text\">code</span> &amp; <span class=\"grad-text\">AI</span>.",
+      "<span class=\"grad-text\">AI</span> &amp; <span class=\"grad-text\">full-stack</span> developer,<br/>focused on <span class=\"grad-text\">automation</span>.",
     "hero.text":
-      "Computer science student building concrete projects in artificial intelligence, web development and software development. Clean architecture, polished interfaces, solid technical logic.",
+      "In my 5th year at Epitech Lyon, I design and deploy concrete solutions in artificial intelligence, process automation, and full-stack web development. Clean architecture, polished interfaces, and solid engineering.",
     "hero.cta1": "View projects",
     "hero.cta2": "Contact me",
-    "hero.meta1": "Open to internship",
-    "hero.meta2": "Based in France",
+    "hero.meta1": "End-of-studies internship / Full-time (March 2027)",
+    "hero.meta2": "Lyon, France",
     "hero.side1.label": "Focus",
-    "hero.side1.title": "AI · Web · Software",
+    "hero.side1.title": "AI · Automation · Full-Stack",
     "hero.side1.text":
-      "Application development, modern interfaces and experiments around artificial intelligence.",
+      "Deployment of automation workflows, integration of AI models (LLMs, RAG, NLP), and development of complete SaaS applications.",
     "hero.side2.label": "Approach",
     "hero.side2.title": "Concrete & polished",
     "hero.side2.text":
-      "Solid projects, structured code, readable interfaces and committed technical logic.",
+      "Complete projects, structured code, ergonomic interfaces, and end-to-end technical rigor.",
 
     "stats.projects": "Projects completed",
     "stats.domains": "Main domains",
@@ -245,15 +222,14 @@ const translations = {
     "about.eyebrow": "About",
     "about.title": "Profile",
     "about.p1":
-      "Computer science student, I use this portfolio to showcase various projects in artificial intelligence, web development and software development.",
+      "Currently in my 5th year at Epitech Lyon following an international 4th year at Epitech Berlin, I build high-performance solutions combining artificial intelligence, process automation, and full-stack software development.",
     "about.p2":
-      "The goal: show concrete work, how it was designed, and the tools and technologies used.",
-    "about.listTitle": "What I aim to show",
-    "about.li1": "varied and structured projects",
-    "about.li2": "a clear technical approach",
-    "about.li3": "attention to interface and user experience",
-    "about.li4": "a genuine interest in AI-related topics",
-
+      "From designing SaaS architectures to deploying local RAG pipelines and automation workflows, I prioritize operational efficiency and execution quality.",
+    "about.listTitle": "Core expertise & strengths",
+    "about.li1": "structured, production-ready software architectures",
+    "about.li2": "hands-on expertise in AI (LLMs, RAG, NLP) and automation",
+    "about.li3": "full-stack proficiency with high attention to user experience",
+    "about.li4": "rapid adaptability to modern and demanding tech stacks",
     "projects.eyebrow": "Projects",
     "projects.title": "Selected works",
     "projects.filterAll": "All",
@@ -263,31 +239,6 @@ const translations = {
     "projects.filterPerso": "Personal",
     "projects.badge.tech": "Technical project",
     "projects.badge.perso": "Personal project",
-
-    "projects.chess.title": "Chess Vision",
-    "projects.chess.subtitle": "Visual analysis of a chess board",
-    "projects.chess.description":
-      "Computer vision project aimed at recognising the state of a chessboard from an image. Work on image processing, visual information extraction and board interpretation.",
-    "projects.chess.short": "Chess game state recognition from an image.",
-
-    "projects.portfolio.title": "Portfolio",
-    "projects.portfolio.subtitle": "Front-end design and development",
-    "projects.portfolio.description":
-      "Creation of this portfolio from scratch in HTML, CSS and JavaScript, no framework. Focus on visual hierarchy, responsive layout, light/dark theme, bilingual FR/EN support, and a modal to present projects.",
-    "projects.portfolio.short":
-      "Interface designed to clearly present projects and skills.",
-
-    "projects.dashboard.title": "AI Dashboard",
-    "projects.dashboard.subtitle": "Integrating AI tools into a web interface",
-    "projects.dashboard.description":
-      "Interface prototype for manipulating various AI-related processes in a clear web interface. Work on front-end structure and integration of interactive features.",
-    "projects.dashboard.short":
-      "Web interface to experiment with and present AI features.",
-
-    "projects.portfolio.title": "Portfolio",
-    "projects.portfolio.subtitle": "Front-end design and development",
-    "projects.portfolio.description": "Design and development of this personal portfolio from scratch in HTML, CSS and JavaScript, no framework. Focus on visual hierarchy, responsive layout, light/dark theme, bilingual FR/EN support, and a modal to present projects.",
-    "projects.portfolio.short": "Personal website built from scratch to showcase my projects.",
 
     "projects.powerAutomate.title": "Microsoft Power Automate",
     "projects.powerAutomate.subtitle": "Client request management",
@@ -300,9 +251,9 @@ const translations = {
     "projects.rag.short": "Full local RAG system with monitoring and automated CI/CD pipeline.",
 
     "projects.chatbot.title": "Chatbot IA Portfolio",
-    "projects.chatbot.subtitle": "Conversational assistant for developer profile",
-    "projects.chatbot.description": "Chatbot built with React, Express and the Google Gemini API to answer questions about my developer profile. The backend loads profile.json as a knowledge base and injects its content into the Gemini system prompt. Architecture: React (5173) → Express (3001) → Gemini API, with automatic fallback to a backup model if the configured one is unavailable.",
-    "projects.chatbot.short": "Gemini-powered chatbot that answers profile questions from profile.json.",
+    "projects.chatbot.subtitle": "Hybrid AI conversational assistant",
+    "projects.chatbot.description": "Intelligent conversational assistant for developer portfolio powered by a hybrid AI architecture. It leverages Groq (Llama 3.3 70B) as its primary ultra-fast engine, with automatic fallback to Google Gemini. Full stack built with React 19, Vite, and Express.",
+    "projects.chatbot.short": "Hybrid chatbot using Groq (Llama 3.3 70B) with automatic Gemini fallback.",
 
     "projects.assistantRh.title": "HR AI Assistant",
     "projects.assistantRh.subtitle": "Email-driven application automation",
@@ -311,13 +262,13 @@ const translations = {
 
     "projects.elyrii.title": "Elyrii",
     "projects.elyrii.subtitle": "AI-powered mobile app for emotional support",
-    "projects.elyrii.description": "An innovative mobile application leveraging AI to support people dealing with depression or emotional struggles. Elyrii features an interactive AI-powered mascot that engages with users, suggests daily challenges, and acts as a caring companion or digital journal.",
-    "projects.elyrii.short": "AI mascot mobile app supporting people facing emotional struggles.",
+    "projects.elyrii.description": "Cross-platform mobile application for emotional support built with Flutter for the EPITECH master-level final project. It features an interactive companion mascot, digital journaling, and daily quests connected to TypeScript microservices (Hono) and a tailored Mistral-7B model.",
+    "projects.elyrii.short": "Flutter AI companion mobile app backed by TypeScript (Hono) microservices.",
 
     "projects.denoise.title": "Image Denoising",
-    "projects.denoise.subtitle": "AI model for image denoising",
-    "projects.denoise.description": "Training of an AI model capable of denoising images. The pipeline artificially adds noise to input images, then trains a neural network to reconstruct the original image as accurately as possible. Implemented on Google Colab to leverage GPU acceleration.",
-    "projects.denoise.short": "Neural network trained to reconstruct noisy images.",
+    "projects.denoise.subtitle": "U-Net deep learning model for image denoising",
+    "projects.denoise.description": "U-Net convolutional autoencoder with residual skip connections developed with TensorFlow and Keras. Trained on the CIFAR-10 dataset corrupted with synthetic Gaussian noise, the network learns to accurately reconstruct original images by minimizing mean squared error (MSE).",
+    "projects.denoise.short": "U-Net autoencoder trained to denoise CIFAR-10 images.",
 
     "projects.prospecthor.title": "Prospecthor",
     "projects.prospecthor.subtitle": "Smart email management application",
@@ -325,24 +276,19 @@ const translations = {
     "projects.prospecthor.short": "AI email sorting app with prospecting intent scoring.",
 
     "projects.recognition.title": "Image Recognition",
-    "projects.recognition.subtitle": "Image classification with CNNs",
-    "projects.recognition.description": "Training of an AI model dedicated to image classification across various datasets (cats, dogs, cars, etc.). The project explores convolutional neural network (CNN) architectures and their performance on multi-class problems. Built on Google Colab.",
-    "projects.recognition.short": "CNNs trained on multiple datasets for multi-class classification.",
+    "projects.recognition.subtitle": "Image classification with CNN & Grad-CAM",
+    "projects.recognition.description": "Convolutional neural network (CNN) trained on the CIFAR-10 dataset with data augmentation. The project features explainable AI (XAI) using Grad-CAM heatmaps to visualize decision regions, alongside an interactive web demo deployed with Gradio.",
+    "projects.recognition.short": "CNN on CIFAR-10 featuring Grad-CAM explainability and Gradio demo.",
 
     "projects.chess.title": "Chess Game State",
-    "projects.chess.subtitle": "Visual analysis of a chess board",
-    "projects.chess.description": "A computer vision project that automatically recognizes the state of a chessboard from a single image. It applies image processing techniques, visual feature extraction, and board interpretation to detect the position of every piece.",
-    "projects.chess.short": "Chess game state recognition from an image.",
+    "projects.chess.subtitle": "Neural network for chess position analysis",
+    "projects.chess.description": "Artificial neural network built from scratch in Python for chess position analysis. From a 64-square board representation, the network classifies tactical game states (check, checkmate, stalemate, normal position) using an architecture optimized with Adam and Dropout.",
+    "projects.chess.short": "Python neural network classifying tactical chess game states.",
 
     "projects.ue5chess.title": "Multiplayer Chess UE5",
     "projects.ue5chess.subtitle": "Online chess game built with Unreal Engine 5",
     "projects.ue5chess.description": "An online multiplayer chess game playable via Steam, built with Unreal Engine 5.6.1 using both Blueprint and C++. This game reinvents traditional chess with unique factions and special abilities, bringing a fresh strategic depth to the genre.",
     "projects.ue5chess.short": "Online Steam chess featuring unique factions and special abilities.",
-
-    "projects.rtype.title": "R-Type",
-    "projects.rtype.subtitle": "Networked game engine in C++ from scratch",
-    "projects.rtype.description": "A recreation of the iconic R-Type shoot 'em up, powered by a fully networked game engine built from scratch in C++. Leveraging SFML for rendering and Boost for networking utilities, the project features a modular, cross-platform, and scalable architecture.",
-    "projects.rtype.short": "Cross-platform networked game engine built from scratch in C++.",
 
     "tag.ai": "AI",
     "tag.web": "Web",
@@ -355,26 +301,36 @@ const translations = {
     "skills.ai.c1": "Python",
     "skills.ai.c2": "NLP",
     "skills.ai.c3": "Classification",
+    "skills.ai.c4": "RAG",
+    "skills.ai.c5": "Ollama",
+    "skills.ai.c6": "Deep Learning",
 
-    "skills.web.title": "Web development",
-    "skills.web.c1": "HTML",
-    "skills.web.c2": "PHP",
-    "skills.web.c3": "JavaScript",
-    "skills.web.c4": "React",
-    "skills.web.c5": "PostgreSQL",
-    "skills.web.c6": "Flutter",
+    "skills.web.title": "Web development & Databases",
+    "skills.web.c1": "JavaScript",
+    "skills.web.c2": "React",
+    "skills.web.c3": "Vue.js",
+    "skills.web.c4": "Node.js",
+    "skills.web.c5": "HTML / CSS",
+    "skills.web.c6": "PHP",
+    "skills.web.c7": "Dart",
+    "skills.web.c8": "Flutter",
+    "skills.web.c9": "PostgreSQL",
+    "skills.web.c10": "MySQL",
 
     "skills.soft.title": "Software development",
     "skills.soft.c1": "C",
     "skills.soft.c2": "C++",
     "skills.soft.c3": "UE5",
+    "skills.soft.c4": "Linux",
 
-    "skills.tools.title": "Tools",
-    "skills.tools.c1": "Gitlab",
-    "skills.tools.c2": "Git",
+    "skills.tools.title": "Tools & Automation",
+    "skills.tools.c1": "Git",
+    "skills.tools.c2": "GitLab",
     "skills.tools.c3": "Docker",
-    "skills.tools.c4": "Bash",
-
+    "skills.tools.c4": "n8n",
+    "skills.tools.c5": "Power Automate",
+    "skills.tools.c6": "Bash",
+    "skills.tools.c7": "Microsoft 365",
     "contact.eyebrow": "Contact",
     "contact.title": "Let's talk",
     "contact.headline": "An idea, a project, an opportunity?",
@@ -396,10 +352,10 @@ const translations = {
     "chatbot.title": "Lucas Debize's Assistant",
     "chatbot.statusOnline": "Online · Hybrid AI (Groq / Gemini)",
     "chatbot.welcome": "Hello! I am Lucas's AI assistant. Ask me anything about his background, projects (Prospecthor, RAG Monitor, Elyrii...), skills, or resume!",
-    "chatbot.suggestion1": "What are your AI skills?",
-    "chatbot.suggestion2": "Tell me about your projects",
-    "chatbot.suggestion3": "Where can I download your resume?",
-    "chatbot.suggestion4": "Are you available for an internship?",
+    "chatbot.suggestion1": "What are his AI skills?",
+    "chatbot.suggestion2": "Tell me about his key projects",
+    "chatbot.suggestion3": "Where can I download his resume?",
+    "chatbot.suggestion4": "What is his professional availability?",
     "chatbot.inputPlaceholder": "Ask a question about the profile...",
     "chatbot.offlineNotice": "The AI assistant server is currently unreachable. You can consult the official resume directly or reach out via the contact channels below.",
     "chatbot.cvBtn": "Download Resume (PDF)",
@@ -472,12 +428,13 @@ function computeStats() {
 
   const totalProjects = allCards.length;
 
-  const domains = new Set();
+  const domainCategories = new Set(["ai", "web", "software"]);
+  const activeDomains = new Set();
   allCards.forEach((c) => {
     (c.getAttribute("data-category") || "")
       .split(" ")
-      .filter(Boolean)
-      .forEach((d) => domains.add(d));
+      .filter((d) => domainCategories.has(d))
+      .forEach((d) => activeDomains.add(d));
   });
 
   const techs = new Set();
@@ -489,8 +446,13 @@ function computeStats() {
       .forEach((t) => techs.add(t));
   });
 
+  document.querySelectorAll(".skill-card .chip span[data-i18n]").forEach((el) => {
+    const text = el.textContent.trim();
+    if (text) techs.add(text);
+  });
+
   animateCounter("statProjects", totalProjects);
-  animateCounter("statDomains", domains.size - 1);
+  animateCounter("statDomains", activeDomains.size || 3);
   animateCounter("statTechs", techs.size);
 }
 
@@ -510,15 +472,23 @@ function animateCounter(id, target) {
     return;
   }
 
-  let start = 0;
   const duration = 900;
-  const step = Math.max(30, Math.ceil(duration / target));
+  const startTime = performance.now();
 
-  const timer = setInterval(() => {
-    start++;
-    el.textContent = start + (start >= target ? suffix : "");
-    if (start >= target) clearInterval(timer);
-  }, step);
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const current = Math.floor(progress * target);
+    el.textContent = current + (progress >= 1 ? suffix : "");
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = target + suffix;
+    }
+  }
+
+  requestAnimationFrame(update);
 }
 
 computeStats();
@@ -734,7 +704,7 @@ document.addEventListener("keydown", (e) => {
   const CHATBOT_BACKEND_URL =
     window.CHATBOT_BACKEND_URL ||
     (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
-      ? "http://localhost:3001"
+      ? ""
       : (window.location.hostname.endsWith("vercel.app")
           ? ""
           : "https://portfolio-tau-black-5qvho3bbbc.vercel.app"));

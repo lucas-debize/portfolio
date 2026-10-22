@@ -276,20 +276,26 @@ body.nav-open { overflow: hidden; }
 /* HERO */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  gap: 2.5rem;
-  align-items: end;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 2.75rem;
+  align-items: center;
 }
 
 .hero-main { min-width: 0; }
 
 .hero h1 {
   margin: 0 0 1.4rem;
-  font-size: clamp(2.5rem, 5.6vw, 5.6rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 3.5vw, 3.45rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
-.grad-text { color: var(--accent); }
+.grad-text {
+  color: var(--accent);
+  white-space: nowrap;
+}
 
 .hero-text {
   margin: 0;
@@ -339,12 +345,20 @@ body.nav-open { overflow: hidden; }
 
 .hero-side {
   display: grid;
-  gap: 1.5rem;
-  padding-bottom: 0.4rem;
+  gap: 1.25rem;
 }
 
 .hero-note {
-  padding: 0;
+  padding: 1.2rem 1.35rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-note:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
 }
 
 .hero-note .side-label {
